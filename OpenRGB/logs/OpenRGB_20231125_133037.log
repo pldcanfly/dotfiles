@@ -1,0 +1,69 @@
+    OpenRGB v0.9
+    Commit:  from 
+    Launched: 20231125_133037
+====================================================================================================
+
+0     |Info:    Found file: red.orp attempting to validate header
+0     |Info:    Valid v4 profile found for red
+0     |Info:    Found file: black.orp attempting to validate header
+0     |Info:    Valid v4 profile found for black
+1002  |Info:    ------------------------------------------------------
+1002  |Info:    |               Start device detection               |
+1002  |Info:    ------------------------------------------------------
+1002  |Info:    Initializing HID interfaces: Success
+1010  |Info:    ------------------------------------------------------
+1010  |Info:    |             Detecting I2C interfaces               |
+1010  |Info:    ------------------------------------------------------
+1032  |Info:    Registering I2C interface: /dev/i2c-3 Device 1002:744C Subsystem: 1DA2:E471
+1032  |Warning: [i2c_smbus_linux] Failed to read i2c device PCI device ID
+1032  |Info:    Registering I2C interface: /dev/i2c-8 Device 0000:0000 Subsystem: 0000:0000
+1032  |Info:    Registering I2C interface: /dev/i2c-4 Device 1002:744C Subsystem: 1DA2:E471
+1032  |Info:    Registering I2C interface: /dev/i2c-0 Device 0000:0000 Subsystem: 0000:0000
+1032  |Info:    Registering I2C interface: /dev/i2c-7 Device 1002:744C Subsystem: 1DA2:E471
+1033  |Info:    ------------------------------------------------------
+1033  |Info:    |               Detecting I2C devices                |
+1033  |Info:    ------------------------------------------------------
+1039  |Info:    ------------------------------------------------------
+1039  |Info:    |               Detecting I2C PCI devices            |
+1039  |Info:    ------------------------------------------------------
+1040  |Info:    ------------------------------------------------------
+1040  |Info:    |               Detecting HID devices                |
+1040  |Info:    ------------------------------------------------------
+1402  |Info:    Unable add this Logitech device: Not Connected
+1763  |Info:    Unable add this Logitech device: Not Connected
+2124  |Info:    Unable add this Logitech device: Not Connected
+2485  |Info:    Unable add this Logitech device: Not Connected
+2846  |Info:    Unable add this Logitech device: Not Connected
+3207  |Info:    Unable add this Logitech device: Not Connected
+3568  |Info:    Unable add this Logitech device: Not Connected
+3929  |Info:    Unable add this Logitech device: Not Connected
+4290  |Info:    Unable add this Logitech device: Not Connected
+4651  |Info:    Unable add this Logitech device: Not Connected
+4830  |Info:    [B650 AORUS ELITE AX] Registering RGB controller
+5052  |Info:    ------------------------------------------------------
+5052  |Info:    |            Detecting libusb HID devices            |
+5053  |Info:    ------------------------------------------------------
+5053  |Info:    ------------------------------------------------------
+5053  |Info:    |              Detecting other devices               |
+5053  |Info:    ------------------------------------------------------
+5062  |Info:    ------------------------------------------------------
+5062  |Info:    |                Detection completed                 |
+5062  |Info:    ------------------------------------------------------
+5062  |Dialog:  <h2>WARNING:</h2><p>One or more I2C/SMBus interfaces failed to initialize.</p><p>RGB DRAM modules and some motherboards' onboard RGB lighting will not be available without I2C/SMBus.</p><p>On Linux, this is usually because the i2c-dev module is not loaded.  You must load the i2c-dev module along with the correct i2c driver for your motherboard.  This is usually i2c-piix4 for AMD systems and i2c-i801 for Intel systems.</p><p>See <a href='https://help.openrgb.org/'>help.openrgb.org</a> for additional troubleshooting steps if you keep seeing this message.<br></p>
+12450664|Info:    Profile loading: Succeeded for B650 AORUS ELITE AX @ HID: /dev/hidraw7
+12473373|Info:    Found file: red.orp attempting to validate header
+12473373|Info:    Valid v4 profile found for red
+12473373|Info:    Found file: black.orp attempting to validate header
+12473373|Info:    Valid v4 profile found for black
+12495808|Info:    Found file: red.orp attempting to validate header
+12495808|Info:    Valid v4 profile found for red
+12495808|Info:    Found file: black.orp attempting to validate header
+12495808|Info:    Valid v4 profile found for black
+12548863|Info:    Found file: red.orp attempting to validate header
+12548863|Info:    Valid v4 profile found for red
+12548863|Info:    Found file: black.orp attempting to validate header
+12548863|Info:    Valid v4 profile found for black
+12548863|Info:    Found file: blue.orp attempting to validate header
+12548863|Info:    Valid v4 profile found for blue
+12560289|Info:    Profile loading: Succeeded for B650 AORUS ELITE AX @ HID: /dev/hidraw7
+12564732|Info:    Profile loading: Succeeded for B650 AORUS ELITE AX @ HID: /dev/hidraw7
