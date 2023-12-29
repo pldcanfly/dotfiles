@@ -9,7 +9,8 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/themes/terafox.yml
+  - ~/.config/alacritty/themes/carbonfox.yml
+# - ~/.config/alacritty/themes/terafox.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
@@ -35,8 +36,8 @@ window:
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
   #dimensions:
-  #  columns: 0
-  #  lines: 0
+    columns: 50
+    lines: 50
 
   # Window position (changes require restart)
   #
@@ -50,9 +51,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  padding:
-    x: 5
-    y: 5
+  # padding:
+  #   x: 5
+  #   : 5
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
