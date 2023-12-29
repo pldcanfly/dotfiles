@@ -113,7 +113,8 @@ export PATH=/home/pldcanfly/go/bin:$PATH
 # NNN
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
 export NNN_FCOLORS='c1e26b2e006033f7c6d6abc4'
-export NNN_PLUG='o:fzopen;x:!chmod +x $nnn'
+export NNN_PLUG='o:fzopen;x:!chmod +x $nnn;p:preview-tui'
+export NNN_FIFO=/tmp/nnn.fifo
 n ()
 {
     # Block nesting of nnn in subshells
