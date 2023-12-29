@@ -2,20 +2,74 @@
 
 repo="$(pwd)"
 
-rm -rf "${HOME}/.config/alacritty"
-ln -s "${repo}/alacritty" "${HOME}/.config/alacritty"
 
-rm -rf "${HOME}/.config/nnn"
-ln -s "${repo}/nnn" "${HOME}/.config/nnn"
+create_symlink() {
+    local src="$1"
+    local tar="$2"
 
-rm -rf "${HOME}/.config/nvim"
-ln -s "${repo}/nvim" "${HOME}/.config/nvim"
+    rm -rf "$tar"
+    ln -s "$src" "$tar"
+}
 
-rm -rf "${HOME}/.config/OpenRGB"
-ln -s "${repo}/OpenRGB" "${HOME}/.config/OpenRGB"
+echo "Install configs for which terminal emulator?"
+echo "[k]itty, [a]lacritty, [all]"
+read -r choice
+case "$choice" in
+    k)
+        echo "Linking kitty config"
+        create_symlink "${repo}/kitty" "${HOME}/.config/kitty"
+        ;;
+    a)
+        echo "Linking alacritty config"
+        create_symlink "${repo}/alacritty" "${HOME}/.config/alacritty"
+        create_symlink "${repo}/tmux" "${HOME}/.config/tmux"
+        ;;
+    all)
+        echo "Linking kitty + alacritty config"
+        create_symlink "${repo}/kitty" "${HOME}/.config/kitty"
+        create_symlink "${repo}/alacritty" "${HOME}/.config/alacritty"
+        create_symlink "${repo}/tmux" "${HOME}/.config/tmux"
+        ;;
+esac
 
-rm -rf "${HOME}/.config/tmux"
-ln -s "${repo}/tmux" "${HOME}/.config/tmux"
+echo "Install OpenRGB?"
+echo "[y]es, [n]o"
+read -r openrgb_choice
+case "$openrgb_choice" in
+    y)
+        echo "Linking OpenRGB config"
+        create_symlink "${repo}/OpenRGB" "${HOME}/.config/OpenRGB"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
 
-rm -rf "${HOME}/.zshrc"
-ln -s "${repo}/.zshrc" "${HOME}/.zshrc"
+echo "Install EasyEffects Presets?"
+echo "n[a]tive, [f]latpak, [n]o"
+read -r easyeffects_choice
+case "$easyeffects_choice" in
+    a)
+        # Native version
+        echo "Linking EasyEffects native config"
+        create_symlink "${repo}/easyeffects/config" "${HOME}/.config/easyeffects"
+        ;;
+    f)
+
+        # Flatpak .var/app/com.github.wwmm.easyeffects/config
+        echo "Linking EasyEffects flatpak config"
+        echo -e "\033[0;31mDO NOT FORGET TO ALLOW ACCESS!\033[0m"
+        create_symlink "${repo}/easyeffects/config" "${HOME}/.var/app/com.github.wwmm.easyeffects/config"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
+
+
+echo "Linking nnn config"
+create_symlink "${repo}/nnn" "${HOME}/.config/nnn"
+echo "Linking nvim config"
+create_symlink "${repo}/nvim" "${HOME}/.config/nvim"
+echo "Linking .zshrc"
+create_symlink "${repo}/.zshrc" "${HOME}/.zshrc"
