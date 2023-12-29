@@ -99,7 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="nvim"
 # pnpm
 export PNPM_HOME="/home/pldcanfly/.local/share/pnpm"
 case ":$PATH:" in
@@ -107,7 +106,12 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-export PATH=/home/pldcanfly/go/bin:$PATH
-alias ll="nnn-nerd-static" 
+alias vim="nvim"
 export EDITOR=nvim
+export PATH=/home/pldcanfly/go/bin:$PATH
+
+# NNN
+alias ll="nnn-nerd-static" 
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
+export NNN_FCOLORS='c1e26b2e006033f7c6d6abc4'
+export NNN_PLUG='o:fzopen;x:!chmod +x $nnn'
