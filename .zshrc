@@ -115,3 +115,11 @@ alias ll="nnn-nerd-static"
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
 export NNN_FCOLORS='c1e26b2e006033f7c6d6abc4'
 export NNN_PLUG='o:fzopen;x:!chmod +x $nnn'
+
+# github
+alias gha="git add ."
+alias ghs="git status"
+alias ghp="git push -u"
+ghc() {
+    git commit -m "$1"
+}
