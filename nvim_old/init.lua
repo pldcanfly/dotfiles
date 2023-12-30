@@ -45,31 +45,20 @@ P.S. You can delete this when you're done too. It's your config now :
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
-end
-vim.opt.rtp:prepend(lazypath)
+require 'custom.lazy'
 
-require('lazy').setup("plugins")
 
-require('keymap')
-require('settings')
+require 'custom.langs.go'
+require 'custom.plugins.setup.telescope'
+require 'custom.plugins.setup.treesitter'
+require 'custom.plugins.setup.which-key'
+require 'custom.plugins.setup.cmp'
+require 'custom.plugins.setup.oil'
 
--- require 'custom.langs.go'
--- require 'custom.plugins.setup.telescope'
--- require 'custom.plugins.setup.treesitter'
--- require 'custom.plugins.setup.which-key'
--- require 'custom.plugins.setup.cmp'
--- require 'custom.lsp'
+require 'custom.lsp'
 
+require 'custom.keymap'
+require 'custom.settings'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

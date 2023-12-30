@@ -34,6 +34,8 @@ require('lazy').setup({
   require 'custom.plugins.treesitter',
   require 'custom.plugins.runner-nvim',
   require 'custom.plugins.autopairs',
+
+  require 'custom.plugins.oil',
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
