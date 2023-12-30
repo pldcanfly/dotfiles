@@ -50,3 +50,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>rs', ':AutoRunnerStop<return>', { desc = '
 
 -- OIL
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Neotree
+vim.keymap.set({ 'n', 'v' }, "<leader>f", ':Neotree<CR>', { desc = 'Open [F]ile Exporer' })
