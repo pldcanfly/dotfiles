@@ -1,5 +1,5 @@
 [com/github/wwmm/easyeffects]
-last-used-output-preset='BassyAF'
+last-used-output-preset='LCDX'
 last-used-input-preset='Presets'
 window-width=1280
 window-height=732
@@ -29,7 +29,7 @@ band0-slope='x1'
 band0-solo=false
 band0-mute=false
 band0-frequency=27.782794100389228
-band0-gain=10.359999999999999
+band0-gain=5.1200000000000001
 band0-q=1.7848855913456436
 band0-width=4.0
 band1-type='Bell'
@@ -38,7 +38,7 @@ band1-slope='x1'
 band1-solo=false
 band1-mute=false
 band1-frequency=49.405570702073021
-band1-gain=10.25
+band1-gain=5.8899999999999997
 band1-q=1.7848855913456438
 band1-width=4.0
 band2-type='Bell'
@@ -47,7 +47,7 @@ band2-slope='x1'
 band2-solo=false
 band2-mute=false
 band2-frequency=87.856909120718697
-band2-gain=8.5
+band2-gain=4.6900000000000004
 band2-q=1.7848855913456436
 band2-width=4.0
 band3-type='Bell'
@@ -313,13 +313,13 @@ band31-q=4.3600000000000003
 band31-width=4.0
 
 [com/github/wwmm/easyeffects/streamoutputs/equalizer/0/leftchannel]
-band0-gain=10.359999999999999
+band0-gain=5.1200000000000001
 band0-frequency=27.782794100389228
 band0-q=1.7848855913456436
-band1-gain=10.25
+band1-gain=5.8899999999999997
 band1-frequency=49.405570702073021
 band1-q=1.7848855913456438
-band2-gain=8.5
+band2-gain=4.6900000000000004
 band2-frequency=87.856909120718697
 band2-q=1.7848855913456436
 band3-gain=3.8199999999999998
@@ -372,7 +372,7 @@ band31-type='Off'
 
 [com/github/wwmm/easyeffects/streamoutputs/equalizer/0]
 balance=-8.0491169285323849e-16
-input-gain=-13.1
+input-gain=-11.0
 num-bands=12
 
 [com/github/wwmm/easyeffects/streaminputs/rnnoise/0]
