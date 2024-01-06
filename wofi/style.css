@@ -6,6 +6,11 @@
     /* col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg */
     /* col.inactive_border = rgba(555555FF) */
 
+
+window {
+	background-color: transparent;
+}
+
 #entry:selected {
 	background-color: @border;
 	outline: none;
