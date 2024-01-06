@@ -79,6 +79,25 @@ case "$corectrl_choice" in
         ;;
 esac
 
+echo "Install Hyprland?"
+echo "[y]es, [n]o"
+read -r hyprland_choice
+case "$hyprland_choice" in
+    y)
+        echo "Linking hyprland config"
+        create_symlink "${repo}/hypr" "${HOME}/.config/hypr"
+        echo "Linking waybar config"
+        create_symlink "${repo}/waybar" "${HOME}/.config/waybar"
+        echo "Linking wofi config"
+        create_symlink "${repo}/wofi" "${HOME}/.config/wofi"
+        echo "Linking colors config"
+        create_symlink "${repo}/colors.css" "${HOME}/.config/colors.colors.css"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
+
 echo "Linking nnn config"
 create_symlink "${repo}/nnn" "${HOME}/.config/nnn"
 echo "Linking nvim config"

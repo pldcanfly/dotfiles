@@ -1,0 +1,150 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    //    "height": 90, // Waybar height (to be removed for auto height)
+    //"width": 1280, // Waybar width
+    // "gtk-layer-shell": "false",
+    // Choose the order of the modules
+    //    "margin": "0",
+    "margin-bottom": 8,
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpris"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/get_temps",
+        "wireplumber",
+        "network",
+        "bluetooth",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{icon}",
+        "persistent-workspaces": {
+            "DP-2": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "format-icons": {
+            "1": "󰈹",
+            "2": "󰭹",
+            "3": "󰓓",
+            "4": "󰆍",
+            "5": "",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "mpris": {
+        "format": "{player_icon}   {dynamic} {status_icon}",
+        "dynamic-seperator": "-",
+        "player-icons": {
+            "default": "",
+            "firefox": "󰈹"
+        },
+        "dynamic-order": [
+            "artist",
+            "title"
+        ],
+        "status-icons": {
+            "paused": ""
+        }
+    },
+    "hyprland/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "custom/get_temps": {
+        "return-type": "json",
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/temps.sh",
+        "on-click": "corectrl"
+    },
+    "custom/zypper": {
+        "format": " {}",
+        "interval": 3600,
+        "exec": "zypper lu | grep 'v |' | wc -l; echo 'packages to update'",
+        "exec-if": "exit 0",
+        "on-click": "exec alacritty -e sudo sh -c 'zypper ref; zypper dup; pkill -SIGRTMIN+8 waybar'",
+        "signal": 8
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "{:%A, %e %B - %R}",
+        "tooltip-format": "<span color='#35b9ab'><big>{:%Y %B}</big></span>\n<span color='#35b9ab'><tt><small>{calendar}</small></tt></span>",
+        "format-alt": "{:%a %d %b w:%V %H:%M}",
+        "today-format": "<span color='#21a4df'><b><u>{}</u></b></span>",
+        "calendar-weeks-pos": "left",
+        "format-calendar": "<span background='#173f4f' bgalpha='100%'><b>{}</b></span>",
+        "format-calendar-weeks": "<span color='#73ba25'><b>{}</b></span>",
+        "format-calendar-weekdays": "<span color='#21a4df'><b>{}</b></span>",
+        "interval": 10
+    },
+    "network": {
+        "format-wifi": "󰘊",
+        "format-ethernet": "󰈀",
+        "format-linked": "",
+        "format-disconnected": "󰜺",
+        "format-alt": "{ifname} {ipaddr} {essid}"
+    },
+    "bluetooth": {
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-connected": "󰂯 {num_connections}"
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "on-click": "pavucontrol",
+        "on-click-right": "qpwgraph",
+        "scroll-step": 5,
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ]
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "none": " ",
+            "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+            "dnd-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}
