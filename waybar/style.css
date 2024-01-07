@@ -15,7 +15,13 @@
     text-shadow:   none;
     transition-duration: 0s;
 }
+@keyframes wsurgent {
+    to {
+        background-color: @red;
+        color: @bronze;
+    }
 
+}
 window#waybar {
     color: #f2f4f8;
     /* background-color: #161616; */
@@ -43,13 +49,27 @@ window#waybar {
 }
 
 #workspaces {
-    background-color: @red;
+    background-color: @green;
     border-bottom-left-radius: 0px;
     margin-left: 0;
 }
+#workspaces button {
+    color: #fff;
+    opacity: .5;
+    transition: all 250ms;
+
+}
+#workspaces button.active {
+    opacity: 1;
+    background-color: @blue;
+}
+#workspaces button.urgent {
+    opacity: 1;
+    animation: .5s infinite alternate wsurgent;
+}
 
 #mpris {
-    background-color: @bronze;
+    background-color: @blue;
 }
 
 #window {
@@ -89,14 +109,4 @@ window#waybar {
 #network,
 #bluetooth {
     padding-right: 18px;
-}
-#workspaces button {
-    color: #fff;
-    opacity: .5;
-    transition: all 250ms;
-
-}
-#workspaces button.active {
-    opacity: 1;
-    background-color: @brown;
 }
