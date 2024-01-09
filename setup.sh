@@ -92,6 +92,8 @@ case "$hyprland_choice" in
         create_symlink "${repo}/wofi" "${HOME}/.config/wofi"
         echo "Linking colors config"
         create_symlink "${repo}/colors.css" "${HOME}/.config/colors.colors.css"
+        echo "Linking dunst config"
+        create_symlink "${repo}/dunst" "${HOME}/.config/dunst"
         ;;
     n)
         # Do nothing for "no"

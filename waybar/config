@@ -1,52 +1,12 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    //    "height": 90, // Waybar height (to be removed for auto height)
-    //"width": 1280, // Waybar width
-    // "gtk-layer-shell": "false",
-    // Choose the order of the modules
-    //    "margin": "0",
-    "margin-bottom": 8,
-    "modules-left": [
-        "hyprland/workspaces",
-        "mpris"
+    "include": [
+        "~/.config/waybar/themes/current.json"
     ],
-    "modules-center": [
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "tray",
-        "custom/get_temps",
-        "wireplumber",
-        "network",
-        "bluetooth",
-        "clock"
-    ],
+    "layer": "top",
+    "position": "top",
     "hyprland/workspaces": {
         "all-outputs": false,
-        "disable-scroll": true,
-        "format": "{icon}",
-        "persistent-workspaces": {
-            "DP-2": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ]
-        },
-        "format-icons": {
-            "1": "󰈹",
-            "2": "󰭹",
-            "3": "󰓓",
-            "4": "󰆍",
-            "5": "",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "10",
-        }
+        "disable-scroll": true
     },
     "mpris": {
         "format": "{player_icon}   {dynamic} {status_icon}",
@@ -93,7 +53,6 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
         "format": "{:%A, %e %B - %R}",
         "tooltip-format": "<span color='#35b9ab'><big>{:%Y %B}</big></span>\n<span color='#35b9ab'><tt><small>{calendar}</small></tt></span>",
         "format-alt": "{:%a %d %b w:%V %H:%M}",
@@ -127,21 +86,5 @@
             "󰖀",
             "󰕾"
         ]
-    },
-    "custom/notification": {
-        "tooltip": true,
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
-            "none": " ",
-            "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
-            "dnd-none": " "
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
     }
 }
