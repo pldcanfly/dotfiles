@@ -1,0 +1,114 @@
+@define-color bg #13262f;
+@define-color highlight #0593b3;
+@define-color font @highlight;
+@define-color blue #486a47;
+@define-color red #ad7e48;
+@define-color yellow #fef983;
+
+
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Fira Code Mono Nerd Font";
+    font-size:     14px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+}
+@keyframes wsurgent {
+    to {
+        background-color: @red;
+        color: @bronze;
+    }
+
+}
+window#waybar {
+    color: @font;
+    /* border-radius: 15px; */
+    /* border: 2px solid @highlight; */
+    /* background-color: @bg; */
+    background-color: transparent;
+
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @bg;
+    border-radius: 20;
+    border: 2px solid @highlight;
+    padding: 5px;
+}
+
+#workspaces,
+#mpris,
+#window,
+#tray,
+#temps,
+#wireplumber,
+#network,
+#bluetooth,
+#custom-get_temps,
+#clock{
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    margin: 0 15px;
+}
+
+#workspaces {
+}
+#workspaces button {
+    transition: all 250ms;
+    color: @font;
+    border-radius: 50%;
+    padding:0;
+    margin: 0;
+}
+#workspaces button.active {
+    color: @yellow;
+    opacity: 1;
+}
+
+#workspaces button.urgent {
+    opacity: 1;
+    animation: .5s infinite alternate wsurgent;
+}
+
+#mpris {
+}
+
+#window {
+}
+
+#tray {
+}
+
+#custom-get_temps {
+}
+
+#wireplumber {
+}
+
+#network {
+}
+
+#network{
+}
+
+#bluetooth {
+}
+
+#clock {
+    margin-left: 0;
+}
+#custom-preclock{
+    margin-right: 0;
+    margin-left: 10px;
+    margin-top: -1px;
+}
+
+#network,
+#bluetooth {
+    margin-right: 15px;
+}

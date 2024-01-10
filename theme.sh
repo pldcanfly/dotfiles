@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-themes=("colorway")
+themes=("colorway", "cobaltcarbon")
 
 repo="$(pwd)"
 

@@ -53,7 +53,6 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%A, %e %B - %R}",
         "tooltip-format": "<span color='#35b9ab'><big>{:%Y %B}</big></span>\n<span color='#35b9ab'><tt><small>{calendar}</small></tt></span>",
         "format-alt": "{:%a %d %b w:%V %H:%M}",
         "today-format": "<span color='#21a4df'><b><u>{}</u></b></span>",
