@@ -1,18 +1,17 @@
-@define-color border #486a47;
-@define-color background #161616;
-@define-color foreground #f2f4f8;
-@define-color selection_background #2a2a2a;
-@define-color selection_foreground #f2f4f8;
-    /* col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg */
-    /* col.inactive_border = rgba(555555FF) */
-
+@define-color bg #13262f;
+@define-color highlight #0593b3;
+@define-color font @highlight;
+@define-color blue #486a47;
+@define-color red #ad7e48;
+@define-color yellow #fef983;
 
 window {
 	background-color: transparent;
+    font-family:   "Fira Code Mono Nerd Font";
 }
 
 #entry:selected {
-	background-color: @border;
+	background-color: @highlight;
 	outline: none;
 	border-radius: 0;
 }
@@ -24,15 +23,19 @@ window {
 }
 
 #text:selected {
-	color: #fff;
-
+	color: @bg;
 }
 
 #scroll,
 #input{
-	border: 3px solid @border;
-	background-color: @background;
-	border-radius: 5px;
+	border: 2px solid @highlight;
+	background-color: @bg;
+	border-radius: 30px;
+}
+
+#scroll {
+
+	padding: 15px;
 }
 
 
