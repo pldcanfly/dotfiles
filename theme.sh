@@ -5,6 +5,7 @@ themes=("colorway", "cobaltcarbon")
 
 repo="$(pwd)"
 
+
 create_symlink() {
     local src="$1"
     local tar="$2"
@@ -19,14 +20,14 @@ link_themes(){
 
 
     echo "Linking waybar"
-    create_symlink "${repo}/waybar/themes/$sel.json" "${repo}/waybar/themes/current.json"
-    create_symlink "${repo}/waybar/themes/$sel.css" "${repo}/waybar/style.css"
+    create_symlink "${repo}/waybar/themes/$sel.json" ".config/waybar/themes/current.json"
+    create_symlink "${repo}/waybar/themes/$sel.css" ".config/waybar/style.css"
    
     echo "Linking wofi"
-    create_symlink "${repo}/wofi/themes/$sel.css" "${repo}/wofi/style.css"
+    create_symlink "${repo}/wofi/themes/$sel.css" ".config/wofi/style.css"
     
     echo "Linking hyprland"
-    create_symlink "${repo}/hypr/themes/$sel.conf" "${repo}/hypr/themes/current.conf"
+    create_symlink "${repo}/hypr/themes/$sel.conf" ".config/hypr/themes/current.conf"
     hyprctl reload > /dev/null
     
     echo "Theme '$sel' applied!" 
