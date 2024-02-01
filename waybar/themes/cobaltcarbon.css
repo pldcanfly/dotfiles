@@ -49,6 +49,7 @@ window#waybar {
 #network,
 #bluetooth,
 #custom-get_temps,
+#custom-hyprvrr,
 #clock{
     border-radius: 5px;
     border-top-left-radius: 0px;

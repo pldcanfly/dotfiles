@@ -41,6 +41,13 @@
         "on-click": "exec alacritty -e sudo sh -c 'zypper ref; zypper dup; pkill -SIGRTMIN+8 waybar'",
         "signal": 8
     },
+    "custom/hyprvrr": {
+	"return-type": "json",
+	"exec": "~/.config/waybar/scripts/hyprvrr.sh",
+	"on-click": "~/.config/hypr/scripts/set_vrr.sh 2",
+	"on-right-click": "~/.config/hypr/scripts/set_vrr.sh 0",
+	"signal": 12 
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {

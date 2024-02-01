@@ -12,6 +12,7 @@
 	],
 	"modules-right": [
 		"tray",
+		"custom/hyprvrr",
 		"custom/get_temps",
 		"wireplumber",
 		"network",
