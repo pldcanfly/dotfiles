@@ -1,0 +1,40 @@
+@define-color bg #13262f;
+@define-color highlight #0593b3;
+@define-color font @highlight;
+@define-color blue #486a47;
+@define-color red #ad7e48;
+@define-color yellow #fef983;
+
+window {
+        background-color: @bg;
+	border-radius: 20px;
+	border: 2px solid @highlight;
+}
+
+/* Outer bar container, takes all the window width/height */
+#outer-box {
+	margin: 0px
+}
+
+/* Inner bar container, surrounds buttons */
+#inner-box {
+	background-color: rgba (0, 0, 0, 0.85);
+	margin: 5px;
+	border-radius: 20px;
+}
+
+button, image {
+	background: none;
+	border: none;
+	box-shadow: none
+}
+
+button {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 5px
+}
+
+button:hover {
+	background-color: rgba (255, 255, 255, 0.1)
+}

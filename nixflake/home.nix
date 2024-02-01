@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  theme = "cobaltcarbon";
+in 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -128,16 +130,20 @@
     recursive = true;
   };
   ".config/wofi/conf".source = ../wofi/conf;
-  ".config/wofi/style.css".source = ../wofi/themes/cobaltcarbon.css;
+  ".config/wofi/style.css".source = ../wofi/themes/${theme}.css;
   ".config/hypr/hyprland.conf".source = ../hypr/hyprland.conf;
-  ".config/hypr/themes/current.conf".source = ../hypr/themes/cobaltcarbon.conf;
+  ".config/hypr/themes/current.conf".source = ../hypr/themes/${theme}.conf;
+  ".config/hypr/modules" = {
+    source = ../hypr/modules;
+    recursive = true;
+  };
   ".config/hypr/scripts" = {
     source = ../hypr/scripts;
     recursive = true;
   };
   ".config/waybar/config".source = ../waybar/config;
-  ".config/waybar/themes/current.json".source = ../waybar/themes/cobaltcarbon.json;
-  ".config/waybar/style.css".source = ../waybar/themes/cobaltcarbon.css;
+  ".config/waybar/themes/current.json".source = ../waybar/themes/${theme}.json;
+  ".config/waybar/style.css".source = ../waybar/themes/${theme}.css;
   ".config/waybar/scripts" = {
     source = ../waybar/scripts;
     recursive = true;
@@ -156,6 +162,10 @@
   };
   ".config/nnn" = {
     source = ../nnn;
+    recursive = true;
+  };
+  ".config/nwg-bar" = {
+    source = ../nwg-bar;
     recursive = true;
   };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in

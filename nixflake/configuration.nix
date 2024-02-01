@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -13,6 +13,12 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.kernel.sysctl = {
+      "vm.max_map_count" = 16777216;
+      "fs.file-max" = 524288;
+    };
+
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -62,6 +68,12 @@
   services.xserver = {
     layout = "at";
     xkbVariant = "nodeadkeys";
+  };
+
+# nixgaming caching
+  nix.settings = {
+    substituters = ["https://nix-gaming.cachix.org"];
+    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -175,7 +187,8 @@
     cliphist
     slurp
     grimblast
-    wlogout
+    nwg-bar
+    swayosd
     clapper
     quodlibet-full
     gnome.eog
@@ -194,6 +207,9 @@
     curl
     bash
     r2modman
+    wine-staging
+    winetricks
+    inputs.nix-citizen.packages."x86_64-linux".star-citizen
   ];
 
   services.gnome.gnome-keyring.enable = true;
