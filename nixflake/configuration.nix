@@ -182,6 +182,7 @@
     xivlauncher
     cinnamon.nemo-with-extensions
     swww
+    waypaper
     wl-clip-persist
     wl-clipboard
     cliphist
