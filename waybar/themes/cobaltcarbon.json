@@ -4,11 +4,11 @@
 	"margin-right": 5,
 	"margin-bottom": 2,
 	"modules-left": [
-		//"hyprland/window",
-		"mpris"
+		"mpris",
 	],
 	"modules-center": [
-		"hyprland/workspaces"
+		"hyprland/workspaces",
+		"hyprland/submap"
 	],
 	"modules-right": [
 		"tray",
@@ -18,7 +18,8 @@
 		"network",
 		"bluetooth",
 		"custom/preclock",
-		"clock"
+		"clock",
+		"custom/nwgbar"
 	],
 	"hyprland/workspaces": {
 		"format": "{icon}",

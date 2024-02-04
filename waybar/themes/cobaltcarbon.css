@@ -50,11 +50,17 @@ window#waybar {
 #bluetooth,
 #custom-get_temps,
 #custom-hyprvrr,
+#custom-nwgbar,
 #clock{
     border-radius: 5px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     margin: 0 15px;
+    transition: all 250ms;
+}
+
+#custom-nwgbar:hover {
+    color: @yellow;
 }
 
 #workspaces {

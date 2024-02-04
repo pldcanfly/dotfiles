@@ -27,6 +27,10 @@
         "max-length": 80,
         "tooltip": false
     },
+    "hyprland/submap": {
+        "format": "  󰩨   {}   ",
+        "tooltip": true
+    },
     "custom/get_temps": {
         "return-type": "json",
         "interval": 5,
@@ -47,6 +51,11 @@
 	"on-click": "~/.config/hypr/scripts/set_vrr.sh 2",
 	"on-right-click": "~/.config/hypr/scripts/set_vrr.sh 0",
 	"signal": 12 
+    },
+    "custom/nwgbar": {
+	"tooltip": false,
+	"format": "󰤁",
+	"on-click": "pkill nwg-bar || nwg-bar"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -85,7 +94,7 @@
         "format": "{icon} {volume}%",
         "format-muted": "󰝟",
         "on-click": "pavucontrol",
-        "on-click-right": "qpwgraph",
+        "on-click-right": "helvum",
         "scroll-step": 5,
         "format-icons": [
             "󰕿",
