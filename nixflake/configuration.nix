@@ -211,6 +211,7 @@
     wine-staging
     winetricks
     inputs.nix-citizen.packages."x86_64-linux".star-citizen
+    mate.atril
   ];
 
   services.gnome.gnome-keyring.enable = true;
