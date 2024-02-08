@@ -212,6 +212,7 @@
     winetricks
     inputs.nix-citizen.packages."x86_64-linux".star-citizen
     mate.atril
+    brave
   ];
 
   services.gnome.gnome-keyring.enable = true;
