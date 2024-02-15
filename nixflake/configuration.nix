@@ -66,8 +66,10 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "at";
-    xkbVariant = "nodeadkeys";
+    xkb = {
+      layout = "at";
+      variant = "nodeadkeys";
+    };
   };
 
 # nixgaming caching
@@ -135,6 +137,7 @@
 
   programs.steam.enable = true;
   programs.gamemode.enable = true;
+  programs.java.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
@@ -150,11 +153,13 @@
     # };
     };
   environment.systemPackages = with pkgs; [
+    p7zip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox
     kitty
     wofi
     webcord
+    discord
     git 
     pavucontrol
     helvum
@@ -194,6 +199,7 @@
     quodlibet-full
     gnome.eog
     spotify
+    gimp
     onlyoffice-bin
     oversteer 
     neofetch
@@ -213,6 +219,7 @@
     inputs.nix-citizen.packages."x86_64-linux".star-citizen
     mate.atril
     brave
+    prismlauncher
   ];
 
   services.gnome.gnome-keyring.enable = true;
