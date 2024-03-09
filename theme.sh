@@ -29,6 +29,9 @@ link_themes(){
     echo "Linking hyprland"
     create_symlink "${repo}/hypr/themes/$sel.conf" ".config/hypr/themes/current.conf"
     hyprctl reload > /dev/null
+
+    echo "Linking Tmux"
+    create_symlink "${repo}/tmux/themes/$sel.conf" ".config/tmux/themes/current.conf"
     
     echo "Theme '$sel' applied!" 
 }

@@ -5,3 +5,4 @@ waybar/style.css
 waybar/themes/current.json
 wofi/style.css
 hypr/themes/current.conf
+tmux/plugins/
