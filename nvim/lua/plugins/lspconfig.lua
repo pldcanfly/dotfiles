@@ -74,7 +74,7 @@ return {
         -- clangd = {},
         gopls = { filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' } },
         templ = { filetypes = { 'templ' } },
-        phpactor = { fletypes = { 'php' } },
+        phpactor = {},
         --html = { filetypes = { 'html', 'templ' } },
         -- pyright = {},,
         -- rust_analyzer = {},

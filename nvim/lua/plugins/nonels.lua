@@ -1,10 +1,5 @@
 return {
   "nvimtools/none-ls.nvim",
-  -- opts = {
-  --   sources = {
-  --     null_ls.buildins.formating.phpcsfixer
-  --   }
-  -- }
   init = function()
     local null_ls = require('null-ls')
 
