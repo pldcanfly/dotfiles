@@ -7,3 +7,6 @@ hide_when_typing = false
 dimensions = { columns = 200, lines = 50 }
 decorations = "None"
 padding = { x = 10, y = 10 }
+
+[font]
+size = 7.5
