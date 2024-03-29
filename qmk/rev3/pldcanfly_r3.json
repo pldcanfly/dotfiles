@@ -18,7 +18,7 @@
       "KC_I",
       "KC_O",
       "KC_P",
-      "KC_RALT",
+      "RALT_T(KC_BSPC)",
       "KC_ESC",
       "KC_A",
       "KC_S",
@@ -48,7 +48,7 @@
       "LCTL_T(KC_SPC)",
       "RCTL_T(KC_ENT)",
       "MO(2)",
-      "LALT_T(KC_BSPC)"
+      "KC_LALT"
     ],
     [
       "KC_TRNS",
