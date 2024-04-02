@@ -66,18 +66,6 @@ case "$easyeffects_choice" in
         ;;
 esac
 
-echo "Install corectrl?"
-echo "[y]es, [n]o"
-read -r corectrl_choice
-case "$corectrl_choice" in
-    y)
-        echo "Linking corectrl config"
-        create_symlink "${repo}/corectrl" "${HOME}/.config/corectrl"
-        ;;
-    n)
-        # Do nothing for "no"
-        ;;
-esac
 
 echo "Install Hyprland?"
 echo "[y]es, [n]o"
