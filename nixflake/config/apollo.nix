@@ -5,10 +5,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -20,7 +16,7 @@
     };
 
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "apollo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   programs.dconf.enable = true;
 
@@ -66,17 +62,13 @@
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     xkb = {
-      layout = "at";
-      variant = "nodeadkeys";
+      layout = "eu";
     };
   };
 
-# nixgaming caching
-  nix.settings = {
-    substituters = ["https://nix-gaming.cachix.org"];
-    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
-  };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pldcanfly = {
@@ -111,8 +103,18 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
   programs.hyprland = {
      enable = true;
      xwayland.enable = true;
@@ -135,12 +137,6 @@
   # };
 
 
-  programs.steam.enable = true;
-  programs.gamemode.enable = true;
-  programs.java.enable = true;
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
 # nixpkgs.overlays = [
 #   templ.overlays.default
 # ];
@@ -152,11 +148,13 @@
     #   ppfeaturemask = "0xffffffff";
     # };
     };
+
+    programs.tmux.enable = true;
   environment.systemPackages = with pkgs; [
     p7zip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox
-    kitty
+    alacritty
     wofi
     webcord
     discord
@@ -181,10 +179,7 @@
     playerctl
     dunst
     libnotify
-    lutris
-    protonup-qt
     lm_sensors
-    xivlauncher
     cinnamon.nemo-with-extensions
     swww
     waypaper
@@ -198,10 +193,8 @@
     clapper
     quodlibet-full
     gnome.eog
-    spotify
     gimp
     onlyoffice-bin
-    oversteer 
     neofetch
     tailwindcss
     php82Packages.composer
@@ -213,13 +206,12 @@
     wget
     curl
     bash
-    r2modman
     wine-staging
     winetricks
-    inputs.nix-citizen.packages."x86_64-linux".star-citizen
     mate.atril
     brave
-    prismlauncher
+    lazygit
+    greetd.tuigreet
   ];
 
   services.gnome.gnome-keyring.enable = true;

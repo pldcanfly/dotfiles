@@ -18,10 +18,16 @@
   in 
   {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      cerberus = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
-        modules = [ ./configuration.nix ];
+        modules = [ ./hardware/cerberus-hardware.nix ./config/cerberus.nix ];
+      };
+
+      apollo = lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [ ./hardware/apollo-hardware.nix ./config/apollo.nix ];
       };
     };
     homeConfigurations = {

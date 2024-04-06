@@ -137,6 +137,7 @@ in
     source = ../hypr/modules;
     recursive = true;
   };
+  ".config/hypr/modules/display.conf".source = ../hypr/modules/display-apollo.conf;
   ".config/hypr/scripts" = {
     source = ../hypr/scripts;
     recursive = true;
