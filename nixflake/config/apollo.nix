@@ -68,6 +68,10 @@
     };
   };
 
+  hardware.tuxedo-rs = {
+    enable = true;
+    tailor-gui.enable = true;
+  };
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
