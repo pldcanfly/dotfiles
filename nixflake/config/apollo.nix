@@ -17,7 +17,8 @@
 
 
   networking.hostName = "apollo"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+#   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+# networking.wireless.userControlled.enable = true;
   programs.dconf.enable = true;
 
   # Configure network proxy if necessary
@@ -25,7 +26,13 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+   enable = true;
+   # unmanaged = [
+   #   "*" "except:type:wwan" "except:type:gsm"
+   # ];
+  };
+  programs.nm-applet.enable = true;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
@@ -68,20 +75,23 @@
     };
   };
 
-  hardware.tuxedo-rs = {
-    enable = true;
-    tailor-gui.enable = true;
-  };
+  # hardware.tuxedo-rs = {
+  #   enable = true;
+  #   tailor-gui.enable = true;
+  # };
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pldcanfly = {
     isNormalUser = true;
     description = "Thomas";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
+
+  environment.sessionVariables.PATH = ["$HOME/.npmglobal/bin"];
+
 
   programs.zsh = {
     enable = true;
@@ -141,19 +151,9 @@
   # };
 
 
-# nixpkgs.overlays = [
-#   templ.overlays.default
-# ];
-#
-  programs.corectrl = {
-    enable = true;
-    # gpuOverclock = {
-    #   enable = true;
-    #   ppfeaturemask = "0xffffffff";
-    # };
-    };
-
-    programs.tmux.enable = true;
+  programs.corectrl.enable = true;
+  virtualisation.docker.enable = true;
+  programs.tmux.enable = true;
   environment.systemPackages = with pkgs; [
     p7zip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -215,8 +215,13 @@
     mate.atril
     brave
     lazygit
+    swaylock-fancy
     greetd.tuigreet
+    brightnessctl
+    dbeaver
+    mariadb-client
   ];
+  security.pam.services.swaylock = {};
 
   services.gnome.gnome-keyring.enable = true;
 

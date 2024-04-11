@@ -125,10 +125,12 @@ in
     source = ../nvim;
     recursive = true;
   };
-  ".config/kitty" = {
-    source = ../kitty;
+  ".config/alacritty" = {
+    source = ../alacritty;
     recursive = true;
   };
+  ".config/tmux/tmx.conf".source = ../tmux/tmux.conf;
+  ".config/tmux/themes/current.conf".source = ../tmux/themes/terafox.conf;
   ".config/wofi/conf".source = ../wofi/conf;
   ".config/wofi/style.css".source = ../wofi/themes/${theme}.css;
   ".config/hypr/hyprland.conf".source = ../hypr/hyprland.conf;

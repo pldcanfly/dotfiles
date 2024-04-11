@@ -1,7 +1,7 @@
 [
   {
     "label": "Lock",
-    "exec": "swaylock -f -c 000000",
+    "exec": "swaylock-fancy",
     "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-lock-screen.svg"
   },
   {
