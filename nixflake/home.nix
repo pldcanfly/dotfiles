@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   theme = "cobaltcarbon";
+  theme2 = "neocarbon";
 in 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -145,8 +146,8 @@ in
     recursive = true;
   };
   ".config/waybar/config".source = ../waybar/config;
-  ".config/waybar/themes/current.json".source = ../waybar/themes/${theme}.json;
-  ".config/waybar/style.css".source = ../waybar/themes/${theme}.css;
+  ".config/waybar/themes/current.json".source = ../waybar/themes/${theme2}.json;
+  ".config/waybar/style.css".source = ../waybar/themes/${theme2}.css;
   ".config/waybar/scripts" = {
     source = ../waybar/scripts;
     recursive = true;
