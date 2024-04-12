@@ -66,7 +66,7 @@
 		"format": "󱑎  {:%a, %e %b %R}"
 	},
 	 "mpris": {
-		"format": "{player_icon}   {dynamic}",
+		"format": "{dynamic} {player_icon}",
 		"dynamic-seperator": "-",
 		"player-icons": {
 		    "default": "",
@@ -78,7 +78,8 @@
 		],
 		"status-icons": {
 		    "paused": ""
-		}
+		},
+		"dynamic-len": "20"
 	},
 	"hyprland/window": {
 	    "max-length": 80,

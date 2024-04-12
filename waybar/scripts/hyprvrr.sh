@@ -1,1 +1,1 @@
-/nix/store/kgkva5aga5shqyzam12aald9ijakaj6m-home-manager-files/.config/waybar/scripts/hyprvrr.sh
+/nix/store/z6p25blnghy6dx4ylj2b25v93n3jli6k-home-manager-files/.config/waybar/scripts/hyprvrr.sh

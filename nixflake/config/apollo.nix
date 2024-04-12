@@ -28,11 +28,7 @@
   # Enable networking
   networking.networkmanager = {
    enable = true;
-   # unmanaged = [
-   #   "*" "except:type:wwan" "except:type:gsm"
-   # ];
   };
-  programs.nm-applet.enable = true;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
@@ -90,15 +86,15 @@
     shell = pkgs.zsh;
   };
 
-  environment.sessionVariables.PATH = ["$HOME/.npmglobal/bin"];
+  # environment.sessionVariables.PATH = ["$HOME/.npmglobal/bin"];
 
 
   programs.zsh = {
     enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "daveverwer";
-    };
+    # ohMyZsh = {
+    #   enable = true;
+    #   theme = "daveverwer";
+    # };
   };
 
   fonts.packages = with pkgs; [
@@ -151,7 +147,7 @@
   # };
 
 
-  programs.corectrl.enable = true;
+  # programs.corectrl.enable = true;
   virtualisation.docker.enable = true;
   programs.tmux.enable = true;
   environment.systemPackages = with pkgs; [

@@ -135,7 +135,7 @@ in
   ".config/wofi/conf".source = ../wofi/conf;
   ".config/wofi/style.css".source = ../wofi/themes/${theme}.css;
   ".config/hypr/hyprland.conf".source = ../hypr/hyprland.conf;
-  ".config/hypr/themes/current.conf".source = ../hypr/themes/${theme}.conf;
+  ".config/hypr/themes/current.conf".source = ../hypr/themes/${theme2}.conf;
   ".config/hypr/modules" = {
     source = ../hypr/modules;
     recursive = true;
