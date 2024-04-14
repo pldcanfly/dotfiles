@@ -149,7 +149,8 @@ in
   ".config/waybar/themes/current.json".source = ../waybar/themes/${theme2}.json;
   ".config/waybar/style.css".source = ../waybar/themes/${theme2}.css;
   ".config/waybar/scripts/temps.sh".source = ../waybar/scripts/temps-apollo.sh;
-  ".config/dunstrc".source = ../dunst/dunstrc;
+  # ".config/dunstrc".source = ../dunst/dunstrc;
+  ".config/mako/config".source = ../mako/config;
   ".config/easyeffects/input" = {
     source = ../easyeffects/config/input;
     recursive = true;

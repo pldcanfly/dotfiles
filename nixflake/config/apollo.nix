@@ -177,7 +177,7 @@
     nodePackages_latest.nodejs
     nodePackages_latest.pnpm
     playerctl
-    dunst
+    mako
     libnotify
     lm_sensors
     cinnamon.nemo-with-extensions
