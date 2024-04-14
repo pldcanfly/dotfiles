@@ -34,7 +34,8 @@ window#waybar {
     /* border: 2px solid @highlight; */
     background-color: @bg;
     /* background-color: transparent; */
-    font-family:   "Fira Code Mono Nerd Font";
+    font-family:   "Hack Nerd Font";
+    /* font-family: "Droid SansM Nerd Font"; */
     font-size:     16px;
 
 }
@@ -108,11 +109,11 @@ window#waybar {
 
 #custom-seperator-clock-r,
 #custom-seperator-clock-l {
-    color: @blue;
+    color: @yellow;
 }  
 
 #clock {
-    background: @blue;
+    background: @yellow;
 }
 
 #tray {

@@ -1,1 +1,1 @@
-/nix/store/z6p25blnghy6dx4ylj2b25v93n3jli6k-home-manager-files/.config/waybar/scripts/temps.sh
+/nix/store/x26qwz732cvg0qffixxl55rgsdfx47gp-home-manager-files/.config/waybar/scripts/temps.sh

@@ -98,7 +98,7 @@
   };
 
   fonts.packages = with pkgs; [
-  	(nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  	(nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" ]; })
          noto-fonts
   	  noto-fonts-cjk
   	  noto-fonts-emoji

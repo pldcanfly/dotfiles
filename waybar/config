@@ -1,1 +1,71 @@
-/nix/store/z6p25blnghy6dx4ylj2b25v93n3jli6k-home-manager-files/.config/waybar/config
+{
+    "layer": "top",
+    "position": "top",
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "disable-scroll": true
+    },
+    "mpris": {
+        "format": "{player_icon}   {dynamic} {status_icon}",
+        "dynamic-seperator": "-",
+        "player-icons": {
+            "default": "",
+            "firefox": "󰈹"
+        },
+        "dynamic-order": [
+            "artist",
+            "title"
+        ],
+        "status-icons": {
+            "paused": ""
+        }
+    },
+    "hyprland/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "hyprland/submap": {
+        "format": "  󰩨   {}   ",
+        "tooltip": true
+    },
+    "custom/get_temps": {
+        "return-type": "json",
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/temps.sh",
+        "on-click": "corectrl"
+    },
+    "custom/zypper": {
+        "format": " {}",
+        "interval": 3600,
+        "exec": "zypper lu | grep 'v |' | wc -l; echo 'packages to update'",
+        "exec-if": "exit 0",
+        "on-click": "exec alacritty -e sudo sh -c 'zypper ref; zypper dup; pkill -SIGRTMIN+8 waybar'",
+        "signal": 8
+    },
+    "custom/hyprvrr": {
+	"return-type": "json",
+	"exec": "~/.config/waybar/scripts/hyprvrr.sh",
+	"on-click": "~/.config/hypr/scripts/set_vrr.sh 2",
+	"on-right-click": "~/.config/hypr/scripts/set_vrr.sh 0",
+	"signal": 12 
+    },
+    "custom/nwgbar": {
+	"tooltip": false,
+	"format": "󰤁",
+	"on-click": "pkill nwg-bar || nwg-bar"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "include": [
+        "~/.config/waybar/themes/current.json"
+    ]
+}

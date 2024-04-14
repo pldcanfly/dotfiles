@@ -36,7 +36,7 @@
 	    },
 	    "format": "{capacity}% {icon}",
 	    "format-icons": ["", "", "", "", ""],
-	    "max-length": 25
+	    "max-length": 15
 	},
 	"hyprland/workspaces": {
 		"format": "{name}{icon}",
@@ -62,9 +62,6 @@
 			"urgent": "!"
 		}
 	},
-	"clock": {
-		"format": "󱑎  {:%a, %e %b %R}"
-	},
 	 "mpris": {
 		"format": "{dynamic} {player_icon}",
 		"dynamic-seperator": "-",
@@ -79,7 +76,9 @@
 		"status-icons": {
 		    "paused": ""
 		},
-		"dynamic-len": "20"
+		"artist-len": 25,
+		"title-len": 25,
+		"dynamic-len": 50
 	},
 	"hyprland/window": {
 	    "max-length": 80,
@@ -127,14 +126,29 @@
 	    "spacing": 10
 	},
 	"clock": {
-	    "tooltip-format": "<span color='#35b9ab'><big>{:%Y %B}</big></span>\n<span color='#35b9ab'><tt><small>{calendar}</small></tt></span>",
+	    "tooltip-format": "<small><tt>{calendar}</tt></small>",
 	    "format-alt": "{:%a %d %b w:%V %H:%M}",
-	    "today-format": "<span color='#21a4df'><b><u>{}</u></b></span>",
-	    "calendar-weeks-pos": "left",
-	    "format-calendar": "<span background='#173f4f' bgalpha='100%'><b>{}</b></span>",
-	    "format-calendar-weeks": "<span color='#73ba25'><b>{}</b></span>",
-	    "format-calendar-weekdays": "<span color='#21a4df'><b>{}</b></span>",
-	    "interval": 10
+	    "interval": 10,
+		"calendar": {
+			"mode"          : "year",
+			"mode-mon-col"  : 3,
+			"weeks-pos"     : "right",
+			"on-scroll"     : 1,
+		"format": {
+			"months": "<span color='#ffead3'><b>{}</b></span>",
+			"days": "<span color='#ecc6d9'><b>{}</b></span>",
+			"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+			"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+			"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+		}
+		},
+		"actions":  {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+            }
 	},
 	"network": {
 	    "format-wifi": "󰘊",
