@@ -133,7 +133,7 @@ in
   ".config/tmux/tmx.conf".source = ../tmux/tmux.conf;
   ".config/tmux/themes/current.conf".source = ../tmux/themes/terafox.conf;
   ".config/wofi/conf".source = ../wofi/conf;
-  ".config/wofi/style.css".source = ../wofi/themes/${theme}.css;
+  ".config/wofi/style.css".source = ../wofi/themes/${theme2}.css;
   ".config/hypr/hyprland.conf".source = ../hypr/hyprland.conf;
   ".config/hypr/themes/current.conf".source = ../hypr/themes/${theme2}.conf;
   ".config/hypr/modules" = {
