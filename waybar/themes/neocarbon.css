@@ -74,7 +74,8 @@ window#waybar {
 #custom-seperator-network,
 #custom-seperator-bluetooth,
 #custom-seperator-wireplumber,
-#custom-seperator-nwgbar
+#custom-seperator-nwgbar,
+#custom-seperator-temps 
 {
     padding: 0;
     margin:0;
@@ -161,8 +162,22 @@ window#waybar {
     background-color: @yellow;
 }
 
-#custom-seperator-nwgbar {
+#custom-seperator-bluetooth {
+    background-color: @purple;
+    color: @green;
+}
+
+#custom-seperator-temps {
     background-color: @yellow;
+    color: @cyan;
+}
+
+#custom-get_temps {
+    background-color: @cyan;
+}
+
+#custom-seperator-nwgbar {
+    background-color: @cyan;
     color: @white;
 }
 

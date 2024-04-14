@@ -148,14 +148,8 @@ in
   ".config/waybar/config".source = ../waybar/config;
   ".config/waybar/themes/current.json".source = ../waybar/themes/${theme2}.json;
   ".config/waybar/style.css".source = ../waybar/themes/${theme2}.css;
-  ".config/waybar/scripts" = {
-    source = ../waybar/scripts;
-    recursive = true;
-  };
-  ".config/dunst" = {
-    source = ../dunst;
-    recursive = true;
-  };
+  ".config/waybar/scripts/temps.sh".source = ../waybar/scripts/temps-apollo.sh;
+  ".config/dunstrc".source = ../dunst/dunstrc;
   ".config/easyeffects/input" = {
     source = ../easyeffects/config/input;
     recursive = true;
