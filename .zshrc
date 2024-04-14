@@ -149,6 +149,7 @@ n ()
 alias gha="git add ."
 alias ghs="git status"
 alias ghp="git push -u"
+alias lg="lazygit"
 ghc() {
     git commit -m "$1"
 }
