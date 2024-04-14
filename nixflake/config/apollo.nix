@@ -211,7 +211,7 @@
     mate.atril
     brave
     lazygit
-    swaylock-fancy
+    swaylock
     greetd.tuigreet
     brightnessctl
     dbeaver
