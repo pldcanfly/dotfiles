@@ -36,9 +36,10 @@
 		"warning": 30,
 		"critical": 15
 	    },
-	    "format": "{capacity}% {icon}",
+	    "format": "{icon} {capacity}%",
 	    "format-icons": ["", "", "", "", ""],
-	    "max-length": 15
+	    "max-length": 15,
+	    "tooltip-format": "{timeTo} {power}"
 	},
 	"hyprland/workspaces": {
 		"format": "{name}{icon}",
