@@ -115,6 +115,14 @@ in
     enable = true;
     package = pkgs.nnn.override ({ withNerdIcons = true; });
   };
+
+  services.gammastep = {
+    enable = true;
+    latitude = 47.0667;
+    longitude = 15.45; 
+    provider = "manual";
+    tray = true;
+  };
   
    # home.sessionVariables.GTK_THEME = "Adwaita";
 
