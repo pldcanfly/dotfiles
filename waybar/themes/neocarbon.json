@@ -39,7 +39,7 @@
 	    "format": "{icon} {capacity}%",
 	    "format-icons": ["", "", "", "", ""],
 	    "max-length": 15,
-	    "tooltip-format": "{timeTo} {power}"
+	    "tooltip-format": "{timeTo}\nDraw: {power}W"
 	},
 	"hyprland/workspaces": {
 		"format": "{name}{icon}",
