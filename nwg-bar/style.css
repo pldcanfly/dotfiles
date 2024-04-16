@@ -1,14 +1,19 @@
-@define-color bg #13262f;
-@define-color highlight #0593b3;
-@define-color font @highlight;
-@define-color blue #486a47;
-@define-color red #ad7e48;
-@define-color yellow #fef983;
+@define-color bg #192330;
+@define-color highlight #cdcecf;
+@define-color font @bg;
+@define-color blue #719cd6;
+@define-color red #c94f6d;
+@define-color yellow #dbc074;
+@define-color black  #393b44;
+@define-color cyan  #63cdcf;
+@define-color green  #81b29a;
+@define-color purple  #9d79d6;
+@define-color white  #dfdfe0;
 
 window {
         background-color: @bg;
-	border-radius: 20px;
-	border: 2px solid @highlight;
+	border: 1px solid @highlight;
+	background-color: rgba (0, 0, 0, 0.85);
 }
 
 /* Outer bar container, takes all the window width/height */
@@ -18,9 +23,7 @@ window {
 
 /* Inner bar container, surrounds buttons */
 #inner-box {
-	background-color: rgba (0, 0, 0, 0.85);
 	margin: 5px;
-	border-radius: 20px;
 }
 
 button, image {
@@ -32,9 +35,15 @@ button, image {
 button {
 	padding-left: 10px;
 	padding-right: 10px;
-	margin: 5px
+	margin: 5px;
+	border-radius: 0;
 }
 
 button:hover {
-	background-color: rgba (255, 255, 255, 0.1)
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 5px;
+	background-color: rgba (255, 255, 255, 0.1);
+	border: 1px solid @yellow;
+	border-radius: 0;
 }

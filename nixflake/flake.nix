@@ -6,11 +6,14 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     templ.url = "github:a-h/templ";
+    tuxedo-nixos = {
+      url = "github:blitz/tuxedo-nixos";
+    };
 
     nix-citizen.url = "github:LovingMelody/nix-citizen";
   };
 
-  outputs = { self, nixpkgs, home-manager, templ, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, templ, tuxedo-nixos, ... }@inputs:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -18,10 +21,27 @@
   in 
   {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      cerberus = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
-        modules = [ ./configuration.nix ];
+        modules = [ ./hardware/cerberus-hardware.nix ./config/cerberus.nix ];
+      };
+
+      apollo = lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [ 
+        ./hardware/apollo-hardware.nix 
+        ./config/apollo.nix
+        tuxedo-nixos.nixosModules.default
+         { 
+            hardware.tuxedo-control-center = {
+             enable = true;
+             package = tuxedo-nixos.packages.x86_64-linux.default;
+            }; 
+         }
+
+        ];
       };
     };
     homeConfigurations = {

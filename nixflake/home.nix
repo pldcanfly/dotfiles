@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   theme = "cobaltcarbon";
+  theme2 = "neocarbon";
 in 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -114,6 +115,14 @@ in
     enable = true;
     package = pkgs.nnn.override ({ withNerdIcons = true; });
   };
+
+  services.gammastep = {
+    enable = true;
+    latitude = 47.0667;
+    longitude = 15.45; 
+    provider = "manual";
+    tray = true;
+  };
   
    # home.sessionVariables.GTK_THEME = "Adwaita";
 
@@ -125,33 +134,31 @@ in
     source = ../nvim;
     recursive = true;
   };
-  ".config/kitty" = {
-    source = ../kitty;
+  ".config/alacritty" = {
+    source = ../alacritty;
     recursive = true;
   };
+  ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
+  ".config/tmux/themes/current.conf".source = ../tmux/themes/terafox.conf;
   ".config/wofi/conf".source = ../wofi/conf;
-  ".config/wofi/style.css".source = ../wofi/themes/${theme}.css;
+  ".config/wofi/style.css".source = ../wofi/themes/${theme2}.css;
   ".config/hypr/hyprland.conf".source = ../hypr/hyprland.conf;
-  ".config/hypr/themes/current.conf".source = ../hypr/themes/${theme}.conf;
+  ".config/hypr/themes/current.conf".source = ../hypr/themes/${theme2}.conf;
   ".config/hypr/modules" = {
     source = ../hypr/modules;
     recursive = true;
   };
+  ".config/hypr/modules/display.conf".source = ../hypr/modules/display-apollo.conf;
   ".config/hypr/scripts" = {
     source = ../hypr/scripts;
     recursive = true;
   };
   ".config/waybar/config".source = ../waybar/config;
-  ".config/waybar/themes/current.json".source = ../waybar/themes/${theme}.json;
-  ".config/waybar/style.css".source = ../waybar/themes/${theme}.css;
-  ".config/waybar/scripts" = {
-    source = ../waybar/scripts;
-    recursive = true;
-  };
-  ".config/dunst" = {
-    source = ../dunst;
-    recursive = true;
-  };
+  ".config/waybar/themes/current.json".source = ../waybar/themes/${theme2}.json;
+  ".config/waybar/style.css".source = ../waybar/themes/${theme2}.css;
+  ".config/waybar/scripts/temps.sh".source = ../waybar/scripts/temps-apollo.sh;
+  # ".config/dunstrc".source = ../dunst/dunstrc;
+  ".config/mako/config".source = ../mako/config;
   ".config/easyeffects/input" = {
     source = ../easyeffects/config/input;
     recursive = true;

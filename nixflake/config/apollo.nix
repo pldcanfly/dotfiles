@@ -5,10 +5,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -20,8 +16,9 @@
     };
 
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "apollo"; # Define your hostname.
+#   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+# networking.wireless.userControlled.enable = true;
   programs.dconf.enable = true;
 
   # Configure network proxy if necessary
@@ -29,7 +26,9 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+   enable = true;
+  };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
@@ -66,37 +65,40 @@
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     xkb = {
-      layout = "at";
-      variant = "nodeadkeys";
+      layout = "eu";
     };
   };
 
-# nixgaming caching
-  nix.settings = {
-    substituters = ["https://nix-gaming.cachix.org"];
-    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
-  };
+  # hardware.tuxedo-rs = {
+  #   enable = true;
+  #   tailor-gui.enable = true;
+  # };
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pldcanfly = {
     isNormalUser = true;
     description = "Thomas";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
 
+  # environment.sessionVariables.PATH = ["$HOME/.npmglobal/bin"];
+
+
   programs.zsh = {
     enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "daveverwer";
-    };
+    # ohMyZsh = {
+    #   enable = true;
+    #   theme = "daveverwer";
+    # };
   };
 
   fonts.packages = with pkgs; [
-  	(nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  	(nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Hack" ]; })
          noto-fonts
   	  noto-fonts-cjk
   	  noto-fonts-emoji
@@ -111,8 +113,18 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
   programs.hyprland = {
      enable = true;
      xwayland.enable = true;
@@ -135,28 +147,14 @@
   # };
 
 
-  programs.steam.enable = true;
-  programs.gamemode.enable = true;
-  programs.java.enable = true;
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
-# nixpkgs.overlays = [
-#   templ.overlays.default
-# ];
-#
-  programs.corectrl = {
-    enable = true;
-    # gpuOverclock = {
-    #   enable = true;
-    #   ppfeaturemask = "0xffffffff";
-    # };
-    };
+  # programs.corectrl.enable = true;
+  virtualisation.docker.enable = true;
+  programs.tmux.enable = true;
   environment.systemPackages = with pkgs; [
     p7zip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox
-    kitty
+    alacritty
     wofi
     webcord
     discord
@@ -179,12 +177,9 @@
     nodePackages_latest.nodejs
     nodePackages_latest.pnpm
     playerctl
-    dunst
+    mako
     libnotify
-    lutris
-    protonup-qt
     lm_sensors
-    xivlauncher
     cinnamon.nemo-with-extensions
     swww
     waypaper
@@ -198,10 +193,8 @@
     clapper
     quodlibet-full
     gnome.eog
-    spotify
     gimp
     onlyoffice-bin
-    oversteer 
     neofetch
     tailwindcss
     php82Packages.composer
@@ -213,14 +206,18 @@
     wget
     curl
     bash
-    r2modman
     wine-staging
     winetricks
-    inputs.nix-citizen.packages."x86_64-linux".star-citizen
     mate.atril
     brave
-    prismlauncher
+    lazygit
+    swaylock
+    greetd.tuigreet
+    brightnessctl
+    dbeaver
+    mariadb-client
   ];
+  security.pam.services.swaylock = {};
 
   services.gnome.gnome-keyring.enable = true;
 
