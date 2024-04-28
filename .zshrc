@@ -160,8 +160,8 @@ nvm () {
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
-if  command -v zoxide &> /dev/null
-then
-    eval "$(zoxide init zsh)"
-    alias cd="z" 
-fi
+# if  command -v zoxide &> /dev/null
+# then
+#     eval "$(zoxide init zsh)"
+#     alias cd="z" 
+# fi

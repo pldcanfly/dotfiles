@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-themes=("colorway", "cobaltcarbon")
+themes=("colorway", "cobaltcarbon", "neocarbon", "terafox")
 
 repo="$(pwd)"
 
@@ -9,6 +9,9 @@ repo="$(pwd)"
 create_symlink() {
     local src="$1"
     local tar="$2"
+
+    echo $1
+    echo $2 
 
     rm -rf "$tar"
     ln -s "$src" "$tar"
@@ -19,19 +22,19 @@ link_themes(){
     local sel="${themes[$1-1]}"
 
 
-    echo "Linking waybar"
-    create_symlink "${repo}/waybar/themes/$sel.json" ".config/waybar/themes/current.json"
-    create_symlink "${repo}/waybar/themes/$sel.css" ".config/waybar/style.css"
-   
-    echo "Linking wofi"
-    create_symlink "${repo}/wofi/themes/$sel.css" ".config/wofi/style.css"
-    
-    echo "Linking hyprland"
-    create_symlink "${repo}/hypr/themes/$sel.conf" ".config/hypr/themes/current.conf"
-    hyprctl reload > /dev/null
-
-    echo "Linking Tmux"
-    create_symlink "${repo}/tmux/themes/$sel.conf" ".config/tmux/themes/current.conf"
+   #  echo "Linking waybar"
+   #  create_symlink "${repo}/waybar/themes/$sel.json" ".config/waybar/themes/current.json"
+   #  create_symlink "${repo}/waybar/themes/$sel.css" ".config/waybar/style.css"
+   # 
+   #  echo "Linking wofi"
+   #  create_symlink "${repo}/wofi/themes/$sel.css" ".config/wofi/style.css"
+   #  
+   #  echo "Linking hyprland"
+   #  create_symlink "${repo}/hypr/themes/$sel.conf" ".config/hypr/themes/current.conf"
+   #  hyprctl reload > /dev/null
+   #
+    echo "Linking Tmux - ${repo}/tmux/themes/$sel.conf"
+    create_symlink "${repo}/tmux/themes/$sel.conf" "/home/pldcanfly/.config/tmux/themes/current.conf"
     
     echo "Theme '$sel' applied!" 
 }
