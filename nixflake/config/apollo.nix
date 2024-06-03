@@ -198,6 +198,8 @@
     neofetch
     tailwindcss
     php82Packages.composer
+    # Please make this into a nix-env
+    php82Packages.php-cs-fixer 
     php
     phpactor
     gopls
