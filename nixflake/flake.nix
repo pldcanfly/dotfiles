@@ -27,6 +27,15 @@
         modules = [ ./hardware/cerberus-hardware.nix ./config/cerberus.nix ];
       };
 
+      ares = lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [ 
+        ./hardware/ares-hardware.nix 
+        ./config/ares.nix
+        ];
+      };
+
       apollo = lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
@@ -48,7 +57,12 @@
       pldcanfly = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
-        modules = [ ./home.nix ];
+        modules = [ ./home/pldcanfly.nix ];
+      };
+      tst = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [ ./home/tst.nix ];
       };
     };
   };
