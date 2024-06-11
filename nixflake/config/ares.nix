@@ -16,7 +16,13 @@
     };
 
 
-  networking.hostName = "ares"; # Define your hostname.
+networking = {
+  hostName = "ares"; # Define your hostname.
+  networkmanager.enable = true;
+  hosts = {
+    "127.0.0.1" = ["pg"];
+  };
+};
 #   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 # networking.wireless.userControlled.enable = true;
   programs.dconf.enable = true;
@@ -25,10 +31,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager = {
-   enable = true;
-  };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
@@ -177,6 +179,7 @@
     nodePackages_latest.nodejs
     nodePackages_latest.pnpm
     playerctl
+    slack
     mako
     libnotify
     lm_sensors
@@ -218,6 +221,7 @@
     brightnessctl
     dbeaver
     mariadb-client
+    htop
   ];
   security.pam.services.swaylock = {};
 
@@ -248,7 +252,9 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
+
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
