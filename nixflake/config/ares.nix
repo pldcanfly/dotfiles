@@ -206,6 +206,7 @@ networking = {
     php
     phpactor
     gopls
+    postgresql
     typescript
     ripgrep
     wget
