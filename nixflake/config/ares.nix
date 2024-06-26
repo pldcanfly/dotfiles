@@ -36,6 +36,7 @@ networking = {
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
@@ -138,7 +139,6 @@ networking = {
   XDG_SCREENSHOTS_DIR = "~/Pictures/Screenshots";
   };
 
-  # programs.thunar.enable = true;
   services.gvfs.enable = true;
 
   # system.activationScripts.binbash = {
@@ -217,10 +217,10 @@ networking = {
     mate.atril
     brave
     lazygit
+    dbeaver-bin
     swaylock
     greetd.tuigreet
     brightnessctl
-    dbeaver
     mariadb-client
     htop
   ];
