@@ -97,7 +97,7 @@ layouts = {
       vim.keymap.set('n', '<leader>xb', function() require("dapui").float_element("breakpoints", { enter = true }) end, { desc = "List Breakpoints" })
   vim.keymap.set('n', '<leader>xn', function()
     vim.cmd.DapNew
-end), opt)    
+end, opt)    
     vim.keymap.set('n', '<leader>xx', function() require("dap.ui.widgets").hover() end, { desc = "Inspect" })
 
     vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
