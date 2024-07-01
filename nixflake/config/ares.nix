@@ -205,6 +205,7 @@ networking = {
     php82Packages.php-cs-fixer 
     php
     phpactor
+    lua-language-server
     gopls
     postgresql
     typescript
