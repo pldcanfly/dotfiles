@@ -107,6 +107,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 alias vim="nvim"
+alias ll="ls -la"
+
 export EDITOR=nvim
 export PATH=/home/pldcanfly/go/bin:$PATH
 

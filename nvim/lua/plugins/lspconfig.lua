@@ -78,6 +78,7 @@ return {
         --html = { filetypes = { 'html', 'templ' } },
         -- pyright = {},,
         -- rust_analyzer = {},
+        -- prettier = {},
         tsserver = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
         tailwindcss = {
