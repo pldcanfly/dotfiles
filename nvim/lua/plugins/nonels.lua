@@ -5,7 +5,8 @@ return {
 
     null_ls.setup({
       sources = {
-        null_ls.builtins.formatting.phpcsfixer
+        null_ls.builtins.formatting.phpcsfixer,
+        null_ls.builtins.formatting.prettierd
       }
     })
   end,
