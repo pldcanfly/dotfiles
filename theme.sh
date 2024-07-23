@@ -35,7 +35,9 @@ link_themes(){
    #
     echo "Linking Tmux - ${repo}/tmux/themes/$sel.conf"
     create_symlink "${repo}/tmux/themes/$sel.conf" "/home/pldcanfly/.config/tmux/themes/current.conf"
-    
+   
+    echo "Linking Oh-My-Posh - ${repo}/ohmyposh/themes/$sel.json"
+    create_symlink "${repo}/ohmyposh/themes/$sel.json" "/home/pldcanfly/.config/omp.json"
     echo "Theme '$sel' applied!" 
 }
 

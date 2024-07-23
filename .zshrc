@@ -104,7 +104,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+# aliases
 alias vim="nvim"
+alias ls='ls --color=auto'
 alias ll="ls -la"
 
 export EDITOR=nvim
@@ -165,4 +169,4 @@ nvm () {
 #     eval "$(zoxide init zsh)"
 #     alias cd="z" 
 # fi
-eval "$(oh-my-posh init zsh --config ~/Projects/dotfiles/ohmyposh/current.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/omp.json)"
