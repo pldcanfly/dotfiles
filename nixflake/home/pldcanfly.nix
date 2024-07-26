@@ -113,6 +113,10 @@ in
   #   enable = true;
   # };
 
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.nnn = {
     enable = true;
@@ -132,52 +136,53 @@ in
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-  ".zshrc".source = ../.zshrc;
+  ".zshrc".source = ../../.zshrc;
   ".config/nvim" = {
-    source = ../nvim;
+    source = ../../nvim;
     recursive = true;
   };
   ".config/alacritty" = {
-    source = ../alacritty;
+    source = ../../alacritty;
     recursive = true;
   };
-  ".config/tmux/tmux.conf".source = ../tmux/tmux.conf;
-  ".config/tmux/themes/current.conf".source = ../tmux/themes/terafox.conf;
-  ".config/wofi/conf".source = ../wofi/conf;
-  ".config/wofi/style.css".source = ../wofi/themes/${theme2}.css;
-  ".config/hypr/hyprland.conf".source = ../hypr/hyprland.conf;
-  ".config/hypr/themes/current.conf".source = ../hypr/themes/${theme2}.conf;
+  ".config/tmux/tmux.conf".source = ../../tmux/tmux.conf;
+  ".config/tmux/themes/current.conf".source = ../../tmux/themes/terafox.conf;
+  ".config/wofi/conf".source = ../../wofi/conf;
+  ".config/wofi/style.css".source = ../../wofi/themes/${theme2}.css;
+  ".config/hypr/hyprland.conf".source = ../../hypr/hyprland.conf;
+  ".config/hypr/themes/current.conf".source = ../../hypr/themes/${theme2}.conf;
   ".config/hypr/modules" = {
-    source = ../hypr/modules;
+    source = ../../hypr/modules;
     recursive = true;
   };
-  ".config/hypr/modules/display.conf".source = ../hypr/modules/display-apollo.conf;
+  ".config/hypr/modules/display.conf".source = ../../hypr/modules/display-apollo.conf;
   ".config/hypr/scripts" = {
-    source = ../hypr/scripts;
+    source = ../../hypr/scripts;
     recursive = true;
   };
-  ".config/waybar/config".source = ../waybar/config;
-  ".config/waybar/themes/current.json".source = ../waybar/themes/${theme2}.json;
-  ".config/waybar/style.css".source = ../waybar/themes/${theme2}.css;
-  ".config/waybar/scripts/temps.sh".source = ../waybar/scripts/temps-apollo.sh;
-  # ".config/dunstrc".source = ../dunst/dunstrc;
-  ".config/mako/config".source = ../mako/config;
+  ".config/waybar/config".source = ../../waybar/config;
+  ".config/waybar/themes/current.json".source = ../../waybar/themes/${theme2}.json;
+  ".config/waybar/style.css".source = ../../waybar/themes/${theme2}.css;
+  ".config/waybar/scripts/temps.sh".source = ../../waybar/scripts/temps-apollo.sh;
+  # ".config/dunstrc".source = ../../dunst/dunstrc;
+  ".config/mako/config".source = ../../mako/config;
   ".config/easyeffects/input" = {
-    source = ../easyeffects/config/input;
+    source = ../../easyeffects/config/input;
     recursive = true;
   };
   ".config/easyeffects/output" = {
-    source = ../easyeffects/config/output;
+    source = ../../easyeffects/config/output;
     recursive = true;
   };
   ".config/nnn" = {
-    source = ../nnn;
+    source = ../../nnn;
     recursive = true;
   };
   ".config/nwg-bar" = {
-    source = ../nwg-bar;
+    source = ../../nwg-bar;
     recursive = true;
   };
+  ".config/omp.json".source = ../../ohmyposh/themes/terafox.json;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
