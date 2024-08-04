@@ -77,7 +77,7 @@ return {
         phpactor = {},
         --html = { filetypes = { 'html', 'templ' } },
         -- pyright = {},,
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         -- prettier = {},
         tsserver = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -96,32 +96,32 @@ return {
                   cssConflict = "warning",
                   invalidApply = "error",
                   invalidConfigPath = "error",
-                  invalidScreen = "error",
-                  invalidTailwindDirective = "error",
-                  invalidVariant = "error",
-                  recommendedVariantOrder = "warning"
-                },
-                validate = true
+                      invalidScreen = "error",
+                    invalidTailwindDirective = "error",
+                    invalidVariant = "error",
+                    recommendedVariantOrder = "warning"
+                  },
+                  validate = true
+                }
               }
+
             }
 
-          }
-
-        },
-
-        lua_ls = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            diagnostics = { disable = { 'missing-fields' } },
           },
-        },
-      }
 
-      -- Setup neovim lua configuration
-      require('neodev').setup()
+          lua_ls = {
+            Lua = {
+              workspace = { checkThirdParty = false },
+              telemetry = { enable = false },
+              diagnostics = { disable = { 'missing-fields' } },
+            },
+          },
+        }
 
-      -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+        -- Setup neovim lua configuration
+        require('neodev').setup()
+
+        -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 

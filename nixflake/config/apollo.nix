@@ -204,8 +204,7 @@
     php
     phpactor
     gopls
-    cargo
-    rustc
+    rustup
     typescript
     ripgrep
     wget
@@ -221,6 +220,7 @@
     brightnessctl
     dbeaver-bin
     mariadb-client
+    rpi-imager
   ];
   security.pam.services.swaylock = {};
 
