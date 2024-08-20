@@ -12,7 +12,7 @@ create_symlink() {
 }
 
 echo "Install configs for which terminal emulator?"
-echo "[k]itty, [a]lacritty, [all]"
+echo "[k]itty, [a]lacritty, [w]ezterm,  [all]"
 read -r choice
 case "$choice" in
     k)
@@ -24,10 +24,15 @@ case "$choice" in
         create_symlink "${repo}/alacritty" "${HOME}/.config/alacritty"
         create_symlink "${repo}/tmux" "${HOME}/.config/tmux"
         ;;
+    w)
+        echo "Linking alacritty config"
+        create_symlink "${repo}/wezterm" "${HOME}/.config/wezterm"
+        ;;
     all)
         echo "Linking kitty + alacritty config"
         create_symlink "${repo}/kitty" "${HOME}/.config/kitty"
         create_symlink "${repo}/alacritty" "${HOME}/.config/alacritty"
+        create_symlink "${repo}/wezterm" "${HOME}/.config/wezterm"
         create_symlink "${repo}/tmux" "${HOME}/.config/tmux"
         ;;
 esac

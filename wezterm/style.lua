@@ -1,0 +1,1 @@
+/home/pldcanfly/Projects/dotfiles/wezterm/themes/terafox.lua
