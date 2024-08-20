@@ -34,6 +34,7 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
@@ -203,6 +204,7 @@
     php
     phpactor
     gopls
+    rustup
     typescript
     ripgrep
     wget
@@ -216,8 +218,9 @@
     swaylock
     greetd.tuigreet
     brightnessctl
-    dbeaver
+    dbeaver-bin
     mariadb-client
+    rpi-imager
   ];
   security.pam.services.swaylock = {};
 

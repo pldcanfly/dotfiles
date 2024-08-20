@@ -19,6 +19,13 @@ return {
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
 
+    -- TODO: MAKE THIS WORK WITH FILES!!!
+    luasnip.add_snippets("all", {
+      luasnip.snippet("jsts", {
+        luasnip.text_node(os.time() .. "000")
+      })
+    })
+
     cmp.setup {
       snippet = {
         expand = function(args)
