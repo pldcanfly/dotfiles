@@ -1,0 +1,1 @@
+/home/pldcanfly/Projects/dotfiles/nvim/themes/tokyonight_night.lua
