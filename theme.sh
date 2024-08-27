@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-themes=("colorway", "cobaltcarbon", "neocarbon", "terafox")
+themes=("colorway", "cobaltcarbon", "neocarbon", "terafox", "tokyonight_night")
 
 repo="$(pwd)"
 
@@ -40,6 +40,10 @@ link_themes(){
    
     echo "Linking Oh-My-Posh - ${repo}/ohmyposh/themes/$sel.json"
     create_symlink "${repo}/ohmyposh/themes/$sel.json" "/home/pldcanfly/.config/omp.json"
+
+    echo "Linking Nvim - ${repo}/nvim/themes/$sel.lua"
+    create_symlink "${repo}/nvim/themes/$sel.lua" "/home/pldcanfly/.config/nvim/lua/plugins/style.lua"
+
     echo "Theme '$sel' applied!" 
 }
 
