@@ -3,7 +3,6 @@ return {
 		ensure_installed = {
 			"lua_ls",
 			"bashls",
-			"clangd",
 			"tailwindcss",
 			"cssls",
 			"dockerls",
@@ -14,8 +13,8 @@ return {
 			"phpactor",
 			"sqls",
 		},
-
 		setup = function()
+			-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 			require("lspconfig").lua_ls.setup({
 				on_init = function(client)
 					local path = client.workspace_folders[1].name
@@ -44,13 +43,9 @@ return {
 						},
 					})
 				end,
-				settings = {
-					Lua = {},
-				},
 			})
 
 			require("lspconfig").bashls.setup({})
-			require("lspconfig").clangd.setup({})
 			require("lspconfig").tailwindcss.setup({})
 			require("lspconfig").cssls.setup({})
 			require("lspconfig").dockerls.setup({})
