@@ -47,7 +47,7 @@ end
 
 -- Keybinds
 local act = wezterm.action
-config.leader = { key = 'Escape', mods = 'CTRL' }
+config.leader = { key = 'a', mods = 'CTRL' }
 config.keys = {
 	{ key = 'x', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
 	{ key = 'v', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
