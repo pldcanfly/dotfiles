@@ -1,9 +1,11 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-  init = function()
-    vim.cmd.colorscheme 'tokyonight-night'
-  end
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {
+		dim_inactive = true,
+	},
+	init = function()
+		vim.cmd.colorscheme("tokyonight-night")
+	end,
 }
