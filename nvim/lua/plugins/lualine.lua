@@ -3,7 +3,7 @@ return {
 	opts = {
 		options = {
 			icons_enabled = true,
-			theme = "nightfox_night",
+			theme = "tokyonight-night",
 			component_separators = "|",
 			section_separators = "",
 			ignore_focus = {
