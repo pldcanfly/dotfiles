@@ -1,4 +1,44 @@
 return {
+	dap = {
+		ensure_installed = {
+			"delve",
+			-- "js" is installed manually
+		},
+		setup = function()
+			require("dap-vscode-js").setup({
+				debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
+				adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+			})
+			for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
+				require("dap").configurations[language] = {
+					{
+						type = "pwa-node",
+						request = "launch",
+						name = "Current File",
+						program = "${file}",
+					},
+					{
+						type = "pwa-node",
+						request = "attach",
+						name = "Auto Attach",
+						sourceMaps = true,
+						resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+						skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
+					},
+					{
+						type = "pwa-node",
+						request = "attach",
+						processId = require("dap.utils").pick_process,
+						name = "Attach to pid",
+						sourceMaps = true,
+						resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+						cwd = "${workspaceFolder}/src",
+						skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
+					},
+				}
+			end
+		end,
+	},
 	lsp = {
 		ensure_installed = {
 			"lua_ls",
