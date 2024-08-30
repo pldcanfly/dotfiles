@@ -52,6 +52,7 @@ return {
 			"eslint",
 			"phpactor",
 			"sqls",
+			"tsserver",
 		},
 		setup = function(installed)
 			local lspconfig = require("lspconfig")
@@ -91,6 +92,9 @@ return {
 							})
 						end,
 					})
+				end,
+				tsserver = function()
+					-- I am handled by typescript-tools
 				end,
 			}
 
