@@ -38,21 +38,21 @@ return {
 		{
 			"<leader>dl",
 			function()
-				require("dap").continue()
+				require("dap").step_into()
 			end,
 			desc = "DAP: Step Into",
 		},
 		{
 			"<leader>dL",
 			function()
-				require("dap").continue()
+				require("dap").step_over()
 			end,
 			desc = "DAP: Step Over ",
 		},
 		{
 			"<leader>dH",
 			function()
-				require("dap").continue()
+				require("dap").step_out()
 			end,
 			desc = "DAP: Step Out",
 		},
