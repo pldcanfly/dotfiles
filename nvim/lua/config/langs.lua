@@ -23,6 +23,7 @@ return {
 						name = "Auto Attach",
 						sourceMaps = true,
 						resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+						cwd = "${workspaceFolder}/src",
 						skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
 					},
 					{

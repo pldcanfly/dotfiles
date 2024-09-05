@@ -17,12 +17,57 @@ return {
 			function()
 				require("dap").toggle_breakpoint()
 			end,
-			desc = "Toggle Breakpoint",
+			desc = "DAP: Breakpoint",
+		},
+		{ "<leader>d", nil, desc = "DAP" },
+		{
+			"<leader>dd",
+			function()
+				require("dap").clear_breakpoints()
+			end,
+			desc = "DAP: Delete Breakpoints",
 		},
 		{
 			"<leader>dc",
 			function()
 				require("dap").continue()
+			end,
+			desc = "DAP: Continue",
+		},
+
+		{
+			"<leader>dl",
+			function()
+				require("dap").continue()
+			end,
+			desc = "DAP: Step Into",
+		},
+		{
+			"<leader>dL",
+			function()
+				require("dap").continue()
+			end,
+			desc = "DAP: Step Over ",
+		},
+		{
+			"<leader>dH",
+			function()
+				require("dap").continue()
+			end,
+			desc = "DAP: Step Out",
+		},
+
+		{
+			"<leader>ds",
+			function()
+				require("dapui").float_element("scopes", { enter = true })
+			end,
+			desc = "DAP: Scopes",
+		},
+		{
+			"<leader>du",
+			function()
+				require("dapui").toggle()
 			end,
 			desc = "DAP: Continue",
 		},
