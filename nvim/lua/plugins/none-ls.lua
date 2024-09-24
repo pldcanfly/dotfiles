@@ -21,4 +21,7 @@ return {
 			end,
 		})
 	end,
+	keys = {
+		{ "<leader>F", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", desc = "Format Buffer" },
+	},
 }

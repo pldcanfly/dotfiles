@@ -6,6 +6,7 @@ return {
 		},
 		setup = function()
 			require("dap-vscode-js").setup({
+
 				debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
 				adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 			})
@@ -53,7 +54,7 @@ return {
 			"eslint",
 			"phpactor",
 			"sqls",
-			"tsserver",
+			"ts_ls",
 		},
 		setup = function(installed)
 			local lspconfig = require("lspconfig")
@@ -94,7 +95,7 @@ return {
 						end,
 					})
 				end,
-				tsserver = function()
+				ts_ls = function()
 					-- I am handled by typescript-tools
 				end,
 			}
@@ -113,7 +114,7 @@ return {
 		end,
 	},
 	nullls = {
-		ensure_installed = { "stylua", "prettierd" },
+		ensure_installed = { "stylua", "prettierd", "sql-formatter" },
 		-- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
 		sources = function()
 			local nls = require("null-ls")
@@ -121,6 +122,7 @@ return {
 				nls.builtins.formatting.stylua,
 				-- nls.builtins.diagnostics.selene,
 				nls.builtins.formatting.prettierd,
+				nls.builtins.formatting.sql_formatter,
 			}
 		end,
 	},
