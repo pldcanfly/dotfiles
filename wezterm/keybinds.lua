@@ -1,4 +1,4 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 local config = wezterm.config_builder()
 
@@ -44,15 +44,14 @@ local function split_nav(resize_or_move, key)
 	}
 end
 
-
 -- Keybinds
 local act = wezterm.action
-config.leader = { key = 'a', mods = 'CTRL' }
+config.leader = { key = "Escape", mods = "CTRL" }
 config.keys = {
-	{ key = 'x', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-	{ key = 'v', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
-	{ key = 'z', mods = 'LEADER', action = act.TogglePaneZoomState },
-	{ key = 'q', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
+	{ key = "x", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+	{ key = "q", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
 
 	-- move between split panes
 	split_nav("move", "h"),
@@ -65,14 +64,14 @@ config.keys = {
 	split_nav("resize", "k"),
 	split_nav("resize", "l"),
 
-	{ key = 'c', mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain' },
-	{ key = '[', mods = 'LEADER', action = act.ActivateTabRelative(-1) },
-	{ key = ']', mods = 'LEADER', action = act.ActivateTabRelative(1) },
+	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "[", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+	{ key = "]", mods = "LEADER", action = act.ActivateTabRelative(1) },
 	{
-		key = 'e',
-		mods = 'LEADER',
-		action = act.PromptInputLine {
-			description = 'Enter new name for tab',
+		key = "e",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = "Enter new name for tab",
 			action = wezterm.action_callback(function(window, _, line)
 				-- line will be `nil` if they hit escape without entering anything
 				-- An empty string if they just hit enter
@@ -81,7 +80,7 @@ config.keys = {
 					window:active_tab():set_title(line)
 				end
 			end),
-		},
+		}),
 	},
 	{
 		key = "s",
@@ -89,7 +88,7 @@ config.keys = {
 		action = wezterm.action.Multiple({
 			wezterm.action_callback(function(window, _)
 				resurrect.save_state(resurrect.workspace_state.get_workspace_state())
-				window:toast_notification('wezterm', 'workspace saved', nil, 2000)
+				window:toast_notification("wezterm", "workspace saved", nil, 2000)
 			end),
 		}),
 	},
@@ -115,9 +114,7 @@ config.keys = {
 
 -- Switch to tabs
 for i = 1, 9 do
-	table.insert(config.keys, { key = tostring(i), mods = 'LEADER', action = act.ActivateTab(i - 1) })
+	table.insert(config.keys, { key = tostring(i), mods = "LEADER", action = act.ActivateTab(i - 1) })
 end
-
-
 
 return config
