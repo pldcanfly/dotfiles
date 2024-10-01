@@ -141,8 +141,12 @@ in
     source = ../../nvim;
     recursive = true;
   };
-  ".config/alacritty" = {
-    source = ../../alacritty;
+  # ".config/alacritty" = {
+  #   source = ../../alacritty;
+  #   recursive = true;
+  # };
+  ".config/wezterm" = {
+    source = ../../wezterm;
     recursive = true;
   };
   ".config/tmux/tmux.conf".source = ../../tmux/tmux.conf;
