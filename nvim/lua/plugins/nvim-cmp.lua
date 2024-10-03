@@ -7,14 +7,17 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
+		"saadparwaiz1/cmp_luasnip",
 	},
-	config = function(_, opts)
+	config = function()
 		local cmp = require("cmp")
 
+		print("Loading cmp")
 		cmp.setup({
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
+					print("Expanding snippet: " .. args.body)
 					-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 					-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
@@ -35,8 +38,8 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "vsnip" }, -- For vsnip users.
-				-- { name = 'luasnip' }, -- For luasnip users.
+				-- { name = "vsnip" }, -- For vsnip users.
+				{ name = "luasnip" }, -- For luasnip users.
 				-- { name = 'ultisnips' }, -- For ultisnips users.
 				-- { name = 'snippy' }, -- For snippy users.
 			}, {
@@ -59,6 +62,15 @@ return {
 				{ name = "cmdline" },
 			}),
 			matching = { disallow_symbol_nonprefix_matching = false },
+		})
+		require("cmp").setup({
+
+			experimental = {
+				native_menu = false,
+			},
+			completion = {
+				completeopt = "menu,menuone,noinsert",
+			},
 		})
 	end,
 }
