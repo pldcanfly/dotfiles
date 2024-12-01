@@ -6,12 +6,13 @@ function Merge(t1, t2)
 end
 
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 local config = wezterm.config_builder()
 
-config = Merge(config, require('style'))
-config = Merge(config, require('keybinds'))
+config = Merge(config, require("style"))
+config = Merge(config, require("keybinds"))
+config.xcursor_theme = "Adwaita"
 
 -- loads the state whenever I create a new workspace
 wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, _, label)

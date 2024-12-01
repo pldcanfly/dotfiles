@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"nvim-neotest/nvim-nio",
+		"leoluz/nvim-dap-go",
 		"mxsdev/nvim-dap-vscode-js",
 		-- lazy spec to build "microsoft/vscode-js-debug" from source
 		{

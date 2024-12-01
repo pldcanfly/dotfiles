@@ -1,12 +1,11 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- config.color_scheme = 'Monokai Soda'
 -- config.color_scheme = 'Breath Darker (Gogh)'
 -- config.color_scheme = 'carbonfox'
-config.color_scheme = 'tokyonight_night'
-config.font = wezterm.font('Hack')
-
+config.color_scheme = "tokyonight_night"
+config.font = wezterm.font("HackNerdFont")
 
 -- Tabbar
 config.use_fancy_tab_bar = false
@@ -14,7 +13,8 @@ config.tab_bar_at_bottom = false
 config.hide_tab_bar_if_only_one_tab = false
 -- config.cursor_blink_rate = 1000
 -- config.default_cursor_style = 'BlinkingBlock'
--- config.window_decorations = 'RESIZE'
+-- config.window_decorations = "RESIZE"
+config.enable_wayland = false
 
 -- config.colors = {
 -- 	tab_bar = {
@@ -90,32 +90,27 @@ config.hide_tab_bar_if_only_one_tab = false
 -- 	},
 -- }
 
-
-
-wezterm.on('update-status', function(window, pane)
+wezterm.on("update-status", function(window, pane)
 	local elements = {}
-
 
 	local url = pane:get_current_working_dir()
 
-	table.insert(elements, { Foreground = { Color = 'gray' } })
+	table.insert(elements, { Foreground = { Color = "gray" } })
 	table.insert(elements, { Text = url.path })
-	table.insert(elements, 'ResetAttributes')
-	table.insert(elements, { Text = ' // ' })
-	table.insert(elements, { Foreground = { Color = 'green' } })
+	table.insert(elements, "ResetAttributes")
+	table.insert(elements, { Text = " // " })
+	table.insert(elements, { Foreground = { Color = "green" } })
 	table.insert(elements, { Text = window:active_workspace() })
-	table.insert(elements, 'ResetAttributes')
+	table.insert(elements, "ResetAttributes")
 
 	if window:leader_is_active() then
-		table.insert(elements, { Text = ' // ' })
-		table.insert(elements, { Foreground = { Color = 'yellow' } })
-		table.insert(elements, { Text = '󰃀 '
-		})
-		table.insert(elements, 'ResetAttributes')
+		table.insert(elements, { Text = " // " })
+		table.insert(elements, { Foreground = { Color = "yellow" } })
+		table.insert(elements, { Text = "󰃀 " })
+		table.insert(elements, "ResetAttributes")
 	end
 
 	window:set_right_status(wezterm.format(elements))
 end)
-
 
 return config
