@@ -62,19 +62,28 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local server_configs = {
+				-- sql_ls = function()
+				-- 	lspconfig.sql_ls.setup({
+				-- 		capabilities = capabilities,
+				-- 		on_attach = function(client, bufnr)
+				-- 			-- Disable formatting capability
+				-- 			client.server_capabilities.documentFormattingProvider = false
+				-- 			client.server_capabilities.documentRangeFormattingProvider = false
+				-- 		end,
+				-- 	})
+				-- end,
 				lua_ls = function()
 					lspconfig.lua_ls.setup({
 						capabilities = capabilities,
 						on_init = function(client)
 							local path = client.workspace_folders[1].name
 							if
-							    vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc")
+								vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc")
 							then
 								return
 							end
 
-							client.config.settings.Lua = vim.tbl_deep_extend("force",
-								client.config.settings.Lua, {
+							client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
 								runtime = {
 									-- Tell the language server which version of Lua you're using
 									-- (most likely LuaJIT in the case of Neovim)
@@ -125,7 +134,8 @@ return {
 				nls.builtins.formatting.prettierd,
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
-				nls.builtins.formatting.sql_formatter,
+				-- nls.builtins.formatting.sql_formatter,
+				-- nls.builtins.formatting.pg_format,
 			}
 		end,
 	},

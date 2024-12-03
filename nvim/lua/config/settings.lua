@@ -1,5 +1,9 @@
--- Set highlight on search
+-- Set locale and Spellchecking
 
+vim.o.spelllang = "en,de"
+vim.o.spell = true
+
+-- Set highlight on search
 vim.o.hlsearch = false
 
 -- Make line numbers default
