@@ -55,6 +55,9 @@ return {
 			"phpactor",
 			"sqls",
 			"ts_ls",
+			"terraformls",
+			-- "trivy",
+			-- "snyk",
 		},
 		setup = function(installed)
 			local lspconfig = require("lspconfig")
@@ -134,6 +137,7 @@ return {
 				nls.builtins.formatting.prettierd,
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
+				nls.builtins.formatting.terraform_fmt,
 				-- nls.builtins.formatting.sql_formatter,
 				-- nls.builtins.formatting.pg_format,
 			}
