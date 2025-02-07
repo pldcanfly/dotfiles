@@ -97,9 +97,42 @@ case "$hyprland_choice" in
         ;;
 esac
 
-echo "Linking nnn config"
-create_symlink "${repo}/nnn" "${HOME}/.config/nnn"
-echo "Linking nvim config"
-create_symlink "${repo}/nvim" "${HOME}/.config/nvim"
-echo "Linking .zshrc"
-create_symlink "${repo}/.zshrc" "${HOME}/.zshrc"
+echo "Install sway?"
+echo "[y]es, [n]o"
+read -r sway_choice
+case "$sway_choice" in
+    y)
+        echo "Linking sway config"
+        create_symlink "${repo}/sway" "${HOME}/.config/sway"
+	# create_symlink "${repo}/hypr/modules/display-${hostname}.conf" "${HOME}/.config/hypr/display.conf"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
+
+echo "Install nvim?"
+echo "[y]es, [n]o"
+read -r nvim_choice
+case "$nvim_choice" in
+    y)
+	echo "Linking nvim config"
+	create_symlink "${repo}/nvim" "${HOME}/.config/nvim"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
+
+echo "Install zsh?"
+echo "[y]es, [n]o"
+read -r zsh_choice
+case "$zsh_choice" in
+    y)
+	echo "Linking .zshrc"
+	create_symlink "${repo}/.zshrc" "${HOME}/.zshrc"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac

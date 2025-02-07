@@ -56,6 +56,7 @@ return {
 			"sqls",
 			"ts_ls",
 			"terraformls",
+			"ansiblels",
 			-- "trivy",
 			-- "snyk",
 		},
@@ -124,6 +125,15 @@ return {
 					})
 				end
 			end
+
+			-- Fix Terraform comment string
+			vim.api.nvim_create_autocmd("FileType", {
+				group = vim.api.nvim_create_augroup("FixTerraformCommentString", { clear = true }),
+				callback = function(ev)
+					vim.bo[ev.buf].commentstring = "# %s"
+				end,
+				pattern = { "terraform", "hcl" },
+			})
 		end,
 	},
 	nullls = {
@@ -138,6 +148,7 @@ return {
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
 				nls.builtins.formatting.terraform_fmt,
+				nls.builtins.diagnostics.ansiblelint,
 				-- nls.builtins.formatting.sql_formatter,
 				-- nls.builtins.formatting.pg_format,
 			}

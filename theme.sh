@@ -23,16 +23,16 @@ link_themes(){
     local sel="${themes[$1-1]}"
 
 
-    echo "Linking waybar"
-    create_symlink "${repo}/waybar/themes/$sel.json" "${HOME}/.config/waybar/themes/current.json"
-    create_symlink "${repo}/waybar/themes/$sel.css" "${HOME}/.config/waybar/style.css"
+    # echo "Linking waybar"
+    # create_symlink "${repo}/waybar/themes/$sel.json" "${HOME}/.config/waybar/themes/current.json"
+    # create_symlink "${repo}/waybar/themes/$sel.css" "${HOME}/.config/waybar/style.css"
    # 
    #  echo "Linking wofi"
    #  create_symlink "${repo}/wofi/themes/$sel.css" ".config/wofi/style.css"
    #  
-    echo "Linking hyprland"
-    create_symlink "${repo}/hypr/themes/$sel.conf" "${HOME}/.config/hypr/themes/current.conf"
-    hyprctl reload > /dev/null
+    # echo "Linking hyprland"
+    # create_symlink "${repo}/hypr/themes/$sel.conf" "${HOME}/.config/hypr/themes/current.conf"
+    # hyprctl reload > /dev/null
    #
     # echo "Linking Tmux - ${repo}/tmux/themes/$sel.conf"
     # create_symlink "${repo}/tmux/themes/$sel.conf" "${HOME}/.config/tmux/themes/current.conf"
