@@ -170,5 +170,7 @@ alias dc="docker compose"
 #
 #     eval "$(zoxide init zsh)"
 #     alias cd="z" 
-# fi
+#o fi
+
+export PATH=$PATH:/home/pldcanfly/.local/bin
 eval "$(oh-my-posh init zsh --config ~/.config/omp.json)"
