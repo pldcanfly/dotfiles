@@ -83,8 +83,8 @@ case "$hyprland_choice" in
 	# create_symlink "${repo}/hypr/modules/display-${hostname}.conf" "${HOME}/.config/hypr/display.conf"
 	create_symlink "${repo}/hypr/modules/display-${hostname}.conf" "${HOME}/.config/hypr/modules/display.conf"
         echo "Linking waybar config"
-        create_symlink "${repo}/waybar" "${HOME}/.config/waybar"
-	create_symlink "${repo}/waybar/scripts/temps-${hostname}.sh" "${HOME}/.config/waybar/scripts/temps.sh"
+        create_symlink "${repo}/waybar/hypr" "${HOME}/.config/waybar"
+	create_symlink "${repo}/waybar/hypr/scripts/temps-${hostname}.sh" "${HOME}/.config/waybar/scripts/temps.sh"
         echo "Linking wofi config"
         create_symlink "${repo}/wofi" "${HOME}/.config/wofi"
         echo "Linking colors config"
@@ -104,6 +104,8 @@ case "$sway_choice" in
     y)
         echo "Linking sway config"
         create_symlink "${repo}/sway" "${HOME}/.config/sway"
+        create_symlink "${repo}/waybar/sway" "${HOME}/.config/waybar"
+	create_symlink "${repo}/waybar/sway/scripts/temps-${hostname}.sh" "${HOME}/.config/waybar/scripts/temps.sh"
 	# create_symlink "${repo}/hypr/modules/display-${hostname}.conf" "${HOME}/.config/hypr/display.conf"
         ;;
     n)

@@ -53,6 +53,7 @@ output * bg /home/pldcanfly/Pictures/wallpapers/xvg1uvi0hyed1.png fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec wl-paste --watch cliphist store &
+exec kanshi &
 
 ### Input configuration
 #
@@ -63,6 +64,7 @@ input "type:touchpad" {
       natural_scroll enabled
       middle_emulation enabled
 }
+
 
 input "type:keyboard" {
 	repeat_rate 50
@@ -88,7 +90,6 @@ input * {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
     bindsym $mod+Shift+v exec $menu_clipboard
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -103,6 +104,8 @@ input * {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Control+l exec swaylock -f
 #
 # Moving around:
 #
@@ -216,14 +219,17 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Print exec grimshot copy area
 
-gaps outer 2
+
+gaps outer 0
 gaps inner 2
 default_border pixel 1
 
+for_window [title="Picture-in-Picture"]  floating enable
 
-
-
+# focus_follows_mouse always
+mouse_warping container
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d

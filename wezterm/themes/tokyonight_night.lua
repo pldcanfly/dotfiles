@@ -13,7 +13,7 @@ config.tab_bar_at_bottom = false
 config.hide_tab_bar_if_only_one_tab = true
 -- config.cursor_blink_rate = 1000
 -- config.default_cursor_style = 'BlinkingBlock'
--- config.window_decorations = 'RESIZE'
+-- config.window_decorations = "RESIZE"
 
 -- config.colors = {
 -- 	tab_bar = {
