@@ -11,3 +11,6 @@ vim.keymap.set({ "n", "v" }, "[p", "O<Esc>P", { desc = "Paste: Prev Line" })
 vim.keymap.set({ "n", "v" }, "gd", vim.lsp.buf.definition, { desc = "Go: Definition" })
 vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+
+vim.keymap.set({ "n", "v" }, "]q", ":cnext<return>", { desc = "Quickfix: Next Item" })
+vim.keymap.set({ "n", "v" }, "[q", ":cprev<return>", { desc = "Quickfix: Prev Item" })

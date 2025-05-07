@@ -67,7 +67,7 @@ input "type:touchpad" {
 
 
 input "type:keyboard" {
-	repeat_rate 50
+	repeat_rate 100
 	repeat_delay  500
 }
 
@@ -224,7 +224,9 @@ bindsym $mod+Print exec grimshot copy area
 
 gaps outer 0
 gaps inner 2
-default_border pixel 1
+default_border pixel 2
+#                       border  backgr. text    indicator child_border
+client.focused          #B2B8BC #324351 #B2B8BC #4444ff   #B2B8BC
 
 for_window [title="Picture-in-Picture"]  floating enable
 

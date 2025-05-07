@@ -57,6 +57,7 @@ return {
 			"ts_ls",
 			"terraformls",
 			"ansiblels",
+			"templ",
 			-- "trivy",
 			-- "snyk",
 		},
