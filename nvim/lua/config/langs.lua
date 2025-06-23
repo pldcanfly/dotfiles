@@ -5,11 +5,22 @@ return {
 			-- "js" is installed manually
 		},
 		setup = function()
-			require("dap-vscode-js").setup({
-
-				debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-				adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-			})
+			require("dap").adapters["pwa-node"] = {
+				id = "pwa-node",
+				type = "server",
+				host = "localhost",
+				port = 43229,
+				executable = {
+					command = "node",
+					args = {
+						"/home/pldcanfly/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+						"43229",
+					},
+				},
+				options = {
+					detached = false,
+				},
+			}
 			for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
 				require("dap").configurations[language] = {
 					{
