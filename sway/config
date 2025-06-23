@@ -3,7 +3,53 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-
+# Output HDMI-A-1 'Samsung Electric Company SyncMaster H1AK500000'
+#   Current mode: 1920x1080 @ 60.000 Hz
+#   Power: on
+#   Position: 1920,0
+#   Scale factor: 1.000000
+#   Scale filter: nearest
+#   Subpixel hinting: unknown
+#   Transform: normal
+#   Workspace: 6
+#   Max render time: off
+#   Adaptive sync: disabled
+#   Allow tearing: no
+#   Available modes:
+#     1920x1080 @ 60.000 Hz
+#     1920x1080 @ 60.000 Hz (16:9)
+#     1920x1080 @ 59.940 Hz (16:9)
+#     1920x1080 @ 50.000 Hz (16:9)
+#     1920x1080 @ 30.000 Hz (16:9)
+#     1920x1080 @ 29.970 Hz (16:9)
+#     1920x1080 @ 25.000 Hz (16:9)
+#     1920x1080 @ 24.000 Hz (16:9)
+#     1920x1080 @ 23.976 Hz (16:9)
+#     1600x900 @ 60.000 Hz
+#     1280x1024 @ 60.020 Hz
+#     1440x900 @ 59.901 Hz
+#     1366x768 @ 59.790 Hz
+#     1280x800 @ 59.910 Hz
+#     1152x864 @ 75.000 Hz
+#     1280x720 @ 60.000 Hz
+#     1280x720 @ 60.000 Hz (16:9)
+#     1280x720 @ 59.940 Hz (16:9)
+#     1280x720 @ 50.000 Hz (16:9)
+#     1024x768 @ 60.004 Hz
+#     800x600 @ 60.317 Hz
+#     720x576 @ 50.000 Hz (16:9)
+#     720x480 @ 60.000 Hz (16:9)
+#     720x480 @ 59.940 Hz (16:9)
+#     640x480 @ 60.000 Hz (4:3)
+#     640x480 @ 59.940 Hz
+# output "Samsung Electric Company SyncMaster H1AK500000" {
+# 	mode 1920x1080@60hz 
+# 	pos 0 0
+# }
+# output "eDP-1" {
+# 	mode 1920x1080@60hz 
+# 	pos 0 0
+# }
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -189,11 +235,11 @@ input * {
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+grave move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    bindsym $mod+grave scratchpad show
 #
 # Resizing containers:
 #

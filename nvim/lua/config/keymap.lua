@@ -14,3 +14,6 @@ vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Co
 
 vim.keymap.set({ "n", "v" }, "]q", ":cnext<return>", { desc = "Quickfix: Next Item" })
 vim.keymap.set({ "n", "v" }, "[q", ":cprev<return>", { desc = "Quickfix: Prev Item" })
+
+vim.keymap.set({ "n" }, "]<Space>", "o<Esc>k", { desc = "Newline below" })
+vim.keymap.set({ "n" }, "[<Space>", "O<Esc>j", { desc = "Newline above" })

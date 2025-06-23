@@ -37,6 +37,20 @@ return {
 						cwd = "${workspaceFolder}/src",
 						skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
 					},
+					{
+						type = "server",
+						host = "localhost",
+						port = "${port}",
+						name = "New Way",
+						executable = {
+							command = "node",
+							-- 💀 Make sure to update this path to point to your installation
+							args = {
+								"/home/pldcanfly/.local/share/nvim/lazy/vscode-js-debug/out/dist/src/dapDebugServer.js",
+								"${port}",
+							},
+						},
+					},
 				}
 			end
 		end,
