@@ -10,7 +10,7 @@
         "setcustom": false,
         "setminimized": true,
         "setprofile": true,
-        "setserver": false,
+        "setserver": true,
         "setserverhost": false,
         "setserverport": false
     },
@@ -1326,10 +1326,13 @@
             14306703760882907409
         ]
     },
+    "Theme": {
+        "theme": "dark"
+    },
     "UserInterface": {
         "RunZoneChecks": true,
         "exit_profile": {
-            "profile_name": "red",
+            "profile_name": "purple",
             "set_on_exit": true
         },
         "geometry": {
@@ -1340,7 +1343,7 @@
             "x": 0,
             "y": 0
         },
-        "greyscale_tray_icon": false,
+        "greyscale_tray_icon": true,
         "language": "default",
         "minimize_on_close": true
     }
