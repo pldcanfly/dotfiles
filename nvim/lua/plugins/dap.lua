@@ -1,10 +1,12 @@
 return {
-	"rcarriga/nvim-dap-ui",
+	"mfussenegger/nvim-dap",
 	dependencies = {
-		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
 		"leoluz/nvim-dap-go",
 		"mxsdev/nvim-dap-vscode-js",
+		"jay-babu/mason-nvim-dap.nvim",
+		"theHamsta/nvim-dap-virtual-text",
 		-- lazy spec to build "microsoft/vscode-js-debug" from source
 		{
 			"microsoft/vscode-js-debug",
@@ -70,7 +72,7 @@ return {
 			function()
 				require("dapui").toggle()
 			end,
-			desc = "DAP: Continue",
+			desc = "DAP: UI",
 		},
 	},
 	config = function()

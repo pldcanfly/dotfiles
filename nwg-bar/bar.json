@@ -20,6 +20,11 @@
     "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-shutdown.svg"
   },
   {
+    "label": "Hibernate",
+    "exec": "systemctl -i hibernate",
+    "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-shutdown.svg"
+  },
+  {
     "label": "Sleep",
     "exec": "systemctl -i suspend",
     "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-suspend.svg"

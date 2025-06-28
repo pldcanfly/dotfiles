@@ -6,11 +6,12 @@ local config = wezterm.config_builder()
 -- config.color_scheme = 'carbonfox'
 config.color_scheme = "tokyonight_night"
 config.font = wezterm.font("HackNerdFont")
+config.font = wezterm.font("Hack Nerd Font")
 
 -- Tabbar
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
-config.hide_tab_bar_if_only_one_tab = false
+config.hide_tab_bar_if_only_one_tab = true
 -- config.cursor_blink_rate = 1000
 -- config.default_cursor_style = 'BlinkingBlock'
 -- config.window_decorations = "RESIZE"

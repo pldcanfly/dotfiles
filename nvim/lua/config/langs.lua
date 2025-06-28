@@ -12,6 +12,22 @@ return {
 				debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
 				adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 			})
+			require("dap").adapters["pwa-node"] = {
+				id = "pwa-node",
+				type = "server",
+				host = "localhost",
+				port = 43229,
+				executable = {
+					command = "node",
+					args = {
+						"/home/pldcanfly/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+						"43229",
+					},
+				},
+				options = {
+					detached = false,
+				},
+			}
 			for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
 				require("dap").configurations[language] = {
 					{
@@ -39,6 +55,20 @@ return {
 						cwd = "${workspaceFolder}/src",
 						skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
 					},
+					{
+						type = "server",
+						host = "localhost",
+						port = "${port}",
+						name = "New Way",
+						executable = {
+							command = "node",
+							-- 💀 Make sure to update this path to point to your installation
+							args = {
+								"/home/pldcanfly/.local/share/nvim/lazy/vscode-js-debug/out/dist/src/dapDebugServer.js",
+								"${port}",
+							},
+						},
+					},
 				}
 			end
 		end,
@@ -57,6 +87,11 @@ return {
 			"phpactor",
 			"sqls",
 			"ts_ls",
+			"terraformls",
+			"ansiblels",
+			"templ",
+			-- "trivy",
+			-- "snyk",
 		},
 		setup = function(installed)
 			local lspconfig = require("lspconfig")
@@ -64,6 +99,16 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local server_configs = {
+				-- sql_ls = function()
+				-- 	lspconfig.sql_ls.setup({
+				-- 		capabilities = capabilities,
+				-- 		on_attach = function(client, bufnr)
+				-- 			-- Disable formatting capability
+				-- 			client.server_capabilities.documentFormattingProvider = false
+				-- 			client.server_capabilities.documentRangeFormattingProvider = false
+				-- 		end,
+				-- 	})
+				-- end,
 				lua_ls = function()
 					lspconfig.lua_ls.setup({
 						capabilities = capabilities,
@@ -113,6 +158,15 @@ return {
 					})
 				end
 			end
+
+			-- Fix Terraform comment string
+			vim.api.nvim_create_autocmd("FileType", {
+				group = vim.api.nvim_create_augroup("FixTerraformCommentString", { clear = true }),
+				callback = function(ev)
+					vim.bo[ev.buf].commentstring = "# %s"
+				end,
+				pattern = { "terraform", "hcl" },
+			})
 		end,
 	},
 	nullls = {
@@ -126,7 +180,10 @@ return {
 				nls.builtins.formatting.prettierd,
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
-				nls.builtins.formatting.sql_formatter,
+				nls.builtins.formatting.terraform_fmt,
+				nls.builtins.diagnostics.ansiblelint,
+				-- nls.builtins.formatting.sql_formatter,
+				-- nls.builtins.formatting.pg_format,
 			}
 		end,
 	},

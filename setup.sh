@@ -1,6 +1,7 @@
 #!/bin/bash
 
 repo="$(pwd)"
+hostname="$(hostname)"
 
 
 create_symlink() {
@@ -79,8 +80,11 @@ case "$hyprland_choice" in
     y)
         echo "Linking hyprland config"
         create_symlink "${repo}/hypr" "${HOME}/.config/hypr"
+	# create_symlink "${repo}/hypr/modules/display-${hostname}.conf" "${HOME}/.config/hypr/display.conf"
+	create_symlink "${repo}/hypr/modules/display-${hostname}.conf" "${HOME}/.config/hypr/modules/display.conf"
         echo "Linking waybar config"
-        create_symlink "${repo}/waybar" "${HOME}/.config/waybar"
+        create_symlink "${repo}/waybar/hypr" "${HOME}/.config/waybar"
+	create_symlink "${repo}/waybar/hypr/scripts/temps-${hostname}.sh" "${HOME}/.config/waybar/scripts/temps.sh"
         echo "Linking wofi config"
         create_symlink "${repo}/wofi" "${HOME}/.config/wofi"
         echo "Linking colors config"
@@ -93,9 +97,44 @@ case "$hyprland_choice" in
         ;;
 esac
 
-echo "Linking nnn config"
-create_symlink "${repo}/nnn" "${HOME}/.config/nnn"
-echo "Linking nvim config"
-create_symlink "${repo}/nvim" "${HOME}/.config/nvim"
-echo "Linking .zshrc"
-create_symlink "${repo}/.zshrc" "${HOME}/.zshrc"
+echo "Install sway?"
+echo "[y]es, [n]o"
+read -r sway_choice
+case "$sway_choice" in
+    y)
+        echo "Linking sway config"
+        create_symlink "${repo}/sway" "${HOME}/.config/sway"
+        create_symlink "${repo}/waybar/sway" "${HOME}/.config/waybar"
+	create_symlink "${repo}/waybar/sway/scripts/temps-${hostname}.sh" "${HOME}/.config/waybar/scripts/temps.sh"
+	# create_symlink "${repo}/hypr/modules/display-${hostname}.conf" "${HOME}/.config/hypr/display.conf"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
+
+echo "Install nvim?"
+echo "[y]es, [n]o"
+read -r nvim_choice
+case "$nvim_choice" in
+    y)
+	echo "Linking nvim config"
+	create_symlink "${repo}/nvim" "${HOME}/.config/nvim"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
+
+echo "Install zsh?"
+echo "[y]es, [n]o"
+read -r zsh_choice
+case "$zsh_choice" in
+    y)
+	echo "Linking .zshrc"
+	create_symlink "${repo}/.zshrc" "${HOME}/.zshrc"
+        ;;
+    n)
+        # Do nothing for "no"
+        ;;
+esac
