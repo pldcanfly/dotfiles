@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-themes=("colorway", "cobaltcarbon", "neocarbon", "terafox", "tokyonight_night")
+themes=("colorway" "cobaltcarbon" "neocarbon" "terafox" "tokyonight_night")
 
 repo="$(pwd)"
 echo ${HOME}
