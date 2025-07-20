@@ -97,13 +97,6 @@
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# pnpm
-export PNPM_HOME="/home/pldcanfly/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 
 # aliases
@@ -114,51 +107,9 @@ alias ll="ls -la"
 export EDITOR=nvim
 export PATH=/home/pldcanfly/go/bin:$PATH
 
-# NNN
-[ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
-export NNN_FCOLORS='c1e26b2e006033f7c6d6abc4'
-export NNN_PLUG='o:fzopen;x:!chmod +x $nnn;p:preview-tui'
-export NNN_FIFO=/tmp/nnn.fifo
-n ()
-{
-    # Block nesting of nnn in subshells
-    [ "${NNNLVL:-0}" -eq 0 ] || {
-        echo "nnn is already running"
-        return
-    }
-
-    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
-    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
-    # see. To cd on quit only on ^G, remove the "export" and make sure not to
-    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
-    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
-
-    # The command builtin allows one to alias nnn to n, if desired, without
-    # making an infinitely recursive alias
-    command nnn-nerd-static "$@"
-
-    [ ! -f "$NNN_TMPFILE" ] || {
-        . "$NNN_TMPFILE"
-        rm -f "$NNN_TMPFILE" > /dev/null
-    }
-}
 # github
-alias gha="git add ."
-alias ghs="git status"
-alias ghp="git push -u"
 alias lg="lazygit"
-ghc() {
-    git commit -m "$1"
-}
 
-alias dc="docker compose"
 # nvm () {
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -179,8 +130,7 @@ eval "$(oh-my-posh init zsh --config ~/.config/omp.json)"
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 bindkey "\e[3~" delete-char
-export PATH="/home/pldcanfly/.local/share/sentry-devenv/bin:$PATH"
-
-
-eval "$(direnv hook zsh)"
+# export PATH="/home/pldcanfly/.local/share/sentry-devenv/bin:$PATH"
+#
+# eval "$(direnv hook zsh)"
 

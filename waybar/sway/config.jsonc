@@ -12,7 +12,7 @@
   // Choose the order of the modules
   "modules-left": [
     "idle_inhibitor",
-    "backlight",
+    "power-profiles-daemon",
     "temperature",
     "memory",
     "cpu",
@@ -23,9 +23,9 @@
   "modules-right": [
     "tray",
     "battery",
+    "backlight",
     "pulseaudio",
     "network",
-    "power-profiles-daemon",
     "clock",
   ],
   // Modules configuration
@@ -106,16 +106,17 @@
     "spacing": 10,
   },
   "clock": {
+    "format": "d{:%d  %H:%M}",
     // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}",
+    "format-alt": "{:%Y-%m-%d %H:%M}",
   },
   "cpu": {
-    "format": "{usage}% ",
-    "tooltip": false,
+    "format": "{usage}%  ",
+    // "tooltip": false,
   },
   "memory": {
-    "format": "{}% ",
+    "format": "{}%  ",
   },
   "temperature": {
     // "thermal-zone": 2,
@@ -128,7 +129,7 @@
   "backlight": {
     // "device": "acpi_video1",
     "format": "{percent}% {icon}",
-    "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+    "format-icons": ["󱩎", "󱩐", "󱩒", "󱩔", "󱩖"],
   },
   "battery": {
     "states": {
