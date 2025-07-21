@@ -99,16 +99,6 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local server_configs = {
-				-- sql_ls = function()
-				-- 	lspconfig.sql_ls.setup({
-				-- 		capabilities = capabilities,
-				-- 		on_attach = function(client, bufnr)
-				-- 			-- Disable formatting capability
-				-- 			client.server_capabilities.documentFormattingProvider = false
-				-- 			client.server_capabilities.documentRangeFormattingProvider = false
-				-- 		end,
-				-- 	})
-				-- end,
 				lua_ls = function()
 					lspconfig.lua_ls.setup({
 						capabilities = capabilities,
@@ -142,9 +132,9 @@ return {
 						end,
 					})
 				end,
-				ts_ls = function()
-					-- I am handled by typescript-tools
-				end,
+				-- ts_ls = function()
+				-- 	-- I am handled by typescript-tools
+				-- end,
 			}
 
 			for _, server in ipairs(installed) do
