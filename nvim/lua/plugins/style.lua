@@ -1,1 +1,1 @@
-/home/pldcanfly/Projects/dotfiles/nvim/themes/terafox.lua
+/home/pldcanfly/Projects/dotfiles/nvim/themes/gruvbox.lua
