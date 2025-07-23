@@ -273,7 +273,7 @@ gaps outer 0
 gaps inner 2
 default_border pixel 2
 #                       border  backgr. text    indicator child_border
-client.focused          #B2B8BC #324351 #B2B8BC #4444ff   #B2B8BC
+client.focused          #5a524c #1b1b1b #ebdbb2 #fb4934   fabd2f
 
 for_window [title="Picture-in-Picture"]  floating enable
 

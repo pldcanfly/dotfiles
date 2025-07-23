@@ -7,3 +7,4 @@ wofi/style.css
 hypr/themes/current.conf
 tmux/plugins/
 tmux/themes/current.conf
+wezterm/style.lua

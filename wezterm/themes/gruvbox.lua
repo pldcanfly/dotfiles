@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 -- config.color_scheme = 'Monokai Soda'
 -- config.color_scheme = 'Breath Darker (Gogh)'
-config.color_scheme = "Gruvbox Dark (Gogh)"
+config.color_scheme = "GruvboxDarkHard"
 config.font = wezterm.font("HackNerdFont")
 
 -- Tabbar

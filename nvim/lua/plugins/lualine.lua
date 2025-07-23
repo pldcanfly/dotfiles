@@ -3,8 +3,8 @@ return {
 	opts = {
 		options = {
 			icons_enabled = true,
-			theme = "carbonfox",
-			component_separators = "|",
+			theme = "gruvbox-material",
+			component_separators = " ",
 			section_separators = "",
 			ignore_focus = {
 				"dapui_watches",
