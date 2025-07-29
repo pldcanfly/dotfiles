@@ -1,1 +1,1 @@
-/home/pldcanfly/Projects/dotfiles/wezterm/themes/tokyonight_night.lua
+/home/pldcanfly/Projects/dotfiles/wezterm/themes/gruvbox.lua
