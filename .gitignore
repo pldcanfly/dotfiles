@@ -1,3 +1,4 @@
+alacritty/current.toml
 nnn/.selection
 nvim/lazy-lock.json
 easyeffects/config/glib-2.0/
@@ -8,3 +9,4 @@ hypr/themes/current.conf
 tmux/plugins/
 tmux/themes/current.conf
 wezterm/style.lua
+niri/config.kdl
