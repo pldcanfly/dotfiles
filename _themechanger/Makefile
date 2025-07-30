@@ -1,11 +1,12 @@
+# This might not be pretty, but it's sufficient and comfy
 build: 
-	go build -o ./bin/themechanger .
+	go build -o ../setup .
 
 run: build
-	./bin/themechanger
+	../setup
 
 run-build: build
-	./bin/themechanger build
+	../setup build
 	
 run-build-niri: build
-	./bin/themechanger build niri
+	../setup build niri
