@@ -51,7 +51,7 @@ func BuildNiri(repo string, computer string, theme string) error {
 		return fmt.Errorf("binds: %w", err)
 	}
 
-	// This needs theming!!
+	// This needs theming!! Prolly some vars... key-value-stuff pretty much
 	vars["Style"], err = parse(filepath.Join(repo, "niri/style.text.tmpl"), vars)
 	if err != nil {
 		return fmt.Errorf("style: %w", err)

@@ -82,6 +82,11 @@ func (h *Handler) LinkMisc(misc []string) {
 
 	for _, m := range misc {
 		fmt.Printf("- Linking %s\n", m)
+		if m == "nvim" {
+			h.SymLink("nvim", ".config/nvim")
+			h.SymLink(fmt.Sprintf("nvim/themes/%s.lua", h.theme), ".config/nvim/lua/plugins/style.lua")
+			// Oh my posh?
+		}
 
 		if m == "zsh" {
 			h.SymLink(".zshrc", ".zshrc")
