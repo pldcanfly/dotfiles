@@ -31,6 +31,9 @@ func (h *Handler) LinkWMs(wms []string) {
 		if wm == "niri" {
 			builders.BuildNiri(h.repo, h.computer, h.theme)
 			h.SymLink("niri/config.kdl", ".config/niri/config.kdl")
+
+			h.SymLink("waybar/niri", ".config/waybar")
+			h.SymLink(fmt.Sprintf("waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
 		}
 
 		if wm == "sway" {
