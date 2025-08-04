@@ -73,10 +73,14 @@ func (h *Handler) LinkLaunchers(launchers []string) {
 }
 
 func (h *Handler) LinkNotifiers(notifiers []string) {
-	fmt.Println("Launchers:")
+	fmt.Println("Notifiers:")
 
 	for _, n := range notifiers {
 		fmt.Printf("- Linking %s\n", n)
+
+		if n == "mako" {
+			h.SymLink(fmt.Sprintf("mako/themes/%s", h.theme), ".config/mako/config")
+		}
 	}
 }
 

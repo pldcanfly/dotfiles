@@ -147,6 +147,7 @@ func tui() {
 	}
 	h.LinkTerminals(terminals)
 	h.LinkWMs(wms)
+	h.LinkNotifiers(notifiers)
 	h.LinkLaunchers(launchers)
 	h.LinkMisc(misc)
 
