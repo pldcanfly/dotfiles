@@ -34,14 +34,16 @@ func (h *Handler) LinkWMs(wms []string) {
 			builders.BuildNiri(h.repo, h.computer, h.theme)
 			h.SymLink("wms/niri/config.kdl", ".config/niri/config.kdl")
 
-			h.SymLink("misc/waybar/niri", ".config/waybar")
+			h.MkDir(".config/waybar")
+			h.SymLink("misc/waybar/niri/config.jsonc", ".config/waybar/config.niri.jsonc")
 			h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
 		}
 
 		if wm == "sway" {
 			h.SymLink("wms/sway", ".config/sway")
 
-			h.SymLink("misc/waybar/sway", ".config/waybar")
+			h.MkDir(".config/waybar")
+			h.SymLink("misc/waybar/sway/config.jsonc", ".config/waybar/config.jsonc")
 			h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
 		}
 	}
@@ -115,7 +117,7 @@ func (h *Handler) LinkMisc(misc []string) {
 
 func (h *Handler) MkDir(dir string) {
 
-	err := os.MkdirAll(filepath.Join(h.home, dir), 0700)
+	err := os.MkdirAll(filepath.Join(h.home, dir), 0755)
 	if err != nil {
 		fmt.Printf("%s: %v", dir, err)
 	}

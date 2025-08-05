@@ -9,7 +9,7 @@ output "HDMI-A-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@60"
+    mode "5120x1400@120"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
@@ -27,11 +27,11 @@ output "HDMI-A-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1550 y=-1080
+    position x=1920 y=0
 }
 
-output "DP-1" {
-    mode "5120x1440@120"
+output "eDP-1" {
+    mode "1920x1080@60"
     transform "normal" 
     focus-at-startup
     scale 1
