@@ -1,0 +1,16 @@
+font=Hack Nerd Font 10
+background-color=#32302f
+text-color=#d4be98
+border-size=2
+border-color=#ffc87f
+default-timeout=5000
+max-icon-size=32
+
+[urgency=low]
+border-color=#a9b665
+
+[urgency=normal]
+border-color=#ffc87f
+
+[urgency=high]
+border-color=#fb4934

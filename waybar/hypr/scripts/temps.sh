@@ -1,1 +1,0 @@
-/home/pldcanfly/Projects/dotfiles/waybar/scripts/temps-apollo.sh

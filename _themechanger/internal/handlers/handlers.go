@@ -29,15 +29,20 @@ func (h *Handler) LinkWMs(wms []string) {
 		fmt.Printf("- Linking %s\n", wm)
 
 		if wm == "niri" {
-			builders.BuildNiri(h.repo, h.computer, h.theme)
-			h.SymLink("niri/config.kdl", ".config/niri/config.kdl")
+			h.MkDir(".config/niri")
 
-			h.SymLink("waybar/niri", ".config/waybar")
-			h.SymLink(fmt.Sprintf("waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
+			builders.BuildNiri(h.repo, h.computer, h.theme)
+			h.SymLink("wms/niri/config.kdl", ".config/niri/config.kdl")
+
+			h.SymLink("misc/waybar/niri", ".config/waybar")
+			h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
 		}
 
 		if wm == "sway" {
-			h.SymLink("sway", ".config/sway")
+			h.SymLink("wms/sway", ".config/sway")
+
+			h.SymLink("misc/waybar/sway", ".config/waybar")
+			h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
 		}
 	}
 }
@@ -53,13 +58,13 @@ func (h *Handler) LinkTerminals(terminals []string) {
 		}
 
 		if t == "alacritty" {
-			h.SymLink("alacritty", ".config/alacritty")
-			h.SymLink(fmt.Sprintf("alacritty/themes/%s.toml", h.theme), ".config/alacritty/current.toml")
+			h.SymLink("terminals/alacritty", ".config/alacritty")
+			h.SymLink(fmt.Sprintf("terminals/alacritty/themes/%s.toml", h.theme), ".config/alacritty/current.toml")
 		}
 
 		if t == "wezterm" {
-			h.SymLink("wezterm", ".config/wezterm")
-			h.SymLink(fmt.Sprintf("wezterm/themes/%s.lua", h.theme), ".config/wezterm/style.lua")
+			h.SymLink("terminals/wezterm", ".config/wezterm")
+			h.SymLink(fmt.Sprintf("terminals/wezterm/themes/%s.lua", h.theme), ".config/wezterm/style.lua")
 		}
 	}
 }
@@ -69,6 +74,10 @@ func (h *Handler) LinkLaunchers(launchers []string) {
 
 	for _, l := range launchers {
 		fmt.Printf("- Linking %s\n", l)
+		if l == "rofi" {
+			h.MkDir(".config/rofi")
+			h.SymLink("launchers/rofi/config.rasi", ".config/rofi/config.rasi")
+		}
 	}
 }
 
@@ -79,7 +88,8 @@ func (h *Handler) LinkNotifiers(notifiers []string) {
 		fmt.Printf("- Linking %s\n", n)
 
 		if n == "mako" {
-			h.SymLink(fmt.Sprintf("mako/themes/%s", h.theme), ".config/mako/config")
+			h.MkDir(".config/mako")
+			h.SymLink(fmt.Sprintf("launchers/mako/themes/%s", h.theme), ".config/mako/config")
 		}
 	}
 }
@@ -90,15 +100,24 @@ func (h *Handler) LinkMisc(misc []string) {
 	for _, m := range misc {
 		fmt.Printf("- Linking %s\n", m)
 		if m == "nvim" {
-			h.SymLink("nvim", ".config/nvim")
-			h.SymLink(fmt.Sprintf("nvim/themes/%s.lua", h.theme), ".config/nvim/lua/plugins/style.lua")
+			h.SymLink("misc/nvim", ".config/nvim")
+			h.SymLink(fmt.Sprintf("misc/nvim/themes/%s.lua", h.theme), ".config/nvim/lua/plugins/style.lua")
 			// Oh my posh?
 		}
 
 		if m == "zsh" {
-			h.SymLink(".zshrc", ".zshrc")
+			h.SymLink("misc/.zshrc", ".zshrc")
+			h.SymLink(fmt.Sprintf("misc/ohmyposh/themes/%s.json", h.theme), ".config/omp.json")
 			// Oh my posh?
 		}
+	}
+}
+
+func (h *Handler) MkDir(dir string) {
+
+	err := os.MkdirAll(filepath.Join(h.home, dir), 0700)
+	if err != nil {
+		fmt.Printf("%s: %v", dir, err)
 	}
 }
 

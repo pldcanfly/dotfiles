@@ -1,0 +1,191 @@
+{
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "margin-bottom": 2,
+  "modules-left": ["hyprland/workspaces", "mpris"],
+  "modules-center": ["hyprland/submap", "clock"],
+  "modules-right": [
+    "tray",
+    "battery",
+    "network",
+    "bluetooth",
+    "wireplumber",
+    "custom/get_temps",
+    "custom/nwgbar"
+  ],
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 15,
+    "tooltip-format": "{timeTo}\nDraw: {power}W"
+  },
+  "hyprland/workspaces": {
+    "format": "{name}{icon}",
+    "persistent-workspaces": {
+      "eDP-1": [1, 2, 3],
+      "DP-5": [4, 5, 6],
+      "DP-6": [7, 8, 9]
+    },
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "active": "*",
+      "urgent": "!"
+    }
+  },
+  "mpris": {
+    "format": "{dynamic} {player_icon}",
+    "dynamic-seperator": "-",
+    "player-icons": {
+      "default": "",
+      "firefox": "󰈹"
+    },
+    "dynamic-order": ["artist", "title"],
+    "status-icons": {
+      "paused": ""
+    },
+    "artist-len": 25,
+    "title-len": 25,
+    "dynamic-len": 50
+  },
+  "hyprland/window": {
+    "max-length": 80,
+    "tooltip": false
+  },
+  "hyprland/submap": {
+    "format": "  󰩨   {}   ",
+    "tooltip": true
+  },
+  "custom/get_temps": {
+    "return-type": "json",
+    "interval": 5,
+    "exec": "~/.config/waybar/scripts/temps.sh"
+  },
+  "custom/zypper": {
+    "format": " {}",
+    "interval": 3600,
+    "exec": "zypper lu | grep 'v |' | wc -l; echo 'packages to update'",
+    "exec-if": "exit 0",
+    "on-click": "exec alacritty -e sudo sh -c 'zypper ref; zypper dup; pkill -SIGRTMIN+8 waybar'",
+    "signal": 8
+  },
+  "custom/hyprvrr": {
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/hyprvrr.sh",
+    "on-click": "~/.config/hypr/scripts/set_vrr.sh 2",
+    "on-right-click": "~/.config/hypr/scripts/set_vrr.sh 0",
+    "signal": 12
+  },
+  "custom/nwgbar": {
+    "tooltip": false,
+    "format": "󰤁",
+    "on-click": "pkill nwg-bar || nwg-bar"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+  "clock": {
+    "tooltip-format": "<small><tt>{calendar}</tt></small>",
+    "format-alt": "{:%a %d %b w:%V %H:%M}",
+    "interval": 10,
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "network": {
+    "format-wifi": "󰘊",
+    "format-ethernet": "󰈀",
+    "format-linked": "",
+    "format-disconnected": "󰜺",
+    "format-alt": "{ifname} {ipaddr} {essid}",
+    "on-click-right": "kitty -e nmtui-connect"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-on": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰂯 {num_connections}",
+    "on-click": "kitty -e bluetui"
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "on-click": "pavucontrol",
+    "on-click-right": "helvum",
+    "scroll-step": 5,
+    "format-icons": ["󰕿", "󰖀", "󰕾"]
+  },
+  "custom/seperator-clock-r": {
+    "format": ""
+  },
+  "custom/seperator-workspaces": {
+    "format": ""
+  },
+  "custom/seperator-clock-l": {
+    "format": ""
+  },
+  "custom/seperator-battery": {
+    "format": ""
+  },
+  "custom/seperator-tray": {
+    "format": ""
+  },
+  "custom/seperator-network": {
+    "format": ""
+  },
+
+  "custom/seperator-bluetooth": {
+    "format": ""
+  },
+
+  "custom/seperator-wireplumber": {
+    "format": ""
+  },
+
+  "custom/seperator-nwgbar": {
+    "format": ""
+  },
+  "custom/seperator-temps": {
+    "format": ""
+  }
+}

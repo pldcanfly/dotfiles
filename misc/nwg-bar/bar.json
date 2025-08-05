@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Lock",
+    "exec": "swaylock-fancy",
+    "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-lock-screen.svg"
+  },
+  {
+    "label": "Logout",
+    "exec": "hyprctl dispatch exit",
+    "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-log-out.svg"
+  },
+  {
+    "label": "Reboot",
+    "exec": "systemctl reboot",
+    "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-reboot.svg"
+  },
+  {
+    "label": "Shutdown",
+    "exec": "systemctl -i poweroff",
+    "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-shutdown.svg"
+  },
+  {
+    "label": "Hibernate",
+    "exec": "systemctl -i hibernate",
+    "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-shutdown.svg"
+  },
+  {
+    "label": "Sleep",
+    "exec": "systemctl -i suspend",
+    "icon": "/home/pldcanfly/.config/nwg-bar/icons/system-suspend.svg"
+  }
+]
