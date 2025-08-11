@@ -91,7 +91,7 @@ func (h *Handler) LinkNotifiers(notifiers []string) {
 
 		if n == "mako" {
 			h.MkDir(".config/mako")
-			h.SymLink(fmt.Sprintf("launchers/mako/themes/%s", h.theme), ".config/mako/config")
+			h.SymLink(fmt.Sprintf("notifiers/mako/themes/%s", h.theme), ".config/mako/config")
 		}
 	}
 }

@@ -47,8 +47,8 @@
   "niri/window": {
     "format": "{}",
     "rewrite": {
-      "(.*) - Mozilla Firefox": "Firefox: $1",
-      "(.*) - Zen Browser": "Firefox: $1",
+      "(.*) (- Youtube )*[-—] Mozilla Firefox": "Firefox: $1",
+      "(.*) (- Youtube )*[-—] Zen Browser": "Zen: $1",
       "(.*) - zsh": "> [$1]",
     },
     "separate-outputs": true,
