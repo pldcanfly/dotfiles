@@ -15,3 +15,12 @@ window-rule {
 
     open-floating true
 }
+
+window-rule {
+	// Windows that should only open as a third of the screen
+	match app-id="Alacritty"
+	match app-id="steam"
+	match app-id="discord"
+
+	default-column-width { proportion 0.33333; }
+}
