@@ -1,0 +1,193 @@
+@define-color bg #192330;
+@define-color highlight #cdcecf;
+@define-color font @bg;
+@define-color blue #719cd6;
+@define-color red #c94f6d;
+@define-color yellow #dbc074;
+@define-color black  #393b44;
+@define-color cyan  #63cdcf;
+@define-color green  #81b29a;
+@define-color purple  #9d79d6;
+@define-color white  #dfdfe0;
+
+/* "cursorColor": "#cdcecf", */
+/* "selectionBackground": "#2b3b51", */
+/* "brightBlack" : "#575860", */
+/* "brightBlue" : "#86abdc", */
+/* "brightCyan" : "#7ad5d6", */
+/* "brightGreen" : "#8ebaa4", */
+/* "brightPurple" : "#baa1e2", */
+/* "brightRed" : "#d16983", */
+/* "brightWhite" : "#e4e4e5", */
+/* "brightYellow" : "#e0c989" */
+
+
+* {
+    border:        none;
+    border-radius: 0;
+    box-shadow:    none;
+    transition-duration: 0s;
+}
+window#waybar {
+    color: @font;
+    /* border-radius: 15px; */
+    /* border: 2px solid @highlight; */
+    background-color: @bg;
+    /* background-color: transparent; */
+    font-family:   "Hack Nerd Font";
+    /* font-family: "Droid SansM Nerd Font"; */
+    font-size:     16px;
+
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @bg;
+}
+
+#workspaces,
+#mpris,
+#window,
+#tray,
+#temps,
+#wireplumber,
+#network,
+#submap,
+#bluetooth,
+#custom-get_temps,
+#custom-hyprvrr,
+#custom-nwgbar,
+#battery,
+#clock{
+    transition: all 250ms;
+    /* border: 1px solid red; */
+    background: @blue;
+    padding: 0 5px;
+}
+
+#custom-seperator-clock-r,
+#custom-seperator-clock-l,
+#custom-seperator-tray,
+#custom-seperator-workspaces,
+#custom-seperator-battery,
+#custom-seperator-network,
+#custom-seperator-bluetooth,
+#custom-seperator-wireplumber,
+#custom-seperator-nwgbar,
+#custom-seperator-temps 
+{
+    padding: 0;
+    margin:0;
+    margin-top: -1px;
+    font-size: 25px;
+}  
+
+#workspaces ,
+#mpris {
+    background: @green;
+    padding-right: 4px;
+}
+
+#workspaces button {
+    color: @font;
+    padding: 0 4px;
+    margin: 0;
+    /* border: 1px solid @black; */
+}
+
+#workspaces button.active {
+    background: @yellow;
+}
+
+#workspaces button.urgent {
+    background: @red;
+}
+
+#custom-seperator-workspaces {
+    color: @green;
+}
+
+#custom-seperator-clock-r,
+#custom-seperator-clock-l {
+    color: @yellow;
+}  
+
+#clock {
+    background: @yellow;
+}
+
+#tray {
+    background: @red;
+}
+#custom-seperator-tray {
+    color: @red;
+}
+
+
+#custom-seperator-battery {
+    background-color: @red;
+    color: @cyan;
+}
+
+#battery {
+    background-color: @cyan;
+    padding-right: 13px;
+}
+
+#custom-seperator-network {
+    background-color: @cyan;
+    color: @purple;
+}
+
+#network {
+    background-color: @purple;
+}
+
+#custom-seperator-bluetooth {
+    background-color: @purple;
+    color: @green;
+}
+
+#bluetooth {
+    background-color: @green;
+}
+
+#custom-seperator-wireplumber {
+    background-color: @green;
+    color: @yellow;
+}
+
+#wireplumber {
+    background-color: @yellow;
+}
+
+#custom-seperator-bluetooth {
+    background-color: @purple;
+    color: @green;
+}
+
+#custom-seperator-temps {
+    background-color: @yellow;
+    color: @cyan;
+}
+
+#custom-get_temps {
+    background-color: @cyan;
+}
+
+#custom-seperator-nwgbar {
+    background-color: @cyan;
+    color: @white;
+}
+
+#custom-nwgbar {
+    background-color: @white;
+    padding-right: 10px;
+}
+
+
+
+
+
+

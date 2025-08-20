@@ -1,1 +1,0 @@
-/home/pldcanfly/Projects/dotfiles/nvim/themes/gruvbox.lua

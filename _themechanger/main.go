@@ -99,28 +99,29 @@ func tui() {
 		huh.NewGroup(
 			huh.NewMultiSelect[string]().Title("Choose window managers").Options(
 				huh.NewOption("Hyprland", "hypr"),
-				huh.NewOption("Sway", "sway"),
 				huh.NewOption("Niri", "niri"),
+				huh.NewOption("Sway", "sway"),
 			).Value(&wms),
 		),
 		huh.NewGroup(
 			huh.NewMultiSelect[string]().Title("Choose your terminals").Options(
-				huh.NewOption("kitty", "kitty"),
 				huh.NewOption("alacritty", "alacritty"),
+				huh.NewOption("kitty", "kitty"),
 				huh.NewOption("wezterm", "wezterm"),
 			).Value(&terminals),
 		),
 		huh.NewGroup(
 			huh.NewMultiSelect[string]().Title("Fancy a launcher?").Options(
-				huh.NewOption("wofi", "wofi"),
 				huh.NewOption("fuzzel", "fuzzel"),
+				huh.NewOption("rofi", "rofi"),
 				huh.NewOption("walker", "walker"),
+				huh.NewOption("wofi", "wofi"),
 			).Value(&launchers),
 		),
 		huh.NewGroup(
 			huh.NewMultiSelect[string]().Title("Fancy a notifier?").Options(
-				huh.NewOption("mako", "mako"),
 				huh.NewOption("dunst", "dunst"),
+				huh.NewOption("mako", "mako"),
 			).Value(&notifiers),
 		),
 

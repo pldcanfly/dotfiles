@@ -24,48 +24,48 @@ func parse(path string, vars map[string]any) (string, error) {
 }
 
 func BuildNiri(repo string, computer string, theme string) error {
-	base, err := template.ParseFiles(filepath.Join(repo, "niri/base.text.tmpl"))
+	base, err := template.ParseFiles(filepath.Join(repo, "wms/niri/base.text.tmpl"))
 	if err != nil {
 		return fmt.Errorf("parsing base: %w", err)
 	}
 
 	vars := make(map[string]any)
 
-	vars["Autostart"], err = parse(filepath.Join(repo, fmt.Sprintf("niri/autostart/%s.text.tmpl", computer)), vars)
+	vars["Autostart"], err = parse(filepath.Join(repo, fmt.Sprintf("wms/niri/autostart/%s.text.tmpl", computer)), vars)
 	if err != nil {
 		return fmt.Errorf("autostart: %w", err)
 	}
 
-	vars["Outputs"], err = parse(filepath.Join(repo, fmt.Sprintf("niri/outputs/%s.text.tmpl", computer)), vars)
+	vars["Outputs"], err = parse(filepath.Join(repo, fmt.Sprintf("wms/niri/outputs/%s.text.tmpl", computer)), vars)
 	if err != nil {
 		return fmt.Errorf("outputs: %w", err)
 	}
 
-	vars["Input"], err = parse(filepath.Join(repo, "niri/input.text.tmpl"), vars)
+	vars["Input"], err = parse(filepath.Join(repo, "wms/niri/input.text.tmpl"), vars)
 	if err != nil {
 		return fmt.Errorf("input: %w", err)
 	}
 
-	vars["Binds"], err = parse(filepath.Join(repo, "niri/binds.text.tmpl"), vars)
+	vars["Binds"], err = parse(filepath.Join(repo, "wms/niri/binds.text.tmpl"), vars)
 	if err != nil {
 		return fmt.Errorf("binds: %w", err)
 	}
 
 	// This needs theming!! Prolly some vars... key-value-stuff pretty much
-	vars["Style"], err = parse(filepath.Join(repo, "niri/style.text.tmpl"), vars)
+	vars["Style"], err = parse(filepath.Join(repo, "wms/niri/style.text.tmpl"), vars)
 	if err != nil {
 		return fmt.Errorf("style: %w", err)
 	}
 
-	vars["Windowrules"], err = parse(filepath.Join(repo, "niri/windowrules.text.tmpl"), vars)
+	vars["Windowrules"], err = parse(filepath.Join(repo, "wms/niri/windowrules.text.tmpl"), vars)
 	if err != nil {
 		return fmt.Errorf("windowrules: %w", err)
 	}
 
 	// This can just fail .. not a biggie
-	os.Remove(filepath.Join(repo, "niri/config.kdl"))
+	os.Remove(filepath.Join(repo, "wms/niri/config.kdl"))
 
-	f, err := os.Create(filepath.Join(repo, "niri/config.kdl"))
+	f, err := os.Create(filepath.Join(repo, "wms/niri/config.kdl"))
 	if err != nil {
 		return fmt.Errorf("creating new file: %w", err)
 	}
