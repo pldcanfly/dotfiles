@@ -2,8 +2,18 @@
 
 # This script returns the current git branch and a status indicator if changes are detected.
 
+current_pane_path=$(tmux display-message -p '#{pane_current_path}')
+if [[ -z "$current_pane_path" ]]; then
+    exit 0
+fi
+# CD into that directory
+if ! cd "$current_pane_path" ; then
+    exit 0
+fi
+
 # Check if the current directory is a git repository
 git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit
+
 
 # Get the branch name
 branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
@@ -21,5 +31,5 @@ else
         unpushed_status="+"
     fi
 
-    echo "$branch$dirty_status$unpushed_status"
+    echo " $branch$dirty_status$unpushed_status"
 fi

@@ -15,5 +15,8 @@ vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Co
 vim.keymap.set({ "n", "v" }, "]q", ":cnext<return>", { desc = "Quickfix: Next Item" })
 vim.keymap.set({ "n", "v" }, "[q", ":cprev<return>", { desc = "Quickfix: Prev Item" })
 
-vim.keymap.set({ "n" }, "]<Space>", "o<Esc>k", { desc = "Newline below" })
-vim.keymap.set({ "n" }, "[<Space>", "O<Esc>j", { desc = "Newline above" })
+vim.keymap.set({ "n" }, "<leader>w%", ":vsplit<return>", { desc = " Split Vertical" })
+vim.keymap.set({ "n" }, '<leader>w"', ":split<return>", { desc = " Split horizontal" })
+
+vim.keymap.set({ "n", "v" }, "]<Space>", "o<Esc>k", { desc = "Newline below" })
+vim.keymap.set({ "n", "v" }, "[<Space>", "O<Esc>j", { desc = "Newline above" })
