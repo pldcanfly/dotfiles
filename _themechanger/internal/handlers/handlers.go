@@ -108,7 +108,7 @@ func (h *Handler) LinkMisc(misc []string) {
 
 		if m == "zsh" {
 			h.SymLink("misc/.zshrc", ".zshrc")
-			h.SymLink(fmt.Sprintf("misc/ohmyposh/themes/%s.json", h.theme), ".config/omp.json")
+			h.SymLink(fmt.Sprintf("misc/ohmyposh/%s.json", h.theme), ".config/omp.json")
 		}
 
 		if m == "tmux" {
