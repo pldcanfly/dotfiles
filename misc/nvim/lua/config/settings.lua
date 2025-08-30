@@ -1,5 +1,4 @@
 -- Set locale and Spellchecking
-
 vim.o.spelllang = "en,de"
 vim.o.spell = true
 
@@ -21,6 +20,12 @@ vim.o.clipboard = "unnamedplus"
 -- Enable break indent
 vim.o.breakindent = true
 
+-- scrollof
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 8
+
+vim.o.autoread = true
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -30,6 +35,8 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = "yes"
+
+vim.o.colorcolumn = "150"
 
 -- Decrease update time
 vim.o.updatetime = 251
