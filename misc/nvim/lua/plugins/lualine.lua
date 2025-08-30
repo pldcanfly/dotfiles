@@ -4,7 +4,7 @@ return {
 		options = {
 			icons_enabled = true,
 			theme = "gruvbox-material",
-			component_separators = " ",
+			component_separators = " ",
 			section_separators = "",
 			ignore_focus = {
 				"dapui_watches",
@@ -14,6 +14,10 @@ return {
 				"dapui_stacks",
 				"dap-repl",
 			},
+		},
+		sections = {
+			lualine_b = { "diagnostics" },
+			lualine_y = {},
 		},
 	},
 }

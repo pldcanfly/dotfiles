@@ -104,13 +104,21 @@ func (h *Handler) LinkMisc(misc []string) {
 		if m == "nvim" {
 			h.SymLink("misc/nvim", ".config/nvim")
 			h.SymLink(fmt.Sprintf("misc/nvim/themes/%s.lua", h.theme), ".config/nvim/lua/plugins/style.lua")
-			// Oh my posh?
 		}
 
 		if m == "zsh" {
 			h.SymLink("misc/.zshrc", ".zshrc")
 			h.SymLink(fmt.Sprintf("misc/ohmyposh/themes/%s.json", h.theme), ".config/omp.json")
-			// Oh my posh?
+		}
+
+		if m == "tmux" {
+			h.MkDir(".config/tmux")
+			h.SymLink("misc/tmux/tmux.conf", ".config/tmux/tmux.conf")
+			h.SymLink(fmt.Sprintf("misc/tmux/themes/%s.conf", h.theme), ".config/tmux/current.conf")
+			h.SymLink("misc/tmux/scripts", ".config/tmux/scripts")
+
+			h.MkDir(".config/tmux-sessionizer")
+			h.SymLink(fmt.Sprintf("misc/tmux/tmux-sessionizer.%s.conf", h.computer), ".config/tmux-sessionizer/tmux-sessionizer.conf")
 		}
 	}
 }
@@ -119,7 +127,7 @@ func (h *Handler) MkDir(dir string) {
 
 	err := os.MkdirAll(filepath.Join(h.home, dir), 0755)
 	if err != nil {
-		fmt.Printf("%s: %v", dir, err)
+		fmt.Printf("%s: %v\n", dir, err)
 	}
 }
 
