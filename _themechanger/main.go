@@ -130,6 +130,7 @@ func tui() {
 				huh.NewOption("nvim", "nvim"),
 				huh.NewOption("OpenRGB", "openrgb"),
 				huh.NewOption("tmux", "tmux"),
+				huh.NewOption("cheatsheets", "cheatsheets"),
 				huh.NewOption("easyeffects", "easyeffects"),
 				huh.NewOption("easyeffects (Flatpak)", "easyeffectsflat"),
 				huh.NewOption("zsh", "zsh"),

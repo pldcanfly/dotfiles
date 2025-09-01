@@ -1,0 +1,10 @@
+## Bash shortcuts
+
+alt-f:	forward word
+alt-b: 	back word
+alt-t: 	swap words
+ctrl-t: forward char
+ctrl-w: delete one word back 
+ctrl-u: delete entire line to left
+
+ctrl-r: reverse search

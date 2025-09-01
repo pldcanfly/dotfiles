@@ -124,6 +124,9 @@ func (h *Handler) LinkMisc(misc []string) {
 		if m == "easyeffects" {
 			h.MkDir(".config/easyeffects")
 			h.SymLink("misc/easyeffects", ".config/easyeffects")
+		if m == "cheatsheets" {
+			h.MkDir(".cheatsheets")
+			h.SymLink("cheatsheets", ".cheatsheets")
 		}
 	}
 }
