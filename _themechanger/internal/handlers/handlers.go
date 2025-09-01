@@ -120,6 +120,11 @@ func (h *Handler) LinkMisc(misc []string) {
 			h.MkDir(".config/tmux-sessionizer")
 			h.SymLink(fmt.Sprintf("misc/tmux/tmux-sessionizer.%s.conf", h.computer), ".config/tmux-sessionizer/tmux-sessionizer.conf")
 		}
+
+		if m == "easyeffects" {
+			h.MkDir(".config/easyeffects")
+			h.SymLink("misc/easyeffects", ".config/easyeffects")
+		}
 	}
 }
 

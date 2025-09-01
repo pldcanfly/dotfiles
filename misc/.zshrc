@@ -30,3 +30,6 @@ bindkey "\e[3~" delete-char
 
 # setp gopath
 export PATH=/home/$USER/go/bin:$PATH
+
+# opencode
+export PATH=/home/$USER/.opencode/bin:$PATH
