@@ -17,13 +17,15 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in zsh plugins
+#
+export NVM_LAZY_LOAD=true
+zi load lukechilds/zsh-nvm
+
 zi light Aloxaf/fzf-tab
 zi light zsh-users/zsh-syntax-highlighting
-
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
-
 zinit light starship/starship
 
 zi snippet OMZP::docker
@@ -57,8 +59,6 @@ alias lg="lazygit"
 eval "$(fzf --zsh)"
 
 # Lazyloading nvm: https://github.com/lukechilds/zsh-nvm
-export NVM_LAZY_LOAD=true
-source "$XDG_CONFIG_HOME/zsh/nvm/zsh-nvm.plugin.zsh"
 
 # Fix strange bug
 bindkey "\e[H" beginning-of-line
