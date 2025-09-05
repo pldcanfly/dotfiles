@@ -6,11 +6,11 @@ add_newline = false
 format = "$username$directory$nodejs\n$character"
 
 [character]
-success_symbol = '[➜](bold green) '
-error_symbol = '[✗](bold red) '
+success_symbol = '[](bold blue)'
+error_symbol = '[✗](bold red)'
 
 [username]
-style_user = 'white'
+style_user = 'yellow bold'
 style_root = 'red bold'
 format = '[$user]($style) '
 show_always = true
