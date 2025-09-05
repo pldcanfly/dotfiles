@@ -107,8 +107,13 @@ func (h *Handler) LinkMisc(misc []string) {
 		}
 
 		if m == "zsh" {
-			h.SymLink("misc/.zshrc", ".zshrc")
-			h.SymLink(fmt.Sprintf("misc/ohmyposh/%s.json", h.theme), ".config/omp.json")
+			h.SymLink("misc/zsh/.zshenv", ".zshenv")
+
+			h.MkDir(".config/zsh")
+			h.SymLink("misc/zsh/.zshrc", ".config/zsh/.zshrc")
+			h.SymLink("misc/zsh/nvm", ".config/zsh/nvm")
+
+			h.SymLink("misc/zsh/starship.toml", ".config/starship.toml")
 		}
 
 		if m == "tmux" {
