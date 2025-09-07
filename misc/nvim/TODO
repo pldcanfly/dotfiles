@@ -1,4 +1,14 @@
-- rust
-- verify treesitter
-- Something like leap?
-- recording macros happens too ofen... some things should not use q as quit
+- DAP
+- Tune Autocomplete
+- Autocomplete into LSP
+- keybinds
+- snippets
+- tmux-navigator
+- ansible, terraform - lsps
+- eslint
+- diagonstics
+- harpoon
+- biscuits
+– smear
+- look at mini.plugins
+- git
