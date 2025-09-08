@@ -2,6 +2,8 @@
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# Autocorrect
+setopt CORRECT 
 
 ## PLUGINS
 # Set the directory we want to store zinit and plugins
