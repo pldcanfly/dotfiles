@@ -5,45 +5,66 @@ return {
    keys = {
       {
          "<leader>ff",
+         mode = { "n", "x" },
          function()
             require("fzf-lua").files()
          end,
-         desc = "Find Files",
+         desc = "Fzf: Files",
       },
       {
          "<leader>fg",
+         mode = { "n", "x" },
          function()
             require("fzf-lua").live_grep()
          end,
-         desc = "Find Files with grep",
+         desc = "Fzf: Grep files",
       },
       {
          "<leader>fh",
+         mode = { "n", "x" },
          function()
             require("fzf-lua").helptags()
          end,
-         desc = "Find in help",
+         desc = "Fzf: Help",
       },
       {
          "<leader>fk",
+         mode = { "n", "x" },
          function()
             require("fzf-lua").keymaps()
          end,
-         desc = "Find in keymaps",
+         desc = "Fzf: Keymaps",
+      },
+      {
+         "<leader>fs",
+         mode = { "n", "x" },
+         function()
+            require("fzf-lua").lsp_document_symbols()
+         end,
+         desc = "Fzf: Symbols",
+      },
+      {
+         "grr",
+         function()
+            require("fzf-lua").lsp_references()
+         end,
+         desc = "Fzf: References",
       },
       {
          "<leader><leader>",
+         mode = { "n", "x" },
          function()
             require("fzf-lua").buffers()
          end,
-         desc = "Buffers",
+         desc = "Fzf: Buffers",
       },
       {
          "<leader>/",
+         mode = { "n", "x" },
          function()
             require("fzf-lua").lgrep_curbuf()
          end,
-         desc = "Fzf-grep",
+         desc = "Fzf: Grep",
       },
    },
 }

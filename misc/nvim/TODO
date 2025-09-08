@@ -1,14 +1,18 @@
+~ keybinds
+~ more snippets
 - DAP
-- Tune Autocomplete
-- Autocomplete into LSP
-- keybinds
-- snippets
-- tmux-navigator
-- ansible, terraform - lsps
+- ansible
+- terraform
+- golang
+- bashls
 - eslint
-- diagonstics
-- harpoon
-- biscuits
-– smear
-- look at mini.plugins
-- git
+- startscreen
+- why does null-ls die when :LspRestart?
+X snippets
+X tmux-navigator
+X diagonstics
+X harpoon
+X biscuits
+X smear
+X look at mini.plugins
+X git
