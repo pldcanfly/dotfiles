@@ -1,10 +1,10 @@
 [~] keybinds
 [~] more snippets
 [ ] DAP
-[ ] ansible
-[ ] terraform
+[X] ansible
+[X] terraform
 [ ] golang
-[ ] bashls
+[X] bashls
 [ ] eslint
 [ ] startscreen
 [ ] why does null-ls die when :LspRestart?
