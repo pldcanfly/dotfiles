@@ -1,27 +1,35 @@
 return {
-	"nvimtools/none-ls.nvim",
-	config = function()
-		local nls = require("null-ls")
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+   {
+      "nvimtools/none-ls.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+         local null_ls = require("null-ls")
+         null_ls.setup({
+            -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+            sources = {
+               null_ls.builtins.formatting.stylua,
+               null_ls.builtins.completion.spell,
+               null_ls.builtins.formatting.prettierd,
+               null_ls.builtins.formatting.gofmt,
+               null_ls.builtins.formatting.goimports,
+               null_ls.builtins.formatting.terraform_fmt,
+               null_ls.builtins.diagnostics.ansiblelint,
+               null_ls.builtins.formatting.shfmt,
+            },
+         })
+      end,
+   },
+   {
+      "lukas-reineke/lsp-format.nvim",
+      config = function()
+         require("lsp-format").setup({})
 
-		nls.setup({
-			sources = require("config.langs").nullls.sources(),
-
-			on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format({ async = false })
-						end,
-					})
-				end
-			end,
-		})
-	end,
-	keys = {
-		{ "<leader>F", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", desc = "Format Buffer" },
-	},
+         vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(args)
+               local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+               require("lsp-format").on_attach(client, args.buf)
+            end,
+         })
+      end,
+   },
 }

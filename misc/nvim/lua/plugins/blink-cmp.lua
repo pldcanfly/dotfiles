@@ -1,0 +1,52 @@
+return {
+   "saghen/blink.cmp",
+   -- optional: provides snippets for the snippet source
+   dependencies = {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+      config = function()
+         require("luasnip").config.set_config({ enable_autosnippets = true })
+         require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/lua/snippets" })
+      end,
+   },
+   version = "1.*",
+
+   ---@module 'blink.cmp'
+   ---@type blink.cmp.Config
+   opts = {
+      -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+      -- 'super-tab' for mappings similar to vscode (tab to accept)
+      -- 'enter' for enter to accept
+      -- 'none' for no mappings
+      --
+      -- All presets have the following mappings:
+      -- C-space: Open menu or open docs if already open
+      -- C-n/C-p or Up/Down: Select next/previous item
+      -- C-e: Hide menu
+      -- C-k: Toggle signature help (if signature.enabled = true)
+      --
+      -- See :h blink-cmp-config-keymap for defining your own keymap
+      keymap = { preset = "default" },
+
+      appearance = {
+         nerd_font_variant = "mono",
+      },
+
+      signature = {
+         enabled = true,
+      },
+
+      -- (Default) Only show the documentation popup when manually triggered
+      completion = { documentation = { auto_show = false } },
+      snippets = { preset = "luasnip" },
+
+      -- Default list of enabled providers defined so that you can extend it
+      -- elsewhere in your config, without redefining it, due to `opts_extend`
+      sources = {
+         default = { "lsp", "path", "snippets", "buffer" },
+      },
+
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+   },
+   opts_extend = { "sources.default" },
+}

@@ -1,4 +1,20 @@
-- rust
-- verify treesitter
-- Something like leap?
-- recording macros happens too ofen... some things should not use q as quit
+[~] keybinds
+[~] more snippets
+[X] startscreen
+[X] golang
+[X] DAP
+[X] better gitsigns, mini.diff tuned down?
+[X] undotree
+[X] ansible
+[X] terraform
+[X] bashls
+[X] snippets
+[X] tmux-navigator
+[X] diagonstics
+[X] harpoon
+[X] biscuits
+[X] smear
+[X] look at mini.plugins
+[X] git
+[ ] eslint
+[ ] why does null-ls die when :LspRestart?
