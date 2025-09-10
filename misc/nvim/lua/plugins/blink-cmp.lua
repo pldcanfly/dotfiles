@@ -1,7 +1,14 @@
 return {
    "saghen/blink.cmp",
    -- optional: provides snippets for the snippet source
-   dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+   dependencies = {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+      config = function()
+         require("luasnip").config.set_config({ enable_autosnippets = true })
+         require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/lua/snippets" })
+      end,
+   },
    version = "1.*",
 
    ---@module 'blink.cmp'
@@ -23,6 +30,10 @@ return {
 
       appearance = {
          nerd_font_variant = "mono",
+      },
+
+      signature = {
+         enabled = true,
       },
 
       -- (Default) Only show the documentation popup when manually triggered

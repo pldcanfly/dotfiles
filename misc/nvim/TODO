@@ -1,12 +1,10 @@
 [~] keybinds
 [~] more snippets
-[ ] DAP
-[ ] golang
-[ ] eslint
-[ ] startscreen
-[ ] why does null-ls die when :LspRestart?
-[ ] undotree
-[ ] better gitsigns, mini.diff tuned down?
+[X] startscreen
+[X] golang
+[X] DAP
+[X] better gitsigns, mini.diff tuned down?
+[X] undotree
 [X] ansible
 [X] terraform
 [X] bashls
@@ -18,3 +16,5 @@
 [X] smear
 [X] look at mini.plugins
 [X] git
+[ ] eslint
+[ ] why does null-ls die when :LspRestart?

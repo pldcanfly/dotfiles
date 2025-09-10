@@ -8,6 +8,7 @@ local langs = {
    "bashls",
    "terraformls",
 }
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
 vim.lsp.enable(langs)
 

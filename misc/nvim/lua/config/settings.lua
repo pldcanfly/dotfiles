@@ -14,7 +14,7 @@ vim.o.showmode = false
 
 -- This defers loading until UiEnter
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+   vim.o.clipboard = "unnamedplus"
 end)
 
 vim.o.undofile = true
@@ -42,7 +42,7 @@ vim.o.confirm = true
 vim.o.colorcolumn = "150"
 
 -- Decrease update time
-vim.o.updatetime = 251
+vim.o.updatetime = 100
 vim.o.timeoutlen = 301
 
 -- tabhandling
