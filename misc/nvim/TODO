@@ -1,13 +1,15 @@
 [~] keybinds
 [~] more snippets
 [ ] DAP
-[X] ansible
-[X] terraform
 [ ] golang
-[X] bashls
 [ ] eslint
 [ ] startscreen
 [ ] why does null-ls die when :LspRestart?
+[ ] undotree
+[ ] better gitsigns, mini.diff tuned down?
+[X] ansible
+[X] terraform
+[X] bashls
 [X] snippets
 [X] tmux-navigator
 [X] diagonstics
