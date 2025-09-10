@@ -4,32 +4,31 @@
 
 current_pane_path=$(tmux display-message -p '#{pane_current_path}')
 if [[ -z "$current_pane_path" ]]; then
-    exit 0
+   exit 0
 fi
 # CD into that directory
-if ! cd "$current_pane_path" ; then
-    exit 0
+if ! cd "$current_pane_path"; then
+   exit 0
 fi
 
 # Check if the current directory is a git repository
 git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit
 
-
 # Get the branch name
 branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-if [ "$branch" == "HEAD" ]; then
-    echo "" # Not on a branch (e.g., detached HEAD)
+if [[ "$branch" == "HEAD" ]]; then
+   echo "" # Not on a branch (e.g., detached HEAD)
 else
-    # Check for uncommitted changes
-    if ! git diff-index --quiet HEAD --; then
-        dirty_status="*"
-    fi
+   # Check for uncommitted changes
+   if ! git diff-index --quiet HEAD --; then
+      dirty_status="*"
+   fi
 
-    # Check for unpushed changes
-    if [ "$(git log @{u}.. | wc -l)" -gt 0 ]; then
-        unpushed_status="+"
-    fi
+   # Check for unpushed changes
+   if [ "$(git log @{u}.. | wc -l)" -gt 0 ]; then
+      unpushed_status="+"
+   fi
 
-    echo " $branch$dirty_status$unpushed_status"
+   echo " $branch$dirty_status$unpushed_status"
 fi
