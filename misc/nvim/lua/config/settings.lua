@@ -1,6 +1,6 @@
 vim.g.have_nerd_font = false
 vim.o.termguicolors = true
-vim.o.winborder = "bold"
+vim.o.winborder = "single"
 
 -- Set locale and Spellchecking
 vim.o.spelllang = "en,de"
