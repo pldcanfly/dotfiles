@@ -18,3 +18,4 @@
 [X] git
 [ ] eslint
 [ ] why does null-ls die when :LspRestart?
+[ ] Make the autoformating a bit more specialized, eg change per language

@@ -1,5 +1,6 @@
 vim.g.have_nerd_font = false
 vim.o.termguicolors = true
+vim.o.winborder = "bold"
 
 -- Set locale and Spellchecking
 vim.o.spelllang = "en,de"
@@ -14,7 +15,7 @@ vim.o.showmode = false
 
 -- This defers loading until UiEnter
 vim.schedule(function()
-   vim.o.clipboard = "unnamedplus"
+	vim.o.clipboard = "unnamedplus"
 end)
 
 vim.o.undofile = true
@@ -50,3 +51,5 @@ vim.o.tabstop = 3
 vim.o.softtabstop = 0
 vim.o.shiftwidth = 0
 vim.o.expandtab = true
+
+vim.o.exrc = true
