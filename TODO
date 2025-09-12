@@ -1,3 +1,12 @@
+-- General
+[ ] cht.sh
+[ ] hyprland?
+[ ] generate color-templates?
+    *) base.color.tmpl with replacements
+    *) maybe even go for different styles and color-templates like: rounded, solid, modern, retro for the general styles and inject colors
+       style.solid.tmpl
+
+-- NVIM
 [~] keybinds
 [~] more snippets
 [X] startscreen
