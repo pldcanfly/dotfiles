@@ -52,4 +52,6 @@ vim.o.softtabstop = 0
 vim.o.shiftwidth = 0
 vim.o.expandtab = true
 
+vim.o.hlsearch = false
+
 vim.o.exrc = true
