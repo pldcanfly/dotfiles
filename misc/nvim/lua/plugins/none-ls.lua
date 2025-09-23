@@ -1,64 +1,51 @@
 return {
-   {
-      "nvimtools/none-ls.nvim",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      config = function()
-         local null_ls = require("null-ls")
+	{
+		"nvimtools/none-ls.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local null_ls = require("null-ls")
 
-         local lsp_formatting = function(bufnr)
-            vim.lsp.buf.format({
-               filter = function(client)
-                  -- apply whatever logic you want (in this example, we'll only use null-ls)
-                  return client.name == "null-ls"
-               end,
-               bufnr = bufnr,
-            })
-         end
+			local lsp_formatting = function(bufnr)
+				vim.lsp.buf.format({
+					filter = function(client)
+						-- apply whatever logic you want (in this example, we'll only use null-ls)
+						return client.name == "null-ls"
+					end,
+					bufnr = bufnr,
+				})
+			end
 
-         -- if you want to set up formatting on save, you can use this as a callback
-         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			-- if you want to set up formatting on save, you can use this as a callback
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-         -- add to your shared on_attach callback
-         local on_attach = function(client, bufnr)
-            if client.supports_method("textDocument/formatting") then
-               vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-               vim.api.nvim_create_autocmd("BufWritePre", {
-                  group = augroup,
-                  buffer = bufnr,
-                  callback = function()
-                     lsp_formatting(bufnr)
-                  end,
-               })
-            end
-         end
+			-- add to your shared on_attach callback
+			local on_attach = function(client, bufnr)
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufnr,
+						callback = function()
+							lsp_formatting(bufnr)
+						end,
+					})
+				end
+			end
 
-         null_ls.setup({
-            -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
-            sources = {
-               null_ls.builtins.formatting.stylua,
-               null_ls.builtins.completion.spell,
-               null_ls.builtins.formatting.prettierd,
-               null_ls.builtins.formatting.gofmt,
-               null_ls.builtins.formatting.goimports,
-               null_ls.builtins.formatting.terraform_fmt,
-               null_ls.builtins.diagnostics.ansiblelint,
-               null_ls.builtins.formatting.shfmt,
-            },
-            on_attach = on_attach,
-         })
-      end,
-   },
-   -- {
-   --    "lukas-reineke/lsp-format.nvim",
-   --    config = function()
-   --       require("lsp-format").setup({})
-   --
-   --       vim.api.nvim_create_autocmd("LspAttach", {
-   --          callback = function(args)
-   --             local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-   --             require("lsp-format").on_attach(client, args.buf)
-   --          end,
-   --       })
-   --    end,
-   -- },
+			null_ls.setup({
+				-- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+				sources = {
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.completion.spell,
+					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.gofmt,
+					null_ls.builtins.formatting.goimports,
+					null_ls.builtins.formatting.terraform_fmt,
+					null_ls.builtins.diagnostics.ansiblelint,
+					null_ls.builtins.formatting.shfmt,
+				},
+				on_attach = on_attach,
+			})
+		end,
+	},
 }
