@@ -1,17 +1,19 @@
 local langs = {
-   "gopls",
-   "lua_ls",
-   "ts_ls",
-   "docker_language_server",
-   "docker_compose_language_service",
-   "ansiblels",
-   "bashls",
-   "terraformls",
+	"arduino_language_server",
+	"gopls",
+	"lua_ls",
+	"ts_ls",
+	"docker_language_server",
+	"docker_compose_language_service",
+	"ansiblels",
+	"bashls",
+	"terraformls",
+   "hyprls"
 }
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
 vim.lsp.enable(langs)
 
 vim.diagnostic.config({
-   virtual_text = true,
+	virtual_text = true,
 })

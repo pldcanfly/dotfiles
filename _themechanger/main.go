@@ -13,6 +13,8 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) == 0 {
+		c := builders.NewColorBuilder("gruvbox", "/home/pldcanfly/Projects/dotfiles")
+		fmt.Println(c.ParseString("my bg1 is {{.bg}}"))
 		tui()
 	} else if args[0] == "build" {
 		build(args)
