@@ -46,6 +46,16 @@ func (h *Handler) LinkWMs(wms []string) {
 			h.SymLink("misc/waybar/sway/config.jsonc", ".config/waybar/config.jsonc")
 			h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
 		}
+
+		if wm == "hypr" {
+			h.MkDir(".config/hypr")
+
+			h.SymLink("wms/hypr/", ".config/hypr")
+
+			h.MkDir(".config/waybar")
+			h.SymLink("misc/waybar/hypr/", ".config/waybar/")
+			// h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
+		}
 	}
 }
 
