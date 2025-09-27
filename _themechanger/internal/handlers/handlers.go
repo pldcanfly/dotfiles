@@ -50,7 +50,10 @@ func (h *Handler) LinkWMs(wms []string) {
 		if wm == "hypr" {
 			h.MkDir(".config/hypr")
 
-			h.SymLink("wms/hypr/", ".config/hypr")
+			h.SymLink("wms/hypr/hyprland.conf", ".config/hypr/hyprland.conf")
+			h.SymLink("wms/hypr/config", ".config/hypr/config")
+			h.SymLink(fmt.Sprintf("wms/hypr/themes/%s.conf", h.theme), ".config/hypr/current.conf")
+			h.SymLink(fmt.Sprintf("wms/hypr/monitors/monitor.%s.conf", h.computer), ".config/hypr/monitor.conf")
 
 			h.MkDir(".config/waybar")
 			h.SymLink("misc/waybar/hypr/", ".config/waybar/")
