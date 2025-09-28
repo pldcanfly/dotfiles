@@ -37,7 +37,8 @@ window#waybar.hidden {
     border-radius: 6px;
     color: @foreground;
     background-color: #111827;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
+    transition: none;
     font-size: 13px;  /* Slightly smaller font size */
 }
 

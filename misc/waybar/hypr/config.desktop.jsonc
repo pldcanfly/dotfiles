@@ -9,37 +9,39 @@
 
     //"height": 20,
 
-    "margin-left": 10,
+    "margin-top": 5,
+    "margin-left": 5,
     "margin-bottom": 0,
-    "margin-right": 10,
+    "margin-right": 5,
 
-    "spacing": 5, // Gaps between modules (4px)
+    "spacing": 4, // Gaps between modules (4px)
 
     "modules-left": [
         //"custom/rofi",
         "hyprland/workspaces",
-        //"hyprland/submap",
-        //"temperature",
-        //"idle_inhibitor",
-        //"mpd"
-        "custom/spotify"
+        "hyprland/submap",
+        "idle_inhibitor",
+"power-profiles-daemon",
+        "hyprland/window"
+        //"mpd",
+        //"custom/spotify"
     ],
     "modules-center": [
-        //"hyprland/window"
-        "clock#date"
+        "clock"
+        //"custom/media"
         //"custom/weather"
         //"custom/gammastep"
     ],
     "modules-right": [
-        "backlight",
-        "custom/storage",
+        "tray",
+        //"backlight",
+        //"custom/storage",
+        // "temperature",
         "memory",
         "cpu",
-        "battery",
-        //"pulseaudio",
+        "network",
         "wireplumber",
-        "custom/screenshot_t",
-        "tray",
+        // "custom/screenshot_t",
         "custom/power"
     ],
 
@@ -65,11 +67,11 @@
         "on-click": "wofi --show run",
         "on-click-middle": "pkill -9 wofi"
     },
-    "custom/screenshot_t":{
-        "format":" ",
-        "on-click": "~/.config/hypr/scripts/screenshot_full",
-        "on-click-right":"~/.config/hypr/scripts/screenshot_area"
-    },
+    // "custom/screenshot_t":{
+    //     "format":" ",
+    //     "on-click": "~/.config/hypr/scripts/screenshot_full",
+    //     "on-click-right":"~/.config/hypr/scripts/screenshot_area"
+    // },
 
     "clock#1": {
         "format": " {:%a}",
@@ -95,15 +97,26 @@
         // "format-critical": " {temperatureC}°C",
         "format-critical": "  {temperatureC}°C",
         "format": "{icon}  {temperatureC}°C",
-        "format-icons": ["", "", ""],
+        "format-icons": ["", "", ""],
         "max-length": 7,
         "min-length": 7,
         "on-click": "xsensors"
     },
 
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
     "memory": {
         "interval": 30,
-        "format": "  {used:0.2f} / {total:0.0f} GB",
+        "format": "  {used:0.2f} / {total:0.0f} GB",
         "on-click": "alacritty -e btop"
     },
 
@@ -125,26 +138,22 @@
             ""
         ]
     },
-    "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format": "",
-        "format-disconnected": "",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
-        "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
-        "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
-        "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
-        "interval": 10
-    },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}  󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+    "format-linked": "{ifname} (No IP) 󰈀",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+  },
     "custom/storage": {
         "format": " {}",
         "format-alt": "{percentage}% ",
         "format-alt-click": "click-right",
         "return-type": "json",
         "interval": 60,
-        "exec": "~/.config/waybar/modules/storage.sh"
+        "exec": "~/.config/waybar/scripts/storage.sh"
     },
 
     "backlight": {
@@ -160,8 +169,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         },
         "tooltip": "true"
     },
@@ -172,7 +181,7 @@
         "interval": 3600,
         "exec": "curl -s 'https://wttr.in/?format=1'",
         //"return-type": "json",
-        //"exec": "~/.config/waybar/modules/weather.sh",
+        //"exec": "~/.config/waybar/scripts/weather.sh",
         "exec-if": "ping wttr.in -c1"
     },
     "custom/pacman": {
@@ -215,13 +224,13 @@
     },
 
     "clock": {
-        "format": "  {:%H:%M   %e %b}",
+        "format": "{:%e %b | %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>"
     },
 
     "clock#date": {
-        "format": "󰥔  {:%H:%M \n %e %b}",
+        "format": "{:%H:%M %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>"
     },
@@ -254,9 +263,9 @@
     "cpu": {
         "interval": 1,
         //"format": " {}%", // Icon: microchip
-        "format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
-        "max-length": 13,
-        "min-length": 13
+        "format": " {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
+        "max-length": 15,
+        "min-length": 15
     },
 
     "mpd": {
@@ -298,24 +307,27 @@
     },*/
 
     "hyprland/workspaces": {
-        "all-outputs": true,
-        "format": "{name}",
+        "all-outputs": false,
+        "format": "{icon}",
         "format-icons": {
-            "1": "一",
-            "2": "二",
-            "3": "三",
-            "4": "四",
-            "5": "五",
-            "6": "六",
-            "7": "七",
-            "8": "八",
-            "9": "九",
-            "10": "十",
+            "1": "󰖟",
+            "2": "󰭻",
+            "3": "",
+            "4": "󰓓",
+            "5": "",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
         },
         "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
         "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
         "sort-by-number": true,
-        "active-only": true,
+        "active-only": false,
+        "persistent-workspaces": {
+            "DP-1": [1, 2, 3, 4 ],
+        }
     },
 
     "hyprland/window": {
@@ -371,6 +383,6 @@
 
     "tray": {
         "icon-size": 15,
-        "spacing": 5
+        "spacing": 6
     }
 }

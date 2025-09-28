@@ -56,8 +56,9 @@ func (h *Handler) LinkWMs(wms []string) {
 			h.SymLink(fmt.Sprintf("wms/hypr/monitors/monitor.%s.conf", h.computer), ".config/hypr/monitor.conf")
 
 			h.MkDir(".config/waybar")
-			h.SymLink("misc/waybar/hypr/", ".config/waybar/")
-			// h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
+			h.SymLink(fmt.Sprintf("misc/waybar/hypr/config.%s.jsonc", h.computer), ".config/waybar/config")
+			h.SymLink(fmt.Sprintf("misc/waybar/themes/%s.css", h.theme), ".config/waybar/style.css")
+			h.SymLink("misc/waybar/scripts/", ".config/waybar/scripts")
 		}
 	}
 }
@@ -114,6 +115,11 @@ func (h *Handler) LinkMisc(misc []string) {
 
 	for _, m := range misc {
 		fmt.Printf("- Linking %s\n", m)
+
+		if m == "fontconfig" {
+			h.SymLink("misc/fontconfig", ".config/fontconfig")
+		}
+
 		if m == "nvim" {
 			h.SymLink("misc/nvim", ".config/nvim")
 			h.SymLink(fmt.Sprintf("misc/nvim/themes/%s.lua", h.theme), ".config/nvim/lua/plugins/style.lua")

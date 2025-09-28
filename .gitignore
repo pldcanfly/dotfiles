@@ -12,4 +12,6 @@ terminals/wezterm/style.lua
 terminals/alacritty/current.toml
 
 wms/niri/config.kdl
-wms/hypr/themes/current.conf
+wms/hypr/current.conf
+wms/hypr/monitor.conf
+

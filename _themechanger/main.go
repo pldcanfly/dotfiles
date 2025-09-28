@@ -129,6 +129,7 @@ func tui() {
 
 		huh.NewGroup(
 			huh.NewMultiSelect[string]().Title("Misc Options").Options(
+				huh.NewOption("fontconfig", "fontconfig"),
 				huh.NewOption("nvim", "nvim"),
 				huh.NewOption("OpenRGB", "openrgb"),
 				huh.NewOption("tmux", "tmux"),

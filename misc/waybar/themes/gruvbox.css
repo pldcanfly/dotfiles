@@ -65,8 +65,13 @@ button:hover {
 	padding: 0 10px;
 }
 
+#workspaces button.active {
+	background-color: #32302f;
+	padding: 0 10px;
+}
+
 #workspaces button:hover {
-	background-color: #4f422e;
+	background-color: #89b482;
 }
 
 #workspaces button.focused {
@@ -74,7 +79,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-	background-color: #402120;
+	background-color: #ea6962;
 }
 
 #mode {
@@ -98,35 +103,16 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #window,
-#mpd {
+#mpd,
+#custom-power,
+#workspaces {
 	padding: 0 10px;
 	color: #ebdbb2;
 	border: 2px solid #45403d;
 	background-color: #1b1b1b;
+   border-radius: 7px;
 }
 
-#window,
-#workspaces {
-	margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-	margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-	margin-right: 0;
-}
-
-#clock {
-	/*background-color: #64727d;*/
-}
-
-#battery {
-	/* color: # */
-}
 
 #battery.charging,
 #battery.plugged {
@@ -152,7 +138,8 @@ button:hover {
 }
 
 #power-profiles-daemon {
-	padding-right: 15px;
+   padding-left: 14px;
+	padding-right: 14px;
 }
 
 #power-profiles-daemon.performance {
