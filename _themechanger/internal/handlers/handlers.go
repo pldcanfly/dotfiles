@@ -93,6 +93,7 @@ func (h *Handler) LinkLaunchers(launchers []string) {
 		if l == "rofi" {
 			h.MkDir(".config/rofi")
 			h.SymLink("launchers/rofi/config.rasi", ".config/rofi/config.rasi")
+			h.SymLink(fmt.Sprintf("launchers/rofi/themes/%s.rasi", h.theme), ".config/rofi/theme.rasi")
 		}
 	}
 }

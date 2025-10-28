@@ -1,6 +1,13 @@
 -- General
 [ ] cht.sh
+[ ] opencode rework
 [ ] hyprland?
+   *) polkit?
+   *) hyprlock?
+   *) hyprwinwrap?
+
+[ ] everforest
+
 [ ] generate color-templates?
     *) base.color.tmpl with replacements
     *) maybe even go for different styles and color-templates like: rounded, solid, modern, retro for the general styles and inject colors

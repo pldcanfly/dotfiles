@@ -36,7 +36,6 @@ return {
 				-- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
 				sources = {
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.completion.spell,
 					null_ls.builtins.formatting.prettierd,
 					null_ls.builtins.formatting.gofmt,
 					null_ls.builtins.formatting.goimports,

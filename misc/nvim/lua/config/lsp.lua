@@ -8,7 +8,7 @@ local langs = {
 	"ansiblels",
 	"bashls",
 	"terraformls",
-   "hyprls"
+	"hyprls",
 }
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
