@@ -97,13 +97,13 @@ func install(dot string, repo string, home string, machine string) {
 	case "fontconfig":
 		SymLink("fontconfig", ".config/fontconfig", repo, home)
 	case "openrgb":
-		fmt.Println(dot, "NYI!!")
+		SymLink("openrgb", ".config/OpenRGB", repo, home)
 	case "easyeffects":
 		SymLink("easyeffects", ".config/easyeffects", repo, home)
 	case "rofi":
 		SymLink("rofi", ".config/rofi", repo, home)
 	case "niri":
-		MkDir(".config/hiri", home)
+		MkDir(".config/niri", home)
 		SymLink(fmt.Sprintf("niri/config.%s.kdl", machine), ".config/niri/config.kdl", repo, home)
 		SymLink("waybar", ".config/waybar", repo, home)
 	}

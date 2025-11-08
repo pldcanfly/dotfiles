@@ -1,5 +1,7 @@
 // @theme "/usr/share/rofi/themes/android_notification.rasi"
 
-@theme "/home/pldcanfly/.config/rofi/theme.rasi"
+//@theme "/home/pldcanfly/.config/rofi/theme.rasi"
 
 
+
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
