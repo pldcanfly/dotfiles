@@ -1,0 +1,1 @@
+/home/pldcanfly/Projects/dotfiles/terminals/wezterm/themes/gruvbox.lua

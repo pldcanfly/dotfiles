@@ -1,0 +1,1 @@
+/nix/store/x26qwz732cvg0qffixxl55rgsdfx47gp-home-manager-files/.config/waybar/scripts/hyprvrr.sh

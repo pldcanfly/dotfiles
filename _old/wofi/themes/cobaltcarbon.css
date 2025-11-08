@@ -1,0 +1,44 @@
+@define-color bg #13262f;
+@define-color highlight #0593b3;
+@define-color font @highlight;
+@define-color blue #486a47;
+@define-color red #ad7e48;
+@define-color yellow #fef983;
+
+window {
+	background-color: transparent;
+    font-family:   "Fira Code Mono Nerd Font";
+}
+
+#entry:selected {
+	background-color: @highlight;
+	outline: none;
+	border-radius: 0;
+}
+
+#entry,
+#text {
+	padding: 3px 9px;
+	transition: all 250ms
+}
+
+#text:selected {
+	color: @bg;
+}
+
+#scroll,
+#input{
+	border: 2px solid @highlight;
+	background-color: @bg;
+	border-radius: 30px;
+}
+
+#scroll {
+
+	padding: 15px;
+}
+
+
+#scroll {
+	margin-top: 5px;
+}
