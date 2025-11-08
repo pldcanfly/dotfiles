@@ -15,10 +15,11 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     MOD+T                               hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
-    MOD+D                               hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
     MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen-browser"; }
     MOD+E                               hotkey-overlay-title="Open Files: Nautilis" { spawn-sh "nautilus"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
+    MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
+    MOD+ALT+V                         hotkey-overlay-title="ClipboardHistory" { spawn-sh "cliphist list | rofi -dmenu  | cliphist decode | wl-copy"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
