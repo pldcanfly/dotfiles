@@ -110,6 +110,8 @@ func install(dot string, repo string, home string, machine string) {
 		MkDir(".config/niri", home)
 		SymLink(fmt.Sprintf("niri/config.%s.kdl", machine), ".config/niri/config.kdl", repo, home)
 		SymLink("waybar", ".config/waybar", repo, home)
+	default:
+		fmt.Println(dot, "not implemented")
 	}
 
 }
