@@ -5,6 +5,11 @@ border-size=2
 border-color=#ffc87f
 default-timeout=5000
 max-icon-size=32
+anchor=top-center
+border-radius=5
+margin=10
+padding=15
+
 
 [urgency=low]
 border-color=#a9b665

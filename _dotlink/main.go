@@ -17,19 +17,6 @@ type Profiles struct {
 }
 
 func main() {
-	profiles, err := os.Open("profiles.json")
-	if err != nil {
-		panic(fmt.Errorf("open file: %w", err))
-	}
-	defer profiles.Close()
-
-	b, _ := io.ReadAll(profiles)
-	var p Profiles
-
-	err = json.Unmarshal(b, &p)
-	if err != nil {
-		panic(fmt.Errorf("unmarshaling: %w", err))
-	}
 
 	var (
 		m    string
@@ -48,12 +35,24 @@ func main() {
 		),
 	)
 
-	err = form.Run()
+	err := form.Run()
 	if err != nil {
 		panic(fmt.Errorf("form: %w", err))
 	}
 
-	fmt.Println(m)
+	profiles, err := os.Open(filepath.Join(repo, "profiles.json"))
+	if err != nil {
+		panic(fmt.Errorf("open file: %w", err))
+	}
+	defer profiles.Close()
+
+	b, _ := io.ReadAll(profiles)
+	var p Profiles
+
+	err = json.Unmarshal(b, &p)
+	if err != nil {
+		panic(fmt.Errorf("unmarshaling: %w", err))
+	}
 
 	for _, dot := range p.All {
 		install(dot, repo, home, m)
@@ -88,6 +87,7 @@ func install(dot string, repo string, home string, machine string) {
 	case "tmux":
 		MkDir(".config/tmux", home)
 		SymLink("tmux/tmux.conf", ".config/tmux/tmux.conf", repo, home)
+		SymLink("tmux/style.conf", ".config/tmux/style.conf", repo, home)
 		SymLink("tmux/scripts", ".config/tmux/scripts", repo, home)
 
 		MkDir(".config/tmux-sessionizer", home)
@@ -102,6 +102,10 @@ func install(dot string, repo string, home string, machine string) {
 		SymLink("easyeffects", ".config/easyeffects", repo, home)
 	case "rofi":
 		SymLink("rofi", ".config/rofi", repo, home)
+	case "mako":
+		SymLink("mako", ".config/mako", repo, home)
+	case "yazi":
+		SymLink("yazi", ".config/yazi", repo, home)
 	case "niri":
 		MkDir(".config/niri", home)
 		SymLink(fmt.Sprintf("niri/config.%s.kdl", machine), ".config/niri/config.kdl", repo, home)
