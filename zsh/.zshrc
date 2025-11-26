@@ -35,6 +35,8 @@ zi snippet OMZP::docker
 zi snippet OMZP::npm
 zi snippet OMZP::command-not-found
 
+fpath+=(~/.config/hcloud/completion/zsh)
+
 # Load zsh-completions async, and then run compinit async as well
 zi for \
     atload"zicompinit; zicdreplay" \

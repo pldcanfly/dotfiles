@@ -145,7 +145,8 @@ binds {
     MOD+E                               hotkey-overlay-title="Open Files: Thunar" { spawn-sh "thunar"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
-    MOD+ALT+V                         hotkey-overlay-title="ClipboardHistory" { spawn-sh "cliphist list | rofi -dmenu  | cliphist decode | wl-copy"; }
+    MOD+ALT+V                           hotkey-overlay-title="ClipboardHistory" { spawn-sh "cliphist list | rofi -dmenu  | cliphist decode | wl-copy"; }
+    MOD+P                               repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
