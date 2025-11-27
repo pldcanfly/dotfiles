@@ -1,24 +1,25 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = false
+add_newline = true
 
-format = "$username$directory$nodejs\n$character"
+format = "$hostname$directory$nodejs\n$character"
 
 [character]
-success_symbol = '[](bold blue)'
-error_symbol = '[✗](bold red)'
+success_symbol = '[\$](bold blue)'
+error_symbol = '[](bold red)'
+vimcmd_symbol = '[](bold purple)'
+vimcmd_replace_one_symbol = '[](bold purple)'
+vimcmd_replace_symbol = '[](bold purple)'
+vimcmd_visual_symbol = '[](bold purple)'
 
-[username]
-style_user = 'yellow bold'
-style_root = 'red bold'
-format = '[$user]($style) '
-show_always = true
-#
+[hostname]
+ssh_only = false
+format = '[$hostname](yellow bold) '
+
 [directory]
 truncate_to_repo = true
 style = 'blue'
-
 
 [nodejs]
 format = '[$symbol($version)]($style)'
