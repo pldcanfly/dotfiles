@@ -18,3 +18,11 @@ vim.lsp.enable(langs)
 vim.diagnostic.config({
 	virtual_text = true,
 })
+
+-- Automatically setup ansible
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*/ansible/*.yml", "*/playbooks/*.yml", "*/roles/*.yml" },
+	callback = function()
+		vim.bo.filetype = "yaml.ansible"
+	end,
+})
