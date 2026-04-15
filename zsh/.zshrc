@@ -63,7 +63,8 @@ alias lg="lazygit"
 # Shell integrations
 eval "$(fzf --zsh)"
 
-# Lazyloading nvm: https://github.com/lukechilds/zsh-nvm
+# No vim-bindings.. thanks
+bindkey -e
 
 # Fix strange bug
 bindkey "\e[H" beginning-of-line
