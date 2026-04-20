@@ -16,7 +16,7 @@
     "temperature",
     "memory",
     "cpu",
-    "niri/workspaces"
+    "niri/workspaces",
   ],
   // "modules-center": ["niri/workspaces", "niri/window"],
   "modules-center": ["niri/window"],
@@ -176,6 +176,7 @@
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "nmtui",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
