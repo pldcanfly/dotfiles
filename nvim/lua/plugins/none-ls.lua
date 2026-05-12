@@ -42,6 +42,9 @@ return {
 					null_ls.builtins.formatting.terraform_fmt,
 					null_ls.builtins.diagnostics.ansiblelint,
 					null_ls.builtins.formatting.shfmt,
+					null_ls.builtins.formatting.just,
+					null_ls.builtins.diagnostics.kube_linter,
+					null_ls.builtins.diagnostics.yamllint,
 				},
 				on_attach = on_attach,
 			})
