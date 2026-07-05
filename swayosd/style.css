@@ -1,0 +1,41 @@
+/* gruvbox material — matches mako/config */
+
+window {
+	background-color: transparent;
+}
+
+#osd {
+	background-color: #32302f;
+	border: 2px solid #ffc87f;
+	border-radius: 5px;
+	padding: 12px 15px;
+	min-width: 240px;
+}
+
+#container {
+	margin: 0;
+}
+
+image,
+label {
+	color: #d4be98;
+}
+
+progressbar {
+	min-height: 6px;
+	border-radius: 3px;
+	background-color: transparent;
+}
+
+progressbar trough {
+	min-height: 6px;
+	border-radius: 3px;
+	border: none;
+	background-color: #504945;
+}
+
+progressbar progress {
+	min-height: 6px;
+	border-radius: 3px;
+	background-color: #ffc87f;
+}

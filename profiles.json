@@ -1,5 +1,5 @@
 {
   "all": ["nvim", "zsh", "tmux", "alacritty", "fontconfig"],
-  "desktop": ["niri", "rofi", "openrgb", "easyeffects", "mako", "yazi"],
-  "work": ["niri", "rofi", "mako"]
+  "desktop": ["niri", "rofi", "openrgb", "mako", "swayosd"],
+  "work": ["niri", "rofi", "mako", "swayosd"]
 }

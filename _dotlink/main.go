@@ -104,6 +104,8 @@ func install(dot string, repo string, home string, machine string) {
 		SymLink("rofi", ".config/rofi", repo, home)
 	case "mako":
 		SymLink("mako", ".config/mako", repo, home)
+	case "swayosd":
+		SymLink("swayosd", ".config/swayosd", repo, home)
 	case "yazi":
 		SymLink("yazi", ".config/yazi", repo, home)
 	case "niri":
