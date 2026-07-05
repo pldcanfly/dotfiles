@@ -502,6 +502,7 @@ layout {
 
 spawn-at-startup "dex" "-a"
 spawn-at-startup "swayosd-server"
+spawn-at-startup "pw-play" "/usr/share/sounds/pika/stereo/desktop-login.ogg" // Login chirp (birds)
 // spawn-sh-at-startup "awww-daemon" // Wallpaper daemon
 // spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &" // Polkit
 // spawn-at-startup "waybar" "-c" "/home/pldcanfly/.config/waybar/config.niri.jsonc"
