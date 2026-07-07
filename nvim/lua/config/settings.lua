@@ -19,6 +19,7 @@ vim.schedule(function()
 end)
 
 vim.o.undofile = true
+vim.o.swapfile = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
