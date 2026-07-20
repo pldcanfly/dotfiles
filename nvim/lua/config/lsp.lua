@@ -22,7 +22,14 @@ vim.diagnostic.config({
 
 -- Automatically setup ansible
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*/ansible/*.yml", "*/playbooks/*.yml", "*/roles/*.yml" },
+	pattern = {
+		"*/ansible/*.yml",
+		"*/playbooks/*.yml",
+		"*/roles/*.yml",
+		"*/ansible/*.yaml",
+		"*/playbooks/*.yaml",
+		"*/roles/*.yaml",
+	},
 	callback = function()
 		vim.bo.filetype = "yaml.ansible"
 	end,
