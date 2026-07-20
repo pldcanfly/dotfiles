@@ -83,13 +83,13 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     MOD+T                               hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "zen-browser"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: zen" { spawn-sh "flatpak run app.zen_browser.zen"; }
+    MOD+ALT+B                               hotkey-overlay-title="Open Browser: zen private window" { spawn-sh "flatpak run app.zen_browser.zen --private-window"; }
     MOD+E                               hotkey-overlay-title="Open Files: Nautilus" { spawn-sh "nautilus"; }
     // MOD+E                               hotkey-overlay-title="Open Files: Yazi" { spawn-sh "alacritty -e yazi"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
-    MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "rofi -show drun"; }
-    // MOD+D                               hotkey-overlay-title="Open App Launcher: pikabar-launcher" { spawn-sh "pikabar-launcher"; }
-    MOD+ALT+V                         hotkey-overlay-title="ClipboardHistory" { spawn-sh "cliphist list | rofi -dmenu  | cliphist decode | wl-copy"; }
+    MOD+D                               hotkey-overlay-title="Open App Launcher: rofi" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    MOD+ALT+V                         hotkey-overlay-title="ClipboardHistory" { spawn-sh "noctalia msg panel-toggle clipboard"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -249,8 +249,8 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Ctrl+BracketLeft  { consume-or-expel-window-left; }
+    Mod+Ctrl+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
     Mod+Comma  { consume-window-into-column; }
@@ -502,20 +502,23 @@ layout {
 
 spawn-at-startup "dex" "-a"
 spawn-at-startup "swayosd-server"
-spawn-at-startup "pw-play" "/usr/share/sounds/pika/stereo/desktop-login.ogg" // Login chirp (birds)
 // spawn-sh-at-startup "awww-daemon" // Wallpaper daemon
 // spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &" // Polkit
 // spawn-at-startup "waybar" "-c" "/home/pldcanfly/.config/waybar/config.niri.jsonc"
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste"  "--type" "image" "--watch" "cliphist" "store"
-spawn-at-startup "discord"
+// Login chirp (birds) — wait until the audio stack answers so it doesn't get cut off
+spawn-sh-at-startup "until pactl info >/dev/null 2>&1; do sleep 0.2; done; sleep 1; pw-play /usr/share/sounds/pika/stereo/desktop-login.ogg"
+spawn-at-startup "kdeconnectd"
+// Auto-start Discord ONLY after the tray host (noctalia's StatusNotifierWatcher) and the
+// desktop portal are up — otherwise it gets no tray icon and drag-and-drop breaks.
+// Keep Discord's own "Open on startup" setting OFF; this line replaces it.
+spawn-sh-at-startup "until busctl --user status org.kde.StatusNotifierWatcher >/dev/null 2>&1 && busctl --user status org.freedesktop.portal.Desktop >/dev/null 2>&1; do sleep 0.3; done; sleep 1; discord --start-minimized"
 
 // spawn-at-startup "awww" "img" "/home/pldcanfly/Pictures/wallpapers/xvg1uvi0hyed1.png" // Set wallpaper
 
 environment {
-        DISPLAY ":1"
         ELECTRON_OZONE_PLATFORM_HINT "auto"
         QT_QPA_PLATFORM "wayland"
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"

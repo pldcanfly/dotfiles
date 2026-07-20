@@ -11,4 +11,9 @@ ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
+# Debian ships some binaries (e.g. lutris) in /usr/games, but Debian's
+# /etc/zsh/zprofile never sources /etc/profile, so zsh sessions miss it.
+if ! [[ "$PATH" =~ (^|:)/usr/games(:|$) ]]; then
+    PATH="$PATH:/usr/local/games:/usr/games"
+fi
 . "$HOME/.cargo/env"
