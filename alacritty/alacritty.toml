@@ -7,5 +7,5 @@ dimensions = { columns = 200, lines = 50 }
 padding = { x = 10, y = 10 }
 
 [general]
-import = ["/home/pldcanfly/.config/alacritty/gruvbox.toml"]
+import = ["~/.config/alacritty/themes/gruvbox.toml"]
 
