@@ -45,6 +45,14 @@ return {
 					null_ls.builtins.formatting.just,
 					null_ls.builtins.diagnostics.kube_linter,
 					null_ls.builtins.diagnostics.yamllint,
+					null_ls.builtins.diagnostics.actionlint.with({
+						-- default condition only covers .github; we also use gitea/forgejo
+						runtime_condition = function(params)
+							return params.bufname:find("%.github[\\/]workflows") ~= nil
+								or params.bufname:find("%.gitea[\\/]workflows") ~= nil
+								or params.bufname:find("%.forgejo[\\/]workflows") ~= nil
+						end,
+					}),
 				},
 				on_attach = on_attach,
 			})
