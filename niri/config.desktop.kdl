@@ -97,10 +97,10 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume                allow-when-locked=true { spawn "swayosd-client" "--output-volume" "10"; }
-    XF86AudioLowerVolume                allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-10"; }
-    XF86AudioMute                       allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
-    XF86AudioMicMute                    allow-when-locked=true { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute                       allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute                    allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
     XF86AudioNext                       allow-when-locked=true { spawn-sh "playerctl next"; }
     XF86AudioPause                      allow-when-locked=true { spawn "playerctl" "--player=quodlibet,%any" "play-pause"; }
     XF86AudioPlay                       allow-when-locked=true { spawn "playerctl" "--player=quodlibet,%any" "play-pause"; }
@@ -501,7 +501,6 @@ layout {
 }
 
 spawn-at-startup "dex" "-a"
-spawn-at-startup "swayosd-server"
 // spawn-sh-at-startup "awww-daemon" // Wallpaper daemon
 // spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &" // Polkit
 // spawn-at-startup "waybar" "-c" "/home/pldcanfly/.config/waybar/config.niri.jsonc"

@@ -28,4 +28,13 @@ require("lazy").setup({
 	-- blocking hit-enter prompt (they stay visible in the :Lazy UI)
 	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },
+	performance = {
+		rtp = {
+			-- lazy resets the runtimepath, which drops the distro's nvim dir.
+			-- Debian-family packages ship the bundled treesitter parsers in
+			-- /usr/lib/nvim/parser, and without it nvim 0.12's ftplugins fail
+			-- with "Parser could not be created for buffer".
+			paths = { "/usr/lib/nvim" },
+		},
+	},
 })
