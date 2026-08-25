@@ -509,7 +509,7 @@ spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste"  "--type" "image" "--watch" "cliphist" "store"
 // Login chirp (birds) — wait until the audio stack answers so it doesn't get cut off
 spawn-sh-at-startup "until pactl info >/dev/null 2>&1; do sleep 0.2; done; sleep 1; pw-play /usr/share/sounds/pika/stereo/desktop-login.ogg"
-spawn-at-startup "kdeconnectd"
+// spawn-at-startup "kdeconnectd"
 // Auto-start Discord ONLY after the tray host (noctalia's StatusNotifierWatcher) and the
 // desktop portal are up — otherwise it gets no tray icon and drag-and-drop breaks.
 // Keep Discord's own "Open on startup" setting OFF; this line replaces it.
@@ -588,9 +588,21 @@ window-rule {
 	match app-id="Alacritty"
 	match app-id="steam" title="^Steam$"
 	match app-id="discord"
-
 	default-column-width { proportion 0.33333; }
 }
 
+window-rule {
+   // Blurred windows
+
+	match app-id="Alacritty"
+
+   background-effect {
+        xray true
+        blur true
+        // noise 0.5
+        saturation 1
+    }
+
+}
 
 include "noctalia.kdl"

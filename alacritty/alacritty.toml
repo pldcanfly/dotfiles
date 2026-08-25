@@ -5,7 +5,8 @@ hide_when_typing = false
 [window]
 dimensions = { columns = 200, lines = 50 }
 padding = { x = 10, y = 10 }
+opacity = 0.9
 
 [general]
-import = ["~/.config/alacritty/themes/gruvbox.toml"]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
 
