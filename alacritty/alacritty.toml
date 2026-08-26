@@ -5,7 +5,7 @@ hide_when_typing = false
 [window]
 dimensions = { columns = 200, lines = 50 }
 padding = { x = 10, y = 10 }
-opacity = 0.9
+opacity = 0.75
 
 [general]
 import = ["~/.config/alacritty/themes/noctalia.toml"]
