@@ -10,6 +10,7 @@ launchers/wofi/style.css
 
 terminals/wezterm/style.lua
 terminals/alacritty/current.toml
+alacritty/themes/noctalia.toml
 
 wms/niri/config.kdl
 wms/hypr/current.conf
