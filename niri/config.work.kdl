@@ -612,4 +612,17 @@ window-rule {
 	default-column-width { proportion 0.33333; }
 }
 
+window-rule {
+   // Blurred windows
+
+	match app-id="Alacritty"
+
+   background-effect {
+        xray true
+        blur true
+        // noise 0.5
+        saturation 1
+    }
+
+}
 include "noctalia.kdl"

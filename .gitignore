@@ -16,3 +16,4 @@ wms/niri/config.kdl
 wms/hypr/current.conf
 wms/hypr/monitor.conf
 
+nvim/lazy-lock.json
