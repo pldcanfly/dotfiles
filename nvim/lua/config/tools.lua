@@ -5,6 +5,8 @@
 -- `formatters` / `linters` use mason package names, and should mirror the
 -- sources configured in lua/plugins/none-ls.lua:
 --   https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+-- Exception: ansible-lint is not a none-ls source; ansiblels runs it itself
+-- (on open/save) and only needs the binary on PATH, which mason provides.
 --
 -- mason-lspconfig installs `servers`, mason-tool-installer installs the rest.
 

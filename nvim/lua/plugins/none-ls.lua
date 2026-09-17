@@ -34,17 +34,30 @@ return {
 
 			null_ls.setup({
 				-- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+				--
+				-- yaml.ansible buffers are linted by ansiblels alone: it runs ansible-lint
+				-- on open/save, and ansible-lint already embeds yamllint through its
+				-- yaml[*] rules. none-ls matches dotted filetypes on each component, so
+				-- the plain "yaml" sources below must opt out of yaml.ansible explicitly
+				-- or every long line gets reported twice (160 vs 80 column defaults).
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettierd,
 					null_ls.builtins.formatting.gofmt,
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.terraform_fmt,
-					null_ls.builtins.diagnostics.ansiblelint,
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.just,
-					null_ls.builtins.diagnostics.kube_linter,
-					null_ls.builtins.diagnostics.yamllint,
+					null_ls.builtins.diagnostics.kube_linter.with({
+						-- kube-linter lints $ROOT from disk, so unsaved edits are invisible
+						-- to it: run it on open/save instead of after every text change,
+						-- and don't trigger repo-wide scans from ansible buffers.
+						method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+						disabled_filetypes = { "yaml.ansible" },
+					}),
+					null_ls.builtins.diagnostics.yamllint.with({
+						disabled_filetypes = { "yaml.ansible" },
+					}),
 					null_ls.builtins.diagnostics.actionlint.with({
 						-- default condition only covers .github; we also use gitea/forgejo
 						runtime_condition = function(params)

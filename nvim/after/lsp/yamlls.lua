@@ -4,7 +4,9 @@ local companion = require("schema-companion")
 return companion.setup_client(
    companion.adapters.yamlls.setup({
       sources = {
-         companion.sources.matchers.kubernetes.setup({ version = "v1.33.0" }),
+         -- multi-document aware replacement for companion.sources.matchers.kubernetes,
+         -- see lua/config/k8s_schema.lua
+         require("config.k8s_schema").setup({ version = "v1.33.0" }),
          companion.sources.lsp.setup(),
       },
    }),

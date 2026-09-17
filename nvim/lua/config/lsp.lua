@@ -5,17 +5,15 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
--- Automatically setup ansible
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+-- Ansible files. Detected here rather than from a BufRead autocmd so the
+-- buffer is yaml.ansible on its first FileType event: flipping the filetype
+-- afterwards fired FileType twice, which started yamlls for "yaml" and then
+-- detached it again on every ansible file open. Non-negative-priority
+-- patterns are checked before the yml/yaml extension table, so these win.
+vim.filetype.add({
 	pattern = {
-		"*/ansible/*.yml",
-		"*/playbooks/*.yml",
-		"*/roles/*.yml",
-		"*/ansible/*.yaml",
-		"*/playbooks/*.yaml",
-		"*/roles/*.yaml",
+		[".*/ansible/.*%.ya?ml"] = "yaml.ansible",
+		[".*/playbooks/.*%.ya?ml"] = "yaml.ansible",
+		[".*/roles/.*%.ya?ml"] = "yaml.ansible",
 	},
-	callback = function()
-		vim.bo.filetype = "yaml.ansible"
-	end,
 })
