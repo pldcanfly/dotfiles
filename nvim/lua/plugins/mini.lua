@@ -8,6 +8,41 @@ return {
 		opts = { delay = 10 },
 	},
 	{
+		"nvim-mini/mini-git",
+		version = "*",
+		main = "mini.git",
+		config = true,
+		cmd = "Git",
+		keys = {
+			{
+				"<leader>gb",
+				function()
+					require("mini.git").show_at_cursor()
+				end,
+				mode = { "n", "x" },
+				desc = "Git: Show at cursor (line history / commit)",
+			},
+			{ "<leader>gB", "<cmd>vertical Git blame -- %<cr>", desc = "Git: Blame buffer" },
+		},
+		init = function()
+			-- Align `:vertical Git blame -- %` output with the source window and
+			-- scroll both together. Recipe from :h MiniGit-examples.
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "MiniGitCommandSplit",
+				callback = function(au_data)
+					if au_data.data.git_subcommand ~= "blame" then
+						return
+					end
+					local win_src = au_data.data.win_source
+					vim.wo.wrap = false
+					vim.fn.winrestview({ topline = vim.fn.line("w0", win_src) })
+					vim.api.nvim_win_set_cursor(0, { vim.fn.line(".", win_src), 0 })
+					vim.wo[win_src].scrollbind, vim.wo.scrollbind = true, true
+				end,
+			})
+		end,
+	},
+	{
 		"nvim-mini/mini.diff",
 		version = "*",
 		opts = {
