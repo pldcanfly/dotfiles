@@ -1,0 +1,24 @@
+---
+# yamllint rules for the yamllint and ansible-lint runs nvim spawns. Handed to
+# them via YAMLLINT_CONFIG_FILE (set in lua/config/lsp.lua), which yamllint
+# treats exactly like ~/.config/yamllint/config: a project's own .yamllint
+# still wins, and ansible-lint layers it over its bundled defaults.
+extends: default
+
+rules:
+  # none-ls formats yaml with prettier on save, and prettier writes `{ a: 1 }`
+  # and a single space before trailing comments. yamllint's defaults reject
+  # both, so every save re-created the errors. Same values ansible-lint ships.
+  braces:
+    max-spaces-inside: 1
+  comments:
+    min-spaces-from-content: 1
+
+  # 80 columns is unworkable for k8s manifests. 160 matches ansible-lint, so
+  # plain yaml and yaml.ansible buffers agree; the rest is a warning instead of
+  # a red underline to the end of the line. Long `key: value` lines that have
+  # nothing to break on (image refs, URLs) are not reported at all.
+  line-length:
+    max: 160
+    level: warning
+    allow-non-breakable-inline-mappings: true

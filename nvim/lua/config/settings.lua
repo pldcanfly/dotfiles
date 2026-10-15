@@ -41,7 +41,7 @@ vim.o.sidescrolloff = 8
 
 vim.o.confirm = true
 
-vim.o.colorcolumn = "150"
+vim.o.colorcolumn = "161"
 
 -- Decrease update time
 vim.o.updatetime = 100

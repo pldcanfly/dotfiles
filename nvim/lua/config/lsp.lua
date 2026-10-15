@@ -1,3 +1,8 @@
+-- yamllint (none-ls) and ansible-lint (ansiblels) both read this env var and
+-- use the file in place of ~/.config/yamllint/config; a project .yamllint
+-- still takes precedence. Set before any server or linter is spawned.
+vim.env.YAMLLINT_CONFIG_FILE = vim.fn.stdpath("config") .. "/yamllint.yaml"
+
 -- Server list lives in config.tools so mason can install the same set
 vim.lsp.enable(require("config.tools").servers)
 
