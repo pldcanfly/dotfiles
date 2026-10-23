@@ -108,6 +108,8 @@ func install(dot string, repo string, home string, machine string) {
 		SymLink("swayosd", ".config/swayosd", repo, home)
 	case "yazi":
 		SymLink("yazi", ".config/yazi", repo, home)
+	case "wezterm":
+		SymLink("wezterm", ".config/wezterm", repo, home)
 	case "niri":
 		MkDir(".config/niri", home)
 		SymLink(fmt.Sprintf("niri/config.%s.kdl", machine), ".config/niri/config.kdl", repo, home)

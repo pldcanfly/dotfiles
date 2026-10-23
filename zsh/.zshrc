@@ -57,7 +57,7 @@ fi
 # aliases
 alias vim="nvim"
 alias ls='ls --color=auto'
-alias ll="ls -la"
+alias ll="ls -lah --color=auto"
 alias lg="lazygit"
 
 # Shell integrations
